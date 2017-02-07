@@ -5,7 +5,7 @@ services: service-fabric
 documentationCenter: csharp
 authors: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: service-fabric
 ms.devlang: csharp
@@ -42,7 +42,8 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
 
   ![适用于 C# 的 Service Fabric Yeoman 生成器][sf-yeoman]  
 
->[!NOTE] 有关选项的详细信息，请参阅 [Service Fabric 编程模型概述](./service-fabric-choose-framework.md)。
+>[!NOTE]
+> 有关选项的详细信息，请参阅 [Service Fabric 编程模型概述](./service-fabric-choose-framework.md)。
 
 ## 构建应用程序
 

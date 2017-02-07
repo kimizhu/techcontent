@@ -2,10 +2,10 @@
 title: 调整经典 Windows VM 的大小 | Azure
 description: 使用 Azure Powershell 调整在经典部署模型中创建的 Windows 虚拟机的大小。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.assetid: e3038215-001c-406e-904d-e0f4e326a4c7
@@ -41,18 +41,24 @@ ms.author: drewm
 
 1. 运行以下 PowerShell 命令，列出托管包含 VM 的云服务的硬件群集中可用的 VM 大小。
 
-        Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"}
+    ```
+    Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"}
+    ```
 
 2. 运行以下命令以调整 VM 大小。
 
-        Get-AzureVM -ServiceName <cloudServiceName> -Name <vmName> | Set-AzureVMSize -InstanceSize <newVMSize> | Update-AzureVM
+    ```
+    Get-AzureVM -ServiceName <cloudServiceName> -Name <vmName> | Set-AzureVMSize -InstanceSize <newVMSize> | Update-AzureVM
+    ```
 
 ## 在新的硬件群集上调整大小
 若要将 VM 的大小调整为托管 VM 的硬件群集中不可用的大小，必须重新创建云服务和云服务中的所有 VM。单个硬件群集托管每个云服务，因此，云服务中的所有 VM 的大小必须都受单个硬件群集支持。以下步骤介绍如何通过删除并重新创建云服务来调整 VM 大小。
 
 1. 运行以下 PowerShell 命令，列出区域中可用的 VM 大小。
 
-        Get-AzureLocation | where {$_.Name -eq "<locationName>"}
+    ```
+    Get-AzureLocation | where {$_.Name -eq "<locationName>"}
+    ```
 
 2. 记下包含要调整大小的 VM 的云服务中每个 VM 的所有配置设置。
 3. 删除云服务中的所有 VM 时选择保留每个 VM 的磁盘的选项。

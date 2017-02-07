@@ -2,11 +2,11 @@
 title: 利用生存时间使 DocumentDB 中的数据过期 |Azure
 description: 通过 TTL 功能，Azure DocumentDB 能够在一段时间后将文档自动从系统清除。
 services: documentdb
-documentationcenter: 
+documentationcenter: ''
 keywords: 生存时间
 author: kiratp
 manager: jhubbard
-editor: 
+editor: ''
 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: documentdb
@@ -30,12 +30,12 @@ DocumentDB 中的生存时间针对上次修改该文档的时间使用偏移量
 TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。设置这些值时以秒为单位，这些值被视为自上次修改文档所在的 \_ts 起的增量。
 
 1. 集合的 DefaultTTL
-   
+
    - 如果缺失（或设置为 NULL），则文档不会自动删除。
    - 如果存在且值为“-1”= 无限期 — 默认情况下，文档不过期
    - 如果存在其值为某个数字（“n”）— 文档在上次修改“n”秒后过期
 2. 文档的 TTL：
-   
+
    - 属性仅在对父集合设置 DefaultTTL 时适用。
    - 替代父集合的 DefaultTTL 值。
 
@@ -114,6 +114,6 @@ TTL 应用于整个文档。如果只是想要使文档的一部分过期，则�
 是的。该集合的[索引策略](./documentdb-indexing-policies.md)必须设置为“一致”或或“延迟”。尝试在索引设置为“无”的集合上设置 DefaultTTL 将导致错误，尝试关闭已设置 DefaultTTL 的集合上的索引也是如此。
 
 ## 后续步骤
-若要了解有关 Azure DocumentDB 的详细信息，请参阅服务的[*文档*](./index.md/)页。
+若要了解有关 Azure DocumentDB 的详细信息，请参阅服务的[*文档*](./index.md)页。
 
 <!---HONumber=Mooncake_1219_2016-->

@@ -2,10 +2,10 @@
 title: 了解如何通过 Azure Site Recovery 进行 Hyper-V 复制 | Azure
 description: 使用本文来了解帮助你成功安装、配置和管理 Azure Site Recovery 的技术概念。
 services: site-recovery
-documentationCenter: 
+documentationCenter: ''
 authors: anbacker
 manager: mkjain
-editor: 
+editor: ''
 
 ms.service: site-recovery
 ms.devlang: na
@@ -24,7 +24,7 @@ ms.author: rajanaki
 ## 了解组件
 
 ### 用于在本地与 Azure 之间进行复制的 Hyper-V 站点或 VMM 站点部署。
- 
+
 在本地和 Azure 之间设置 DR 的一部分操作；下载 Azure Site Recovery 提供程序并将其安装在 VMM 服务器上，此外还需要在每个 Hyper-V 主机上安装 Azure 恢复服务代理。
 
 ![用于在本地与 Azure 之间复制的 VMM 站点部署](./media/site-recovery-understanding-site-to-azure-protection/image00.png)

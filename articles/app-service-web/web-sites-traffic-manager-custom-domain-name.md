@@ -2,10 +2,10 @@
 title: 为 Azure App Service 中使用流量管理器进行负载均衡的 Web 应用配置自定义域名。
 description: 为 Azure App Service 中包含流量管理器（用于负载均衡）的 Web 应用使用自定义域名。
 services: app-service\web
-documentationCenter: 
+documentationCenter: ''
 authors: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 
 ms.service: app-service-web
 ms.workload: web
@@ -51,7 +51,8 @@ ms.author: robmcm
 
 1. 由于各个注册机构的具体情况不同，一般而言，你是*从* 自定义域名（例如 **contoso.com**）映射*到*用于 Web 应用的流量管理器域名 (**contoso.trafficmanager.cn**)。
 
-    > [!NOTE] 或者，如果某条记录已被使用并且需要提前将应用绑定到该记录，可以创建其他 CNAME 记录。例如，若要提前将 **www.contoso.com** 绑定到 Web 应用，请创建从 **awverify.www** 到 **contoso.trafficmanager.cn** 的 CNAME 记录。然后可以将“www.contoso.com”添加到 Web 应用，而无需更改“www”CNAME 记录。
+    > [!NOTE]
+    > 或者，如果某条记录已被使用并且需要提前将应用绑定到该记录，可以创建其他 CNAME 记录。例如，若要提前将 **www.contoso.com** 绑定到 Web 应用，请创建从 **awverify.www** 到 **contoso.trafficmanager.cn** 的 CNAME 记录。然后可以将“www.contoso.com”添加到 Web 应用，而无需更改“www”CNAME 记录。
 
 1. 在注册机构添加或修改完 DNS 记录后，请保存这些更改。
 

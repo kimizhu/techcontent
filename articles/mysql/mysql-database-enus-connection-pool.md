@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: Connect efficiently to MySQL Database on Azure – Azure cloud
 metaKeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, connection pool, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
 description: Making sensible use of connection pooling to access MySQL Database on Azure will optimize performance. This article explains how to use connection pooling to more effectively access MySQL Database on Azure and provides sample code that uses Java and PHP as examples for your reference.
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql_en
 ms.date: 07/05/2016
@@ -37,7 +37,8 @@ Database connection pooling handles the creation, management, and allocation of 
 
 For your reference, see this [piece of sample code that uses Java as an example](http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/documents/MySQLConnectionPool.java). And for more information, see the [Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/).
 
->[!NOTE]**The server configures a timeout mechanism, closing a connection that has been in an idle state for some time, in order to free up resources. Be sure to set up the authentication system to ensure the effectiveness of persistent connections when you are using them. For more information, see: [How to configure authentication systems on the client side to ensure the effectiveness of persistent connections.](./mysql-database-validationquery.md)**
+>[!NOTE]
+>**The server configures a timeout mechanism, closing a connection that has been in an idle state for some time, in order to free up resources. Be sure to set up the authentication system to ensure the effectiveness of persistent connections when you are using them. For more information, see: [How to configure authentication systems on the client side to ensure the effectiveness of persistent connections.](./mysql-database-validationquery.md)**
 
 ## Access databases that use persistent connections (recommended)##
 Use persistent connections in PHP. The concept of persistent connections is similar to that of connection pooling. It is important to note that PHP currently has three types of drivers. While the MySQLi driver type does not support persistent connection, the other two types of drivers do.

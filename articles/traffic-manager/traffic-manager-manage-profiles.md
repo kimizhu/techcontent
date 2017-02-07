@@ -2,10 +2,10 @@
 title: 管理 Azure 流量管理器配置文件 | Azure
 description: 本文帮助你创建、禁用、启用、删除流量管理器配置文件以及查看 Azure 流量管理器配置文件的历史记录。
 services: traffic-manager
-documentationCenter: 
+documentationCenter: ''
 authors: sdwheeler
 manager: carmonm
-editor: 
+editor: ''
 
 ms.service: traffic-manager
 ms.devlang: na
@@ -27,7 +27,7 @@ ms.author: sewhee
 
 ### 创建流量管理器配置文件
 
-1. **将云服务和网站部署到生产环境中。** 有关云服务的详细信息，请参阅[云服务](../cloud-services/index.md/)。有关网站的详细信息，请参阅[网站](https://www.azure.cn/home/features/app-service/web-apps/)。
+1. **将云服务和网站部署到生产环境中。** 有关云服务的详细信息，请参阅[云服务](../cloud-services/index.md)。有关网站的详细信息，请参阅[网站](https://www.azure.cn/home/features/app-service/web-apps/)。
 
 2. **登录到 Azure 经典管理门户**。 单击门户左下角的“新建”，单击“网络服务”>“流量管理器”，然后单击“快速创建”，开始对配置文件进行配置。
 3. **配置 DNS 前缀。** 为流量管理器配置文件提供唯一的 DNS 前缀名称。可以只为流量管理器域名指定前缀。

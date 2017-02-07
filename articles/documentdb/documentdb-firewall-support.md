@@ -5,9 +5,9 @@ keywords: IP 访问控制, 防火墙支持
 services: documentdb
 author: shahankur11
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: documentdb

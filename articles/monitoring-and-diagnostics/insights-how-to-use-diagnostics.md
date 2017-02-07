@@ -3,7 +3,7 @@ title: 启用监视和诊断
 description: 了解如何在 Azure 中为资源设置诊断。
 authors: stepsic-microsoft-com
 manager: ronmart
-editor: 
+editor: ''
 services: azure-portal
 documentationCenter: na
 
@@ -74,5 +74,5 @@ Azure 中的诊断、监视和指标数据会保存到所选择的存储帐户�
 * 在要确切了解代码在云中的执行情况时[监视应用程序性能](./insights-perf-analytics.md)。
 * [查看事件并审核日志](./insights-debugging-with-events.md)以了解在服务中发生的所有事件。
 * [跟踪服务运行状况](./insights-service-health.md)以在 Azure 遇到性能下降或服务中断时及时发现。 
- 
+
 <!---HONumber=Mooncake_0503_2016-->

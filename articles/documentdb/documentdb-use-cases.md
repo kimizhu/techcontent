@@ -5,7 +5,7 @@ services: documentdb
 author: h0n
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: documentdb
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2016
-wacn.date: 12/20/2016
+wacn.date: 01/19/2017
 ms.author: hawong
 ---
 

@@ -2,10 +2,10 @@
 title: 开始使用 Azure Active Directory 和 Visual Studio 连接服务（MVC 项目）| Azure
 description: 通过 Visual Studio 连接服务连接到或创建 Azure AD 之后，如何在 MVC 项目中开始使用 Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.service: active-directory
@@ -23,7 +23,7 @@ ms.author: tarcher
 > [!div class="op_single_selector"]
 > - [入门](./vs-active-directory-dotnet-getting-started.md)
 > - [发生了什么情况](./vs-active-directory-dotnet-what-happened.md)
- 
+
 ## 访问控制器需要身份验证 
 
 您项目中的所有控制器均带有 **Authorize** 属性。此属性要求用户先进行身份验证，然后才能访问这些控制器。若要允许匿名访问控制器，请从控制器删除此属性。如果您想要更详细地设置这些权限，请将该属性应用到需要身份验证的每个方法，而不是将它应用到控制器类。

@@ -5,7 +5,7 @@ services: service-bus
 documentationCenter: .net
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: service-bus
 ms.date: 10/04/2016
@@ -60,12 +60,14 @@ using (scope = new TransactionScope())
 {
     // Do whatever work is required 
 
-    var newmsg = ... // package the result 
+```
+var newmsg = ... // package the result 
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+msg.Complete(); // mark the message as done
+sender.Send(newmsg); // forward the result
 
-    scope.Complete(); // declare the transaction done
+scope.Complete(); // declare the transaction done
+```
 } 
 ```
 

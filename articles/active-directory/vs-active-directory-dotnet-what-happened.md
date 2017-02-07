@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
@@ -57,13 +57,15 @@ ms.author: tarcher
 ### 您的 app.config 或 web.config 具有新的配置值
 已添加以下配置条目。
 
-    <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-        <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-        <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
-    </appSettings>
+```
+<appSettings>
+    <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+    <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
+    <add key="ida:Domain" value="The selected Azure AD Domain" />
+    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
+    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
+</appSettings>
+```
 
 ### 已创建 Azure Active Directory (AD) 应用
 已在您在向导中选定的目录内创建一个 Azure AD 应用程序。
@@ -124,29 +126,33 @@ NuGet 包引用已删除，文件已删除和备份。根据你的项目的状�
 ### 对 app.config 或 web.config 做出的其他更改
 添加了以下附加配置条目。
 
-    <appSettings>
-        <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
-    </appSettings>
+```
+<appSettings>
+    <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
+</appSettings>
+```
 
 添加了以下配置节和连接字符串。
 
-    <configSections>
-        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-    </configSections>
-    <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
-    </connectionStrings>
-    <entityFramework>
-        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-          <parameters>
-            <parameter value="mssqllocaldb" />
-          </parameters>
-        </defaultConnectionFactory>
-        <providers>
-          <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-        </providers>
-    </entityFramework>
+```
+<configSections>
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+</configSections>
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
+</connectionStrings>
+<entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+</entityFramework>
+```
 
 ### 你的 Azure Active Directory 应用已更新
 你的 Azure Active Directory 应用已更新为包括 *读取目录数据* 权限，并已创建一个附加密钥，该密钥随后已用作 **Web.config** 文件中的 *ida:ClientSecret* 。

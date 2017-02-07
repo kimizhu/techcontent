@@ -3,9 +3,9 @@ title: 在 Azure 应用服务上进行高密度托管 | Azure
 description: 在 Azure 应用服务上进行高密度托管
 author: btardif
 manager: wpickett
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.service: app-service-web
@@ -39,49 +39,51 @@ ms.author: byvinyal
 
 该应用服务计划将“按站点缩放”属性设为 true (`"perSiteScaling": true`)。该应用将要使用的**辅助角色数**设为 5 (`"properties": { "numberOfWorkers": "5" }`)。
 
+```
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{
+        "appServicePlanName": { "type": "string" },
+        "appName": { "type": "string" }
+     },
+    "resources": [
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters":{
-            "appServicePlanName": { "type": "string" },
-            "appName": { "type": "string" }
-         },
-        "resources": [
-        {
-            "comments": "App Service Plan with per site perSiteScaling = true",
-            "type": "Microsoft.Web/serverFarms",
-            "sku": {
-                "name": "S1",
-                "tier": "Standard",
-                "size": "S1",
-                "family": "S",
-                "capacity": 10
-                },
+        "comments": "App Service Plan with per site perSiteScaling = true",
+        "type": "Microsoft.Web/serverFarms",
+        "sku": {
+            "name": "S1",
+            "tier": "Standard",
+            "size": "S1",
+            "family": "S",
+            "capacity": 10
+            },
+        "name": "[parameters('appServicePlanName')]",
+        "apiVersion": "2015-08-01",
+        "location": "China North",
+        "properties": {
             "name": "[parameters('appServicePlanName')]",
-            "apiVersion": "2015-08-01",
-            "location": "China North",
-            "properties": {
-                "name": "[parameters('appServicePlanName')]",
-                "perSiteScaling": true
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites",
-            "name": "[parameters('appName')]",
-            "apiVersion": "2015-08-01-preview",
-            "location": "China North",
-            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
-            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
-            "resources": [ {
-                    "comments": "",
-                    "type": "config",
-                    "name": "web",
-                    "apiVersion": "2015-08-01",
-                    "location": "China North",
-                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
-                    "properties": { "numberOfWorkers": "5" }
-             } ]
-         }]
-    }
+            "perSiteScaling": true
+        }
+    },
+    {
+        "type": "Microsoft.Web/sites",
+        "name": "[parameters('appName')]",
+        "apiVersion": "2015-08-01-preview",
+        "location": "China North",
+        "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
+        "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
+        "resources": [ {
+                "comments": "",
+                "type": "config",
+                "name": "web",
+                "apiVersion": "2015-08-01",
+                "location": "China North",
+                "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
+                "properties": { "numberOfWorkers": "5" }
+         } ]
+     }]
+}
+```
 
 <!---HONumber=Mooncake_1128_2016-->

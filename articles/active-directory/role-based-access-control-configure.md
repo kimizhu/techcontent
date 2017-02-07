@@ -2,10 +2,10 @@
 title: 在 Azure 门户预览中使用基于角色的访问控制 | Azure
 description: 在 Azure 门户预览中使用基于角色的访问控制开始进行访问权限管理。使用角色分配来分配资源权限。
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: kgremban
 manager: femila
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.devlang: na
@@ -34,7 +34,8 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 
 请注意，某些用户为**分配**的访问权限，而其他人为**继承**的访问权限。访问权限要么特定于资源组进行分配，要么从对父订阅的分配继承而来。
 
-> [!NOTE] 经典订阅管理员和共同管理员被视为新 RBAC 模型中的订阅所有者。
+> [!NOTE]
+> 经典订阅管理员和共同管理员被视为新 RBAC 模型中的订阅所有者。
 
 ## <a name="add-access"></a> 添加访问权限
 从资源、资源组或在该角色分配范围内的订阅中授予访问权限。

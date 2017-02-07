@@ -2,10 +2,10 @@
 title: Azure SQL 弹性缩放常见问题 | Azure
 description: 关 Azure SQL 数据库弹性缩放的常见问题。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 manager: jhubbard
 author: ddove
-editor: 
+editor: ''
 
 ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
@@ -49,5 +49,5 @@ ms.author: ddove
 不会。对于**拆分**操作，必须存在目标数据库和相应的架构，并且必须注册到分片映射管理器。对于**合并**操作，必须从分片映射管理器中删除分片，然后删除数据库。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
- 
+
 <!---HONumber=Mooncake_1212_2016-->

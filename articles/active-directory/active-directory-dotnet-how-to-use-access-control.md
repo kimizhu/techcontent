@@ -5,7 +5,7 @@ services: active-directory
 documentationCenter: .net
 authors: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.date: 12/05/2015
@@ -66,16 +66,16 @@ ACS 在基于声明的标识主体的基础上构建，它是一种创建针对�
 
 若要完成本指南中的任务，你将需要：
 
--	Azure 订阅
--	Microsoft Visual Studio 2012 
--	Identity and Access Tool for Visual Studio 2012（若要下载，请参阅[标识和访问工具][]）
+- Azure 订阅
+- Microsoft Visual Studio 2012 
+- Identity and Access Tool for Visual Studio 2012（若要下载，请参阅[标识和访问工具][]）
 
 ## <a name="create-namespace"></a>创建 Access Control 命名空间
 
 要在 Azure 中使用 Active Directory Access Control，请创建 Access Control 命名空间。该命名空间提供了一个唯一范围，用于在应用程序中对 ACS 资源进行寻址。
 
 1.  登录到 [Azure 经典管理门户](https://manage.WindowsAzure.cn)。
-    
+
 2.  单击“Active Directory”。
 
     ![][1]
@@ -94,9 +94,9 @@ Azure 将创建并激活该命名空间。
 
 在此步骤中，您将创建一个 ASP.NET MVC 应用程序。在后续步骤中，我们将此简单的 Web 窗体应用程序与 ACS 集成。
 
-1.	启动 Visual Studio 2012 或 Visual Studio Express for Web 2012（本教程不适用于早期版本的 Visual Studio）。
-2.	单击“文件”，然后单击“新建项目”。
-3.	选择 Visual C#/Web 模板，然后选择“ASP.NET MVC 4 Web 应用程序”。
+1. 启动 Visual Studio 2012 或 Visual Studio Express for Web 2012（本教程不适用于早期版本的 Visual Studio）。
+2. 单击“文件”，然后单击“新建项目”。
+3. 选择 Visual C#/Web 模板，然后选择“ASP.NET MVC 4 Web 应用程序”。
 
     在本指南中，我们将使用 MVC 应用程序，但您可以使用任何 Web 应用程序类型来执行该任务。
 
@@ -106,29 +106,31 @@ Azure 将创建并激活该命名空间。
 5. 在下一个对话框中，选择“Internet 应用程序”，然后单击“确定”。
 6. 编辑 *Views\\Shared\_LoginPartial.cshtml* 文件，并将内容替换为下列代码：
 
-        @if (Request.IsAuthenticated)
+    ```
+    @if (Request.IsAuthenticated)
+    {
+        string name = "Null ID";
+        if (!String.IsNullOrEmpty(User.Identity.Name))
         {
-            string name = "Null ID";
-            if (!String.IsNullOrEmpty(User.Identity.Name))
-            {
-                name = User.Identity.Name;
-            }
-            <text>
-            Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
-                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                    }
-            </text>
+            name = User.Identity.Name;
         }
-        else
-        {
-            <ul>
-                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-            </ul>
-        }
+        <text>
+        Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                }
+        </text>
+    }
+    else
+    {
+        <ul>
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
+    ```
 
 目前，ACS 未设置 User.Identity.Name，因此我们需要进行上述更改。
 
@@ -138,13 +140,13 @@ Azure 将创建并激活该命名空间。
 
 在此任务中，您将 ASP.NET web 应用程序与 ACS 集成。
 
-1.	在解决方案资源管理器中，右键单击 MvcACS 项目，然后选择“标识和访问”。
+1. 在解决方案资源管理器中，右键单击 MvcACS 项目，然后选择“标识和访问”。
 
     如果“标识和访问”选项未显示在上下文菜单上，请安装标识和访问工具。有关信息，请参阅[标识和访问工具]。
 
     ![][4]
 
-2.	在“提供程序”选项卡上，选择“使用 Azure 访问控制服务”。
+2. 在“提供程序”选项卡上，选择“使用 Azure 访问控制服务”。
 
     ![][44]
 
@@ -160,11 +162,11 @@ Azure 将创建并激活该命名空间。
 
     ![][8]
 
-5.	单击“管理服务”，然后单击“管理客户端”。
+5. 单击“管理服务”，然后单击“管理客户端”。
 
     ![][18]
 
-6.	单击“对称密钥”，再单击“显示密钥”，然后复制密钥值。然后，单击“取消”退出“编辑管理客户端”页面而不进行任何更改。
+6. 单击“对称密钥”，再单击“显示密钥”，然后复制密钥值。然后，单击“取消”退出“编辑管理客户端”页面而不进行任何更改。
 
     ![][19]
 
@@ -174,7 +176,7 @@ Azure 将创建并激活该命名空间。
 
     Visual Studio 使用有关命名空间的信息来连接到 ACS 经典管理门户，并获取命名空间的设置，包括标识提供程序、领域和返回 URL。
 
-8.	选择“Windows Live ID”（Microsoft 帐户）并单击“确定”。
+8. 选择“Windows Live ID”（Microsoft 帐户）并单击“确定”。
 
     ![][5]
 
@@ -182,7 +184,7 @@ Azure 将创建并激活该命名空间。
 
 本任务说明如何测试 RP 应用程序与 ACS 的集成。
 
--	在 Visual Studio 中，按 F5 运行应用程序。
+- 在 Visual Studio 中，按 F5 运行应用程序。
 
 在将应用程序与 ACS 集成并已选择 Windows Live ID（Microsoft 帐户）后，会将您的浏览器重定向到 Microsoft 帐户的登录页，而不是打开默认的 ASP.NET Web 窗体应用程序。当您使用有效的用户名和密码登录时，您会被重定向到 MvcACS 应用程序。
 
@@ -204,9 +206,11 @@ Azure 将创建并激活该命名空间。
     {
         ViewBag.Message = "Your claims page.";
 
-        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+    ```
+    ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
-        return View();
+    return View();
+    ```
     }
 
 1. 右键单击 *Claims* 方法，然后选择“添加视图”。
@@ -217,53 +221,55 @@ Azure 将创建并激活该命名空间。
 
 1. 将 *Views\\Home\\Claims.cshtml* 文件的内容替换为下列代码：
 
-        @{
-            ViewBag.Title = "Claims";
-        }
-        <hgroup class="title">
-            <h1>@ViewBag.Title.</h1>
-            <h2>@ViewBag.Message</h2>
-        </hgroup>
-        <h3>Values from Identity</h3>
-        <table>
-            <tr>
-                <td>
-                    IsAuthenticated: 
-                </td>
-                <td>
-                    @ViewBag.ClaimsIdentity.IsAuthenticated 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Name: 
-                </td>        
-                <td>
-                    @ViewBag.ClaimsIdentity.Name
-                </td>        
-            </tr>
-        </table>
-        <h3>Claims from ClaimsIdentity</h3>
-        <table>
-            <tr>
-                <th>
-                    Claim Type
-                </th>
-                <th>
-                    Claim Value
-                </th>
-            </tr>
-                @foreach (System.Security.Claims.Claim claim in ViewBag.ClaimsIdentity.Claims ) {
-            <tr>
-                <td>
-                    @claim.Type
-                </td>
-                <td>
-                    @claim.Value
-                </td>
-            </tr>
-        }
-        </table>
+    ```
+    @{
+        ViewBag.Title = "Claims";
+    }
+    <hgroup class="title">
+        <h1>@ViewBag.Title.</h1>
+        <h2>@ViewBag.Message</h2>
+    </hgroup>
+    <h3>Values from Identity</h3>
+    <table>
+        <tr>
+            <td>
+                IsAuthenticated: 
+            </td>
+            <td>
+                @ViewBag.ClaimsIdentity.IsAuthenticated 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Name: 
+            </td>        
+            <td>
+                @ViewBag.ClaimsIdentity.Name
+            </td>        
+        </tr>
+    </table>
+    <h3>Claims from ClaimsIdentity</h3>
+    <table>
+        <tr>
+            <th>
+                Claim Type
+            </th>
+            <th>
+                Claim Value
+            </th>
+        </tr>
+            @foreach (System.Security.Claims.Claim claim in ViewBag.ClaimsIdentity.Claims ) {
+        <tr>
+            <td>
+                @claim.Type
+            </td>
+            <td>
+                @claim.Value
+            </td>
+        </tr>
+    }
+    </table>
+    ```
 
 1. 运行应用程序并导航到 *Claims* 方法：
 
@@ -279,29 +285,29 @@ Visual Studio 中的身份验证和访问工具会自动将您的应用程序与
 
 您可以在 ACS 经典管理门户中检查和更改这些配置设置。使用下列步骤可查看门户中的更改。
 
-1.	登录到 [Azure 经典管理门户](http://manage.windowsazure.cn)。
+1. 登录到 [Azure 经典管理门户](http://manage.windowsazure.cn)。
 
-2.	单击“Active Directory”。
+2. 单击“Active Directory”。
 
     ![][8]
 
-3.	选择一个访问控制命名空间，然后单击“管理”。此操作将打开 ACS 经典管理门户。
+3. 选择一个访问控制命名空间，然后单击“管理”。此操作将打开 ACS 经典管理门户。
 
     ![][9]
 
-4.	单击“信赖方应用程序”。
+4. 单击“信赖方应用程序”。
 
     新的 MvcACS 应用程序将出现在信赖方应用程序列表中。该领域将自动设置为应用程序主页。
 
     ![][10]
 
-5.	单击“MvcACS”。
+5. 单击“MvcACS”。
 
     “编辑信赖方应用程序”页包含 MvcACS Web 应用程序的配置设置。在此页面上更改设置并进行保存后，这些更改将立即应用于应用程序。
 
     ![][11]
 
-6.	向下滚动页面以查看 MvcACS 应用程序的剩余配置设置，包括标识提供程序和声明转换规则。
+6. 向下滚动页面以查看 MvcACS 应用程序的剩余配置设置，包括标识提供程序和声明转换规则。
 
     ![][12]
 
@@ -311,11 +317,11 @@ Visual Studio 中的身份验证和访问工具会自动将您的应用程序与
 
 下面我们使用 ACS 经典管理门户来更改 MvcACS 应用程序的身份验证。在此示例中，我们将添加 Google 作为 MvcACS 的标识提供程序。
 
-1.	单击“标识提供者”（位于导航菜单中），然后单击“添加”。
+1. 单击“标识提供者”（位于导航菜单中），然后单击“添加”。
 
     ![][13]
 
-2.	单击“Google”，然后单击“下一步”。默认选中的是 MvcACS 应用程序复选框。
+2. 单击“Google”，然后单击“下一步”。默认选中的是 MvcACS 应用程序复选框。
 
     ![][14]
 

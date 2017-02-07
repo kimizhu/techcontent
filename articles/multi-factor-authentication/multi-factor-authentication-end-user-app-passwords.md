@@ -2,7 +2,7 @@
 title: Azure MFA 中的应用密码是什么？
 description: 此页面将帮助用户了解什么是应用密码，以及在 Azure MFA 中，应用密码有什么作用。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: femila
 editor: pblachar

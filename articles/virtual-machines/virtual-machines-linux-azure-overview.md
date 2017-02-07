@@ -1,11 +1,11 @@
- ---
+---
 title: Azure 和 Linux | Azure
 description: 介绍 Linux 虚拟机上的 Azure 计算、存储和网络服务。
 services: virtual-machines-linux
 documentationCenter: virtual-machines-linux
 authors: vlivech
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: NA

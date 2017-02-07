@@ -2,10 +2,10 @@
 title: 资源管理器和服务管理（经典）部署模型 | Azure
 description: 了解资源管理器与经典部署模型之间的差异。
 services: virtual-network
-documentationCenter: 
+documentationCenter: ''
 authors: telmosampaio
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-network
@@ -25,7 +25,7 @@ Azure 平台正在转换。不论你是 Azure 新手还是经验丰富的老手�
 所有 Azure 资源都支持以下一个或两个部署模型：
 
 - **资源管理器：**这是 Azure 资源的最新部署模型。大部分较新的资源都已支持这种部署模型，最终所有资源都会支持它。   
- 
+
 - **经典：**目前大部分现有 Azure 资源都支持此模型。添加到 Azure 的新资源将不支持此模型。
 
 每种 Azure 资源的文档详述了可用于创建该资源的服务模型。

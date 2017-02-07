@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2016
-wacn.date: 01/03/2017
+wacn.date: 01/25/2017
 ms.author: amitsriva
 ---
 
@@ -46,17 +46,19 @@ Azure 提供使用日志记录和度量值来监视资源的功能
 
 每个 Resource Manager 资源都会自动启用活动日志记录。必须启用访问和性能日志记录才能开始收集通过这些日志提供的数据。若要启用日志记录，请参阅以下步骤：
 
-1. 记下存储帐户的资源 ID，其中存储日志数据。此值的形式如下：/subscriptions/<subscriptionId>/resourceGroups/<资源组名称>/providers/Microsoft.Storage/storageAccounts/<存储帐户名称>。订阅中的所有存储帐户均可使用。可以使用门户预览版来查找此信息。
+1. 记下存储帐户的资源 ID，其中存储日志数据。此值的形式如下：/subscriptions/<subscriptionId>/resourceGroups/<资源组名称>/providers/Microsoft.Storage/storageAccounts/<存储帐户名称>。订阅中的所有存储帐户均可使用。可以使用门户预览来查找此信息。
 
-    ![门户预览版 - 应用程序网关诊断](./media/application-gateway-diagnostics/diagnostics1.png)  
+    ![门户预览 - 应用程序网关诊断](./media/application-gateway-diagnostics/diagnostics1.png)  
 
-2. 记下应用程序网关的资源 ID（会为其启用日志记录）。此值的形式如下：/subscriptions/<subscriptionId>/resourceGroups/<资源组名称>/providers/Microsoft.Network/applicationGateways/<应用程序网关名称>。可以使用门户预览版来查找此信息。
+2. 记下应用程序网关的资源 ID（会为其启用日志记录）。此值的形式如下：/subscriptions/<subscriptionId>/resourceGroups/<资源组名称>/providers/Microsoft.Network/applicationGateways/<应用程序网关名称>。可以使用门户预览来查找此信息。
 
-    ![门户预览版 - 应用程序网关诊断](./media/application-gateway-diagnostics/diagnostics2.png)  
+    ![门户预览 - 应用程序网关诊断](./media/application-gateway-diagnostics/diagnostics2.png)  
 
 3. 使用以下 PowerShell cmdlet 启用诊断日志记录：
 
-        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    ```
+    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    ```
 
 > [!TIP] 
 活动日志不需要单独的存储帐户。使用存储来记录访问和性能需支付服务费用。
@@ -103,70 +105,76 @@ Azure 默认生成此日志（以前称为“操作日志”）。日志在 Azur
 
 只有按照上述步骤基于每个应用程序网关启用了此日志，才会生成此日志。数据存储在你启用日志记录时指定的存储帐户中。应用程序网关的每次访问均以 JSON 格式记录下来，如以下示例所示：
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
-        "operationName": "ApplicationGatewayAccess",
-        "time": "2016-04-11T04:24:37Z",
-        "category": "ApplicationGatewayAccessLog",
-        "properties": {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIP":"37.186.113.170",
-            "clientPort":"12345",
-            "httpMethod":"HEAD",
-            "requestUri":"/xyz/portal",
-            "requestQuery":"",
-            "userAgent":"-",
-            "httpStatus":"200",
-            "httpVersion":"HTTP/1.0",
-            "receivedBytes":"27",
-            "sentBytes":"202",
-            "timeTaken":"359",
-            "sslEnabled":"off"
-        }
+```
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2016-04-11T04:24:37Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIP":"37.186.113.170",
+        "clientPort":"12345",
+        "httpMethod":"HEAD",
+        "requestUri":"/xyz/portal",
+        "requestQuery":"",
+        "userAgent":"-",
+        "httpStatus":"200",
+        "httpVersion":"HTTP/1.0",
+        "receivedBytes":"27",
+        "sentBytes":"202",
+        "timeTaken":"359",
+        "sslEnabled":"off"
     }
+}
+```
 
 ## 性能日志
 
 只有按照上述步骤基于每个应用程序网关启用了此日志，才会生成此日志。数据存储在你启用日志记录时指定的存储帐户中。将记录以下数据：
 
+```
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
+    "operationName": "ApplicationGatewayPerformance",
+    "time": "2016-04-09T00:00:00Z",
+    "category": "ApplicationGatewayPerformanceLog",
+    "properties":
     {
-        "resourceId": "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<application gateway name>",
-        "operationName": "ApplicationGatewayPerformance",
-        "time": "2016-04-09T00:00:00Z",
-        "category": "ApplicationGatewayPerformanceLog",
-        "properties":
-        {
-            "instanceId":"ApplicationGatewayRole_IN_1",
-            "healthyHostCount":"4",
-            "unHealthyHostCount":"0",
-            "requestCount":"185",
-            "latency":"0",
-            "failedRequestCount":"0",
-            "throughput":"119427"
-        }
+        "instanceId":"ApplicationGatewayRole_IN_1",
+        "healthyHostCount":"4",
+        "unHealthyHostCount":"0",
+        "requestCount":"185",
+        "latency":"0",
+        "failedRequestCount":"0",
+        "throughput":"119427"
     }
+}
+```
 
 ## 防火墙日志
 
 只有按照上述步骤基于每个应用程序网关启用了此日志，才会生成此日志。此日志还需要在应用程序网关上配置 Web 应用程序防火墙。数据存储在你启用日志记录时指定的存储帐户中。将记录以下数据：
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## 查看和分析活动日志
 
@@ -239,4 +247,4 @@ Azure 默认生成此日志（以前称为“操作日志”）。日志在 Azur
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 
-<!---HONumber=Mooncake_1226_2016-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->

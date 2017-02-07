@@ -2,10 +2,10 @@
 title: 我的 ASP.NET 5 项目（Visual Studio 连接服务）发生了什么情况？| Azure
 description: 介绍在 Visual Studio ASP.NET 5 项目中使用 Visual Studio 连接服务连接到 Azure 存储帐户后会发生什么情况
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 
 ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
 ms.service: storage
@@ -40,5 +40,5 @@ Azure 存储 NuGet 包已添加到你的 Visual Studio 项目。
 在项目的 config.json 文件中，已使用选定存储帐户的连接字符串和密钥创建了一个元素。
 
 有关详细信息，请参阅 [ASP.NET 5](http://www.asp.net/vnext)。
- 
+
 <!---HONumber=Mooncake_0103_2017-->

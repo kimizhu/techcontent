@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -107,7 +107,9 @@ Azure 中的 DHCP 服务不符合 RFC 标准，可能会导致创建某些 WSFC 
 
 下面是一个示例客户端连接字符串，它对应于使用 ADO.NET 或 SQL Server 本机客户端的类似于数据库镜像的配置：
 
-    Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
+```
+Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
+```
 
 有关客户端连接的详细信息，请参阅：
 

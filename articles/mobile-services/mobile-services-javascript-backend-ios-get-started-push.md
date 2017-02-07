@@ -4,7 +4,7 @@ description: 了解如何使用 Azure 移动服务将推送通知发送到 iOS �
 services: mobile-services,notification-hubs
 documentationCenter: ios
 manager: dwrede
-editor: 
+editor: ''
 authors: krisragh
 
 ms.service: mobile-services
@@ -28,7 +28,8 @@ ms.author: krisragh
 
 本主题介绍如何将推送通知添加到[快速入门项目](./mobile-services-ios-get-started.md)，以便在每次插入一条记录时，移动服务就会发送一条推送通知。你必须先完成[移动服务入门]教程。
 
-> [!NOTE][IOS 模拟器不支持推送通知](https://developer.apple.com/zh-cn/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，因此你必须使用物理 iOS 设备。你还需要付费注册 [Apple 开发人员计划成员身份](https://developer.apple.com/programs/ios/)。
+> [!NOTE]
+>[IOS 模拟器不支持推送通知](https://developer.apple.com/zh-cn/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，因此你必须使用物理 iOS 设备。你还需要付费注册 [Apple 开发人员计划成员身份](https://developer.apple.com/programs/ios/)。
 
 [!INCLUDE [启用 Apple 推送通知](../../includes/enable-apple-push-notifications.md)]
 

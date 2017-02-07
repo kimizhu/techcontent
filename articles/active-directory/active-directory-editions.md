@@ -2,10 +2,10 @@
 title: Azure Active Directory 版本 | Azure
 description: 本文介绍 Azure Active Directory 的免费版和付费版选项。Azure Active Directory Basic、Azure Active Directory Premium P1 和 Azure Active Directory Premium P2 是付费版本。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: femila
-editor: 
+editor: ''
 
 ms.assetid: dcaf8939-7633-40a8-bd76-27dedbb6083a
 ms.service: active-directory
@@ -27,7 +27,8 @@ Azure Active Directory 是一个综合性的、高度可用的标识和访问管
 
 Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 功能。
 
-> [!NOTE] 有关这些版本的定价选项，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/identity/)。中国地区目前不支持 Azure Active Directory Premium P1、Premium P2 和 Azure Active Directory Basic。有关详细信息，请通过 Azure Active Directory 论坛与我们联系。
+> [!NOTE]
+> 有关这些版本的定价选项，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/identity/)。中国地区目前不支持 Azure Active Directory Premium P1、Premium P2 和 Azure Active Directory Basic。有关详细信息，请通过 Azure Active Directory 论坛与我们联系。
 
 > [!NOTE]
 许多 Azure Active Directory 功能以“即付即用”版本的形式提供：
@@ -36,7 +37,8 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 ## 比较正式推出的功能
 
-> [!NOTE] 有关此数据的不同视图，请参阅 [Azure Active Directory 功能](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx)。
+> [!NOTE]
+> 有关此数据的不同视图，请参阅 [Azure Active Directory 功能](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx)。
 
 **常用功能**
 

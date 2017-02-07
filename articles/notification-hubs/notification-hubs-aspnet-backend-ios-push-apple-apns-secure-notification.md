@@ -4,7 +4,7 @@ description: 了解如何从 Azure 将安全推送通知发送到 iOS 应用。�
 documentationCenter: ios
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 services: notification-hubs
 
 ms.service: notification-hubs
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
-wacn.date: 11/11/2016
+wacn.date: 01/19/2017
 ms.author: wesmc
 ---
 
@@ -25,7 +25,7 @@ ms.author: wesmc
 
 ##概述
 
-利用 Microsoft Azure 中的推送通知支持，你可以访问易于使用且横向扩展的多平台推送基础结构，这大大简化了为移动平台的使用者应用程序和企业应用程序实现推送通知的过程。
+利用 Azure 中的推送通知支持，你可以访问易于使用且横向扩展的多平台推送基础结构，这大大简化了为移动平台的使用者应用程序和企业应用程序实现推送通知的过程。
 
 由于法规或安全约束，有时应用程序可能想要在通知中包含某些无法通过标准推送通知基础结构传输的内容。本教程介绍如何通过客户端设备和应用后端之间安全且经过验证的连接发送敏感信息，以便获得相同的体验。
 
@@ -42,7 +42,8 @@ ms.author: wesmc
 
 本安全推送教程演示如何安全地发送推送通知。本教程以[通知用户](./notification-hubs-aspnet-backend-ios-apple-apns-notification.md)教程为基础，因此您应该先完成该教程中的步骤。
 
-> [!NOTE] 本教程假设您已根据[通知中心入门 (iOS)](./notification-hubs-ios-apple-push-notification-apns-get-started.md) 中所述创建并配置了通知中心。
+> [!NOTE]
+> 本教程假设您已根据[通知中心入门 (iOS)](./notification-hubs-ios-apple-push-notification-apns-get-started.md) 中所述创建并配置了通知中心。
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -54,58 +55,64 @@ ms.author: wesmc
 
 1. 在 **AppDelegate.m** 中，请确保该应用将注册无提示通知，以便它可以处理从后端发送的通知 ID。添加 didFinishLaunchingWithOptions 中的 **UIRemoteNotificationTypeNewsstandContentAvailability** 选项：
 
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+    ```
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+    ```
 
 2. 在 **AppDelegate.m** 中，通过以下声明在顶部添加实现部分：
 
-        @interface AppDelegate ()
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        @end
+    ```
+    @interface AppDelegate ()
+    - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+    @end
+    ```
 
 3. 然后将以下代码添加到实现部分，将占位符 `{back-end endpoint}` 替换为先前获取的后端终结点：
 
-        NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
+    ```
+    NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        {
-            // check if authenticated
-            ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
-            NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
-            if (!authenticationHeader) return;
+    - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+    {
+        // check if authenticated
+        ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
+        NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
+        if (!authenticationHeader) return;
 
-            NSURLSession* session = [NSURLSession
-                                     sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                     delegate:nil
-                                     delegateQueue:nil];
+        NSURLSession* session = [NSURLSession
+                                 sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                                 delegate:nil
+                                 delegateQueue:nil];
 
-            NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
-            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
-            [request setHTTPMethod:@"GET"];
-            NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
-            [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+        NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
+        NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
+        [request setHTTPMethod:@"GET"];
+        NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
+        [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                if (!error && httpResponse.statusCode == 200)
-                {
-                    NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+            if (!error && httpResponse.statusCode == 200)
+            {
+                NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-                    NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+                NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
 
-                    completion([json objectForKey:@"Payload"], nil);
+                completion([json objectForKey:@"Payload"], nil);
+            }
+            else
+            {
+                NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
+                if (error)
+                    completion(nil, error);
+                else {
+                    completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
                 }
-                else
-                {
-                    NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
-                    if (error)
-                        completion(nil, error);
-                    else {
-                        completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
-                    }
-                }
-            }];
-            [dataTask resume];
-        }
+            }
+        }];
+        [dataTask resume];
+    }
+    ```
 
 此方法使用存储在共享首选项中的凭据调用应用后端来检索通知内容。
 
@@ -117,26 +124,28 @@ ms.author: wesmc
 
 6. 在 **AppDelegate.m** 中，添加以下方法来处理推送通知：
 
-        -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-        {
-            NSLog(@"%@", userInfo);
+    ```
+    -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+    {
+        NSLog(@"%@", userInfo);
 
-            [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
-                if (!error) {
-                    // show local notification
-                    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-                    localNotification.alertBody = payload;
-                    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
+            if (!error) {
+                // show local notification
+                UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+                localNotification.alertBody = payload;
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
-                    completionHandler(UIBackgroundFetchResultNewData);
-                } else {
-                    completionHandler(UIBackgroundFetchResultFailed);
-                }
-            }];
+                completionHandler(UIBackgroundFetchResultNewData);
+            } else {
+                completionHandler(UIBackgroundFetchResultFailed);
+            }
+        }];
 
-        }
+    }
+    ```
 
     请注意，最好由后端处理缺失身份验证标头属性或拒绝的情况。这些情况下的特定处理主要取决于您的目标用户体验。一种选择是显示包含用户用来进行身份验证的通用提示的通知，从而检索实际通知。
 

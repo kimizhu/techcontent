@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: Use MySQL Database on Azure to configure WordPress websites – Azure cloud
 metakeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, Wordpress, website configuration, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
 description: WordPress is a very widely used CMS. This article explains how to use MySQL Database on Azure and Azure Web Apps to install and configure WordPress.
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql_en
 ms.date: 11/22/2016
@@ -47,7 +47,8 @@ Switch the workspace to “database,” and click “Create” at the bottom of 
 
 ![Creating New Databases][3]
 
-> [!NOTE]Users must manually create the MySQL database in the Azure portal. The WordPress deployment will fail if you miss this step.**
+> [!NOTE]
+>Users must manually create the MySQL database in the Azure portal. The WordPress deployment will fail if you miss this step.**
 
 ## Step 3: Create a new web app  
 
@@ -63,7 +64,8 @@ Switch the workspace to “database,” and click “Create” at the bottom of 
 
 Next, deploy all the WordPress installation files you uncompressed in Step 1 to the new web app. At this point, we recommend that you use Git to complete the deployment process. Refer to [Publishing to Azure websites from source control](../app-service-web/app-service-deploy-local-git.md) for the specific method.
 
-> [!NOTE]Step 3 is chiefly intended for new WordPress users. Some of you have already used Azure Web Apps and successfully deployed the WordPress installation files and begun using them. To keep the content consistent, we recommend that you export the data and then reimport it after you reinstall and deploy WordPress and successfully connect to a new MySQL database. Complete the specific WordPress data import and export procedures by using the WordPress control panel (as shown in the image below).
+> [!NOTE]
+>Step 3 is chiefly intended for new WordPress users. Some of you have already used Azure Web Apps and successfully deployed the WordPress installation files and begun using them. To keep the content consistent, we recommend that you export the data and then reimport it after you reinstall and deploy WordPress and successfully connect to a new MySQL database. Complete the specific WordPress data import and export procedures by using the WordPress control panel (as shown in the image below).
 
 ![Importing and Exporting With WordPress][9]
 

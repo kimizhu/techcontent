@@ -3,13 +3,13 @@ title: Azure 开发人员中心：Azure IoT
 description: Azure 开发人员中心：Azure IoT
 services: IoT
 documentationCenter: Develop
-authors: 
-manager: 
-editor: 
+authors: ''
+manager: ''
+editor: ''
 
 ms.service: IoT
-ms.date: 
-wacn.date: 
+ms.date: ''
+wacn.date: ''
 ---
 
 # Azure 初学者套件
@@ -57,5 +57,5 @@ Feather 是 Adafruit 新的开发板，它就如其名称一样，非常轻薄�
 
 ##了解更多
 
-- [物联网](../../articles/iot-hub/index.md/)    了解我们的全新 IoT 服务 Azure IoT 中心，连接物联网。
+- [物联网](../../articles/iot-hub/index.md)    了解我们的全新 IoT 服务 Azure IoT 中心，连接物联网。
 - [示例库](https://azure.microsoft.com/zh-cn/documentation/samples/?service=iot-hub)    发现将设备、传感器和云服务结合在一起的端到端示例。

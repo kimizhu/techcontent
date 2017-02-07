@@ -2,10 +2,10 @@
 title: 在 Azure Active Directory 中为预先集成的应用自定义 SAML 令牌中颁发的声明 | Azure
 description: 了解如何在 Azure Active Directory 中为预先集成的应用自定义 SAML 令牌中颁发的声明
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: asmalser-msft
 manager: stevenpo
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.workload: identity
@@ -63,7 +63,7 @@ Azure Active Directory 目前支持 Azure AD 应用库中数千个预先集成�
 
 - [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
 - [排查基于 SAML 的单一登录问题](./active-directory-saml-debugging.md)
-    
+
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
 [2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png

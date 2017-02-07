@@ -1,14 +1,14 @@
 ---
 title: Azure 网络相关名词解释
 description: Azure 网络相关名词解释
-services: 
-documentationCenter: 
-authors: 
-manager: 
-editor: 
+services: ''
+documentationCenter: ''
+authors: ''
+manager: ''
+editor: ''
 
 ms.service: aog-concept
-ms.date: 
+ms.date: ''
 wacn.date: 08/31/2016
 ---
 
@@ -129,4 +129,3 @@ Azure 的 VPN 有两种类型，分别为基于策略的 VPN（PolicyBased）和
 [详细介绍](./vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 [VPN 网关常见问题](./vpn-gateway/vpn-gateway-vpn-faq.md)
-

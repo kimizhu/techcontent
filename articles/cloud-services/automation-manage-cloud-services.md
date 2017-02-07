@@ -2,10 +2,10 @@
 title: 使用 Azure 自动化管理 Azure 云服务 | Azure
 description: 了解如何使用 Azure 自动化服务管理大规模 Azure 云服务。
 services: cloud-services, automation
-documentationCenter: 
+documentationCenter: ''
 authors: jodoglevy
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: cloud-services
 ms.workload: tbd
@@ -43,5 +43,5 @@ Azure 自动化能够提供高度可靠且长期可用的工作流执行引擎�
 了解 Azure 自动化以及如何使用它来管理 Azure 云服务的基础知识后，请点击以下链接了解有关 Azure 自动化的更多信息。
 
 - [Azure 自动化概述](../automation/automation-intro.md)
- 
+
 <!---HONumber=Mooncake_Quality_Review_1118_2016-->

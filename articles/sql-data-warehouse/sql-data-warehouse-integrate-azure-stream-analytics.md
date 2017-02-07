@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationCenter: NA
 authors: kevinvngo
 manager: barbkess
-editor: 
+editor: ''
 
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -89,6 +89,6 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 <!--Other Web references-->
 
-[Azure Stream Analytics documentation]: ../stream-analytics/index.md/
+[Azure Stream Analytics documentation]: ../stream-analytics/index.md
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

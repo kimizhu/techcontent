@@ -2,13 +2,13 @@
 title: 远程桌面到 Ubuntu 虚拟机
 description: 介绍如何远程桌面到 Ubuntu 虚拟机
 services: virtual machine
-documentationCenter: 
-authors: 
-manager: 
-editor: 
+documentationCenter: ''
+authors: ''
+manager: ''
+editor: ''
 
 ms.service: virtual-machine-aog
-ms.date: 
+ms.date: ''
 wacn.date: 10/28/2016
 ---
 
@@ -20,13 +20,17 @@ wacn.date: 10/28/2016
 
 2. 安装 Gnome 桌面
 
-        sudo apt-get update
-        sudo apt-get install ubuntu-desktop
+    ```
+    sudo apt-get update
+    sudo apt-get install ubuntu-desktop
+    ```
 
 3. 安装 xrdp 和 xubuntu-desktop
 
-        sudo apt-get install xrdp
-        sudo apt-get install xubuntu-desktop
+    ```
+    sudo apt-get install xrdp
+    sudo apt-get install xubuntu-desktop
+    ```
 
 4. 修改配置文件 /etc/xrdp/startwm.sh，添加 xfce4-session 行
 

@@ -2,10 +2,10 @@
 title: Windows 经典 VM 的可用性集 | Azure
 description: 通过 Azure 门户预览和 Azure PowerShell，使用经典部署模型为新的或现有的 Windows 虚拟机配置可用性集。
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.service: virtual-machines-windows
@@ -20,7 +20,8 @@ ms.author: cynthn
 
 # 如何用经典部署模型为 Windows 虚拟机配置可用性集
 
-> [!IMPORTANT] Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。还可在 Resource Manager 部署中[配置可用性集](./virtual-machines-windows-create-availability-set.md)。
+> [!IMPORTANT]
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。还可在 Resource Manager 部署中[配置可用性集](./virtual-machines-windows-create-availability-set.md)。
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 

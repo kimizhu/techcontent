@@ -3,10 +3,10 @@ title: Azure AD Connect 同步：第二次运行安装向导 | Azure
 description: 介绍安装向导第二次运行时的工作原理。
 keywords: Azure AD Connect 安装向导允许你在第二次运行它时配置维护设置
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: andkjell
 manager: femila
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.workload: identity
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
-wacn.date: 10/11/2016
+wacn.date: 01/24/2017
 ms.author: billmath
 ---
 
@@ -33,7 +33,8 @@ ms.author: billmath
 
 请选择其中一项任务，然后单击"下一步"继续。
 
-> [!IMPORTANT] 当你打开安装向导时，同步引擎中的所有操作都会挂起。请确保在完成配置更改后，立即关闭安装向导。
+> [!IMPORTANT]
+> 当你打开安装向导时，同步引擎中的所有操作都会挂起。请确保在完成配置更改后，立即关闭安装向导。
 
 ## 查看当前配置
 此选项可让你快速查看当前配置的选项。
@@ -56,7 +57,7 @@ ms.author: billmath
 - 更改不同林中对象的联接方法。
 - 启用基于组的筛选。
 
-## 刷新目录架构
+## 刷新目录架构 <a name="refresh-directory-schema"></a>
 如果已更改其中一个本地 AD DS 林中的架构，则应使用此选项。例如，可能已安装 Exchange，或升级到包含设备对象的 Windows Server 2012 架构。在这种情况下，需指示 Azure AD Connect 从 AD DS 再次读取架构并更新其缓存。此操作还会重新生成同步规则。举例来说，如果你添加 Exchange 架构，配置中就会添加 Exchange 的同步规则。
 
 选择此选项时，将列出配置中的所有目录。可以保留默认设置，并刷新所有林或取消选择其中某些林。

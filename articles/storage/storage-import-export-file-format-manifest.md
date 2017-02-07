@@ -5,7 +5,7 @@ author: renashahmsft
 manager: aungoo
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
@@ -20,74 +20,76 @@ ms.author: renash
 
 # 导入/导出服务清单文件格式
 驱动器清单文件描述 Azure Blob 存储中的 Blob 与构成导入或导出作业的驱动器上的文件之间的映射。对于某个导入操作而言，该清单文件作为驱动器准备过程的一部分创建，在将该驱动器送至 Azure 数据中心之前已存储在驱动器上。在导出操作过程中，Azure 导入/导出服务将在驱动器上创建并存储该清单。
-  
+
 对于导入和导出作业而言，驱动器清单文件存储在导入或导出驱动器上；该文件不通过任何 API 操作传输到该服务。
-  
+
 下面介绍驱动器清单文件的一般格式：
-  
-    <?xml version="1.0" encoding="UTF-8"?>  
-    <DriveManifest Version="2014-11-01">  
-      <Drive>  
-        <DriveId>drive-id</DriveId>  
-        import-export-credential  
-  
-        <!-- First Blob List -->  
-        <BlobList>  
-          <!-- Global properties and metadata that applies to all blobs -->  
-          [<MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>]  
-          [<PropertiesPath   
-            Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
-  
-          <!-- First Blob -->  
-          <Blob>  
-            <BlobPath>blob-path-relative-to-account</BlobPath>  
-            <FilePath>file-path-relative-to-transfer-disk</FilePath>  
-            [<ClientData>client-data</ClientData>]  
-            [<Snapshot>snapshot</Snapshot>]  
-            <Length>content-length</Length>  
-            [<ImportDisposition>import-disposition</ImportDisposition>]  
-            page-range-list-or-block-list          
-            [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
-            [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
-          </Blob>  
-  
-          <!-- Second Blob -->  
-          <Blob>  
-          . . .  
-          </Blob>  
-        </BlobList>  
-  
-        <!-- Second Blob List -->  
-        <BlobList>  
-        . . .  
-        </BlobList>  
-      </Drive>  
-    </DriveManifest>  
-  
-    import-export-credential ::=   
-      <StorageAccountKey>storage-account-key</StorageAccountKey> | <ContainerSas>container-sas</ContainerSas>  
-  
-    page-range-list-or-block-list ::=   
-      page-range-list | block-list  
-  
-    page-range-list ::=   
-        <PageRangeList>  
-          [<PageRange Offset="page-range-offset" Length="page-range-length"   
-           Hash="md5-hash"/>]  
-          [<PageRange Offset="page-range-offset" Length="page-range-length"   
-           Hash="md5-hash"/>]  
-        </PageRangeList>  
-  
-    block-list ::=  
-        <BlockList>  
-          [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
-           Hash="md5-hash"/>]  
-          [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
-           Hash="md5-hash"/>]  
-        </BlockList>  
+
+```
+<?xml version="1.0" encoding="UTF-8"?>  
+<DriveManifest Version="2014-11-01">  
+  <Drive>  
+    <DriveId>drive-id</DriveId>  
+    import-export-credential  
+
+    <!-- First Blob List -->  
+    <BlobList>  
+      <!-- Global properties and metadata that applies to all blobs -->  
+      [<MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>]  
+      [<PropertiesPath   
+        Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
+
+      <!-- First Blob -->  
+      <Blob>  
+        <BlobPath>blob-path-relative-to-account</BlobPath>  
+        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
+        [<ClientData>client-data</ClientData>]  
+        [<Snapshot>snapshot</Snapshot>]  
+        <Length>content-length</Length>  
+        [<ImportDisposition>import-disposition</ImportDisposition>]  
+        page-range-list-or-block-list          
+        [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
+        [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
+      </Blob>  
+
+      <!-- Second Blob -->  
+      <Blob>  
+      . . .  
+      </Blob>  
+    </BlobList>  
+
+    <!-- Second Blob List -->  
+    <BlobList>  
+    . . .  
+    </BlobList>  
+  </Drive>  
+</DriveManifest>  
+
+import-export-credential ::=   
+  <StorageAccountKey>storage-account-key</StorageAccountKey> | <ContainerSas>container-sas</ContainerSas>  
+
+page-range-list-or-block-list ::=   
+  page-range-list | block-list  
+
+page-range-list ::=   
+    <PageRangeList>  
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+       Hash="md5-hash"/>]  
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+       Hash="md5-hash"/>]  
+    </PageRangeList>  
+
+block-list ::=  
+    <BlockList>  
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
+       Hash="md5-hash"/>]  
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+       Hash="md5-hash"/>]  
+    </BlockList>  
+```
 
 下表指定了驱动器清单 XML 格式的数据元素和属性。
-  
+
 |XML 元素|类型|说明|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Root 元素|清单文件的根元素。该文件中的其他所有元素均位于此元素下方。|  
@@ -95,7 +97,7 @@ ms.author: renash
 |`Drive`|嵌套的 XML 元素|包含每个驱动器的清单。|  
 |`DriveId`|String|驱动器的唯一驱动器标识符。通过查询驱动器获取其序列号，即可找到该驱动器标识符。该驱动器序列号通常还打印在该驱动器的外部。`DriveID` 元素必须出现在清单元素中的任何 `BlobList` 元素之前。|  
 |`StorageAccountKey`|String|<p>当且仅当未指定 `ContainerSas` 时，导入作业才需要此元素。与作业关联的 Azure 存储帐户的帐户密钥。</p><p> 导出操作的清单中会省略此元素。</p>|  
-|`ContainerSas`|String|当且仅当未指定 `StorageAccountKey` 时，导入作业才需要此元素。用于访问与作业关联的 Blob 的容器 SAS。有关其格式，请参阅 [Put Job](https://docs.microsoft.com/zh-CN/rest/api/storageservices/importexport/Put-Job)（放置作业）。导出操作的清单中会省略此元素。|  
+|`ContainerSas`|String|当且仅当未指定 `StorageAccountKey` 时，导入作业才需要此元素。用于访问与作业关联的 Blob 的容器 SAS。有关其格式，请参阅 [Put Job](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)（放置作业）。导出操作的清单中会省略此元素。|  
 |`ClientCreator`|String|指定创建 XML 文件的客户端。导入/导出服务不解释该值。|  
 |`BlobList`|嵌套的 XML 元素|包含作为导入或导出作业一部分的 Blob 列表。Blob 列表中的每个 Blob 共享相同的元数据和属性。|  
 |`BlobList/MetadataPath`|String|<p>可选。指定磁盘上某个文件的相对路径，该文件包含针对导入操作的 Blob 列表中的 Blob 设置的默认元数据。可以针对每个 Blob 有选择性地重写此元数据。</p><p> 导出操作的清单中会省略此元素。</p>|  
@@ -124,8 +126,8 @@ ms.author: renash
 |`Blob/MetadataPath/@Hash`|属性，字符串|指定 Blob 元数据文件的 Base16 编码 MD5 哈希。|  
 |`Blob/PropertiesPath`|String|可选。指定 properties 文件的相对路径。在导入过程中，将对目标 Blob 设置属性。在执行导出操作过程中，Blob 属性将存储在驱动器上的 properties 文件中。|  
 |`Blob/PropertiesPath/@Hash`|属性，字符串|指定 Blob properties 文件的 Base16 编码 MD5 哈希。|  
-  
+
 ## 另请参阅  
-[存储导入/导出 REST](https://docs.microsoft.com/zh-CN/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
+[存储导入/导出 REST](https://docs.microsoft.com/en-us/rest/api/storageimportexport/)
 
 <!---HONumber=Mooncake_1226_2016-->

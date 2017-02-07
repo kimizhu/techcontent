@@ -2,10 +2,10 @@
 title: VM 重新启动或大小调整问题 | Azure
 description: 排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 
 ms.service: virtual-machines-linux
@@ -58,7 +58,8 @@ ms.author: delhan
 
 如果在尝试创建新的云服务时收到错误，请稍后再试一次，或更改云服务的区域。
 
-> [!IMPORTANT] 新的云服务将有新的名称和 VIP，因此需要针对现有云服务中依赖于此信息的所有项目更改该信息。
+> [!IMPORTANT]
+> 新的云服务将有新的名称和 VIP，因此需要针对现有云服务中依赖于此信息的所有项目更改该信息。
 
 ## 问题：调整现有 VM 的大小时发生错误
 

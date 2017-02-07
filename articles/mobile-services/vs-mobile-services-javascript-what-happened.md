@@ -2,10 +2,10 @@
 title: 通过使用 Visual Studio 连接服务将移动服务添加到 Javascript 应用时会发生什么情况 | Microsoft Azure
 description: 描述 Visual Studio 中的 Azure 移动服务项目发生了什么情况
 services: mobile-services
-documentationCenter: 
+documentationCenter: ''
 authors: mlhoop
 manager: douge
-editor: 
+editor: ''
 
 ms.service: mobile-services
 ms.workload: mobile
@@ -22,7 +22,7 @@ ms.author: mlearned
 ##添加了 NuGet 包
 
 已安装 **WindowsAzure.MobileServices.WinJS** NuGet 包，包括 `js\MobileServices.js` 文件中的 Azure 移动服务库。
-  
+
 ##移动服务的连接字符串值 
 
 在 `services\mobileServices\settings` 文件夹中，已生成包含 **MobileServiceClient** 的新 JavaScript (.js) 文件，其中包含选定的移动服务的应用程序 URL 和应用程序密钥。

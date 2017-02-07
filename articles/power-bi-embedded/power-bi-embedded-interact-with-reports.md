@@ -2,20 +2,20 @@
 title: 使用 JavaScript API 与报表进行交互 | Azure
 description: Power BI Embedded, 使用 JavaScript API 与报表进行交互
 services: power-bi-embedded
-documentationCenter: 
+documentationCenter: ''
 authors: mgblythe
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 08/26/2016
+ms.date: 10/04/2016
 ms.author: mblythe
-wacn.date: 12/29/2016
+wacn.date: 02/06/2017
 ---
 
 # 使用 JavaScript API 与 Power BI 报表进行交互
@@ -60,15 +60,17 @@ iframe 使嵌入过程变得更容易，但是如果没有 JavaScript API，报�
 #### 基本筛选器
 基本筛选器置于列或层次结构级别，包含要包括或排除的值的列表。
 
-    const basicFilter: pbi.models.IBasicFilter = {
-      $schema: "http://powerbi.com/product/schema#basic",
-      target: {
-        table: "Store",
-        column: "Count"
-      },
-      operator: "In",
-      values: [1,2,3,4]
-    }
+```
+const basicFilter: pbi.models.IBasicFilter = {
+  $schema: "http://powerbi.com/product/schema#basic",
+  target: {
+    table: "Store",
+    column: "Count"
+  },
+  operator: "In",
+  values: [1,2,3,4]
+}
+```
 
 #### 高级筛选器
 高级筛选器使用逻辑运算符 AND 或 OR，接受一个或两个条件，每个条件都有其自己的运算符和值。支持的条件有：
@@ -87,24 +89,26 @@ iframe 使嵌入过程变得更容易，但是如果没有 JavaScript API，报�
 - IsBlank
 - IsNotBlank
 
-        const advancedFilter: pbi.models.IAdvancedFilter = {
-          $schema: "http://powerbi.com/product/schema#advanced",
-          target: {
-            table: "Store",
-            column: "Name"
-          },
-          logicalOperator: "Or",
-          conditions: [
-            {
-              operator: "Contains",
-              value: "Wash"
-            },
-            {
-              operator: "Contains",
-              value: "Park"
-            }
-          ]
+    ```
+    const advancedFilter: pbi.models.IAdvancedFilter = {
+      $schema: "http://powerbi.com/product/schema#advanced",
+      target: {
+        table: "Store",
+        column: "Name"
+      },
+      logicalOperator: "Or",
+      conditions: [
+        {
+          operator: "Contains",
+          value: "Wash"
+        },
+        {
+          operator: "Contains",
+          value: "Park"
         }
+      ]
+    }
+    ```
 
 [了解有关筛选的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 

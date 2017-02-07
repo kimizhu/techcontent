@@ -2,7 +2,7 @@
 title: Azure 门户仪表板 |Azure
 description: 本文介绍如何在 Azure 门户中创建和编辑仪表板。
 services: azure-portal
-documentationCenter: 
+documentationCenter: ''
 authors: sewatson
 manager: timlt
 editor: tysonn
@@ -58,7 +58,7 @@ ms.author: sewatson
 悬停鼠标并选择“...”，或右键单击磁贴，即可看到该磁贴的所有上下文命令。默认情况下，有两个项：
 
 1. **从仪表板取消固定** - 从仪表板删除磁贴
-2.	**自定义** - 进入自定义模式
+2. **自定义** - 进入自定义模式
 
 ![自定义磁贴](./media/azure-portal-dashboards/customize-tile.png)  
 

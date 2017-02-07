@@ -4,7 +4,7 @@ description: 了解如何使用 Azure 移动服务将推送通知发送到 iOS �
 services: mobile-services,notification-hubs
 documentationCenter: ios
 manager: dwrede
-editor: 
+editor: ''
 authors: krisragh
 
 ms.service: mobile-services
@@ -43,19 +43,21 @@ ms.author: krisragh
         {
             TodoItem current = await InsertAsync(item);
 
-            ApplePushMessage message = new ApplePushMessage(item.Text, System.TimeSpan.FromHours(1));
+```
+        ApplePushMessage message = new ApplePushMessage(item.Text, System.TimeSpan.FromHours(1));
 
-            try
-            {
-                var result = await Services.Push.SendAsync(message);
-                Services.Log.Info(result.State.ToString());
-            }
-            catch (System.Exception ex)
-            {
-                Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+        try
+        {
+            var result = await Services.Push.SendAsync(message);
+            Services.Log.Info(result.State.ToString());
         }
+        catch (System.Exception ex)
+        {
+            Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
+        }
+        return CreatedAtRoute("Tables", new { id = current.Id }, current);
+    }
+```
 ```
 
 ##<a name="publish-the-service"></a>将移动服务发布到 Azure

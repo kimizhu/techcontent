@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: Use Windows PowerShell to manage MySQL Database on Azure – Azure cloud
 metaKeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, beginner’s guide, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
 description: This article explains how to use Windows PowerShell to do more with MySQL Database on Azure, including create, view, delete, and modify operations.
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
+title: ''
 authors: sofia
-solutions: 
-manager: 
-editor: 
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql_en
 ms.date: 11/22/2016
@@ -100,7 +100,8 @@ Edit and run the following commands to view all the current server lists.
 ```
 Get-AzureResource -ResourceType "Microsoft.MySql/servers"  -ApiVersion 2015-01-01 -ResourceGroupName resourcegroupchinaeast
 ```
->[!NOTE] **This command checks that the “-ApiVersion 2015-01-01” in the server is directed at the Azure Resource Manager API. In all other commands, this is “-ApiVersion 2015-09-01” and is directed at the MySQL API.**
+>[!NOTE]
+> **This command checks that the “-ApiVersion 2015-01-01” in the server is directed at the Azure Resource Manager API. In all other commands, this is “-ApiVersion 2015-09-01” and is directed at the MySQL API.**
 
 ### 3\.2 View database lists and parameters
 Edit and run the following commands to view all database lists for a specific server in the current resource group.
@@ -244,7 +245,7 @@ Refer to the definitions in the following JSON file for modifications to other p
 ```
 Set-AzureResource -ResourceType "Microsoft.MySql/servers " -ResourceName testPSH -ApiVersion 2015-09-01 -ResourceGroupName resourcegroupChinaEast -SkuObject @{name="MS4"} -UsePatchSemantics
 ```
-    
+
 ## <a id="delete"></a>5. Remove operations
 Use the **Remove** command to delete MySQL servers, databases, users, backups, and firewall rules.
 ### 5\.1 Delete servers

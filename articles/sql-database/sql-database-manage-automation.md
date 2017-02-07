@@ -2,7 +2,7 @@
 title: 使用 Azure 自动化管理 Azure SQL 数据库 | Azure
 description: 了解如何使用 Azure 自动化服务来方便管理 Azure SQL 数据库。
 services: sql-database, automation
-documentationCenter: 
+documentationCenter: ''
 authors: jodoglevy
 manager: jhubbard
 editor: monicar
@@ -49,5 +49,5 @@ Azure 自动化还可以通过使用 PowerShell 发出 SQL 命令，来与 SQL �
 - [Azure 自动化概述](../automation/automation-intro.md)
 - [我的第一个 Runbook](../automation/automation-first-runbook-textual.md)
 - [Azure 自动化：你在云中的 SQL 代理](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
- 
+
 <!---HONumber=Mooncake_0808_2016-->

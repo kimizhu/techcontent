@@ -1,8 +1,8 @@
 ---
-title: 使用 Azure 门户预览管理 Azure 资源 | Azure
-description: 使用 Azure 门户预览和 Azure Resource Manager 来管理资源。说明如何使用仪表板进行资源监视。
+title: 使用 Azure 门户预览版管理 Azure 资源 | Azure
+description: 使用 Azure 门户预览版和 Azure Resource Manager 来管理资源。说明如何使用仪表板进行资源监视。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
-wacn.date: 01/06/2017
+wacn.date: 01/25/2017
 ms.author: tomfitz
 ---
 
@@ -25,9 +25,9 @@ ms.author: tomfitz
 - [门户](./resource-group-portal.md)
 - [REST API](./resource-manager-rest-api.md)
 
-本主题演示如何使用 [Azure 门户预览](https://portal.azure.cn)和 [Azure Resource Manager](./resource-group-overview.md) 管理 Azure 资源。若要了解如何通过门户部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户预览部署资源](./resource-group-template-deploy-portal.md)。
+本主题演示如何使用 [Azure 门户预览版](https://portal.azure.cn)和 [Azure Resource Manager](./resource-group-overview.md) 管理 Azure 资源。若要了解如何通过门户部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户预览版部署资源](./resource-group-template-deploy-portal.md)。
 
-目前，并非每种服务都支持门户或资源管理器。要使用这些服务，需使用[经典管理门户](https://manage.windowsazure.cn)。
+目前，并非每种服务都支持门户或资源管理器。要使用这些服务，需使用[经典管理门户](https://manage.windowsazure.cn)。若要了解每种服务的状态，请参阅 [Azure 门户预览版可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。
 
 ## <a name="create-resource-group-and-resources"></a> 管理资源组
 
@@ -36,36 +36,36 @@ ms.author: tomfitz
 资源组存储与资源有关的元数据。因此，在指定资源组的位置时，你是在指定元数据的存储位置。出于合规性原因，可能需要确保你的数据存储在某一特定区域。
 
 1. 若要查看订阅中的所有资源组，请选择“资源组”。
-   
+
     ![浏览资源组](./media/resource-group-portal/browse-groups.png)  
 
 2. 若要创建空资源组，请选择“添加”。
-   
+
     ![添加资源组](./media/resource-group-portal/add-resource-group.png)  
 
 3. 提供新资源组的名称和位置。选择“创建”。
-   
+
     ![创建资源组](./media/resource-group-portal/create-empty-group.png)  
 
 4. 可能需要选择“刷新”以查看最近创建的资源组。
-   
+
     ![刷新资源组](./media/resource-group-portal/refresh-resource-groups.png)  
 
 5. 若要自定义显示的资源组信息，请选择“列”。
-   
+
     ![自定义列](./media/resource-group-portal/select-columns.png)  
 
 6. 选择要添加的列，然后选择“更新”。
-   
+
     ![添加列](./media/resource-group-portal/add-columns.png)  
 
-7. 若要了解有关将资源部署到新资源组的信息，请参阅[使用 Resource Manager 模板和 Azure 门户预览部署资源](./resource-group-template-deploy-portal.md)。
+7. 若要了解有关将资源部署到新资源组的信息，请参阅[使用 Resource Manager 模板和 Azure 门户预览版部署资源](./resource-group-template-deploy-portal.md)。
 8. 为了快速访问资源组，可以将边栏选项卡固定到仪表板上。
-   
+
     ![固定资源组](./media/resource-group-portal/pin-group.png)  
 
 9. 仪表板显示资源组及其资源。可以选择资源组或其任何资源以导航到该项目。
-   
+
     ![固定资源组](./media/resource-group-portal/show-resource-group-dashboard.png)  
 
 ## 标记资源
@@ -77,26 +77,26 @@ ms.author: tomfitz
 选择一个资源时，资源边栏选项卡将显示用于监视该资源类型的默认图形和表。
 
 1. 选择资源，并注意“监视”部分。它包括与资源类型相关的图形。下图显示存储帐户的默认监视数据。
-   
+
     ![显示监视](./media/resource-group-portal/show-monitoring.png)  
 
 2. 选择该部分上方的省略号 (...) 即可将边栏选项卡的某一部分固定到仪表板上。还可以自定义边栏选项卡中该部分的大小，或完全删除它。下图显示如何固定、自定义或删除 CPU 和内存部分。
-   
+
     ![固定部分](./media/resource-group-portal/pin-cpu-section.png)  
 
 3. 将该部分固定到仪表板后，将会在仪表板上看到摘要。并且，选择它后可立即看到关于该数据的详细信息。
-   
+
     ![查看仪表板](./media/resource-group-portal/view-startboard.png)  
 
 4. 若要完全自定义通过门户监视的数据，请导航到默认仪表板，并选择“新建仪表板”。
-   
+
     ![仪表板](./media/resource-group-portal/dashboard.png)  
 
 5. 指定新仪表板的名称，然后将磁贴拖动到仪表板上。这些磁贴通过不同选项进行筛选。
-   
+
     ![仪表板](./media/resource-group-portal/create-dashboard.png)  
 
-     若要了解如何使用仪表板，请参阅[在 Azure 门户预览中创建和共享仪表板](../azure-portal/azure-portal-dashboards.md)。
+     若要了解如何使用仪表板，请参阅[在 Azure 门户预览版中创建和共享仪表板](../azure-portal/azure-portal-dashboards.md)。
 
 ## <a name="manage-resources"></a> 管理资源
 在某个资源的边栏选项卡中，可看到用于管理该资源的选项。门户提供了用于该特定资源类型的管理选项。在资源边栏选项卡的顶部和左侧可看到管理命令。
@@ -141,9 +141,10 @@ ms.author: tomfitz
 
 ## 后续步骤
 * 若要查看活动日志，请参阅[使用 Resource Manager 进行审核操作](./resource-group-audit.md)。
-* 若要排查部署错误，请参阅[使用 Azure 门户预览对资源组部署进行故障排除](./resource-manager-troubleshoot-deployments-portal.md)。
-* 若要通过门户部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户预览部署资源](./resource-group-template-deploy-portal.md)。
+* 若要查看有关部署的详细信息，请参阅[查看部署操作](./resource-manager-deployment-operations.md)。
+* 若要通过门户部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户预览版部署资源](./resource-group-template-deploy-portal.md)。
 * 若要管理对资源的访问，请参阅 [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)（使用角色分配来管理对 Azure 订阅资源的访问）。
 * 如需了解企业如何使用 Resource Manager 对订阅进行有效管理，请参阅 [Azure 企业机架 - 规范性订阅管理](./resource-manager-subscription-governance.md)。
 
-<!---HONumber=Mooncake_0103_2017-->
+<!---HONumber=Mooncake_0120_2017-->
+<!-- Update_Description: update meta properties ; wording update ; update link reference -->

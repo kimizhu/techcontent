@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: MySQL on Azure上的时区配置 - Azure 微软云
 metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,入门指南,时区配置,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS
 description: 在MySQL on Azure上如何配置时区
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql
 ms.date: 07/05/2016
@@ -32,6 +32,6 @@ MySQL Database on Azure目前支持用户通过修改参数设定的方式来进
 以用户变更到北京时间为例， 用户可以将以下图中time_zone的参数设置为：+08：00.
 ![北京时间设置](./media/mysql-database-timezone-config/time_zone.png)
 
->[!NOTE]**目前暂不支持已命名时区如"Europe/Helsinki", "US/Eastern" or "MET"等**
+>[!NOTE]
+>**目前暂不支持已命名时区如"Europe/Helsinki", "US/Eastern" or "MET"等**
 *
-

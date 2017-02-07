@@ -2,10 +2,10 @@
 title: 身份验证检测期间的错误
 description: Active Directory 连接向导检测到不兼容的身份验证类型
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -32,16 +32,20 @@ ms.author: tarcher
 
 在 MVC 项目中，向导将检查是否存在以下任何设置（这些设置是以前使用向导生成的）：
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+```
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:AADInstance" value="" />
+<add key="ida:PostLogoutRedirectUri" value="" />
+```
 
 此外，在 Web API 项目中向导还会检查是否存在以下任何设置（这些设置是以前使用向导生成的）：
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+```
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:Audience" value="" />
+```
 
 ### 不兼容的身份验证代码
 最后，向导将尝试检测使用以前版本的 Visual Studio 配置的身份验证代码版本。如果您已收到此错误，它表示您的项目包含不兼容的身份验证类型。此向导将通过以前版本的 Visual Studio 检测以下身份验证类型：

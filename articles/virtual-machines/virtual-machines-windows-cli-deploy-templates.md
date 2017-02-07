@@ -4,10 +4,10 @@
 title: 使用模板部署和管理 VM | Azure
 description: 使用资源管理器模板和 Azure CLI，为 Azure 虚拟机部署和管理最常用的配置。
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: squillace
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
@@ -22,7 +22,7 @@ ms.author: rasquill
 
 # 使用 Azure 资源管理器模板和 Azure CLI 部署和管理虚拟机
 
-> [!div class="op_single_selector"]		
+> [!div class="op_single_selector"]
  - [PowerShell](./virtual-machines-windows-ps-manage.md)		
  - [CLI](./virtual-machines-windows-cli-deploy-templates.md)		
 

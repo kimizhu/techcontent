@@ -1,14 +1,14 @@
 ---
 title: 手动安装 Azure for Python SDK
 description: 手动安装 Azure for Python SDK
-services: 
-documentationCenter: 
-authors: 
-manager: 
-editor: 
+services: ''
+documentationCenter: ''
+authors: ''
+manager: ''
+editor: ''
 
 ms.service: na-aog
-ms.date: 
+ms.date: ''
 wacn.date: 12/05/2016
 ---
 
@@ -48,4 +48,3 @@ azure-sdk-for-python 已经发布了较多的版本，而[官网](./python-how-t
 2. 源码安装
 
  ![install-source](./media/aog-sdk-python-install/install-source.png)
- 

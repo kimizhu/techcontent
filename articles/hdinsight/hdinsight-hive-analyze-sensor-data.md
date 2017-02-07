@@ -2,7 +2,7 @@
 title: 使用 Hive 和 Hadoop 分析传感器数据 |Azure
 description: 了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过 PowerView 在 Microsoft Excel 中可视化数据。
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 authors: Blackmist
 manager: paulettm
 editor: cgronlun
@@ -22,7 +22,8 @@ ms.author: larryfr
 
 了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过使用 Power View 在 Microsoft Excel 中可视化数据。
 
-> [!NOTE]本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。
+> [!NOTE]
+>本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。
 
 在本示例中，你将使用 Hive 来处理由采暖、通风和空调 (HVAC) 系统生成的历史数据，以识别无法可靠地保持设定温度的系统。你将了解如何执行以下操作：
 
@@ -35,11 +36,12 @@ ms.author: larryfr
 
 ##先决条件
 
-* HDInsight (Hadoop) 群集：有关创建群集的信息，请参阅[在 HDInsight 中预配 Hadoop 群集](./hdinsight-provision-clusters-v1.md)。
+* HDInsight (Hadoop) 群集：有关创建群集的信息，请参阅[在 HDInsight 中预配 Hadoop 群集](./hdinsight-provision-clusters.md)。
 
 * Microsoft Excel 2013
 
-    > [!NOTE]Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-CN&rs=zh-CN&ad=US) 实现数据可视化。
+    > [!NOTE]
+    >Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-CN&rs=zh-CN&ad=US) 实现数据可视化。
 
 * [Microsoft Hive ODBC 驱动程序](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -47,7 +49,9 @@ ms.author: larryfr
 
 1. 通过 Web 浏览器导航到以下 URL。将 `<clustername>` 替换为 HDInsight 群集的名称。
 
-         https://<clustername>.azurehdinsight.cn
+    ```
+     https://<clustername>.azurehdinsight.cn
+    ```
 
     出现提示时，可以通过使用设置此群集时所用的管理员用户名和密码进行身份验证。
 

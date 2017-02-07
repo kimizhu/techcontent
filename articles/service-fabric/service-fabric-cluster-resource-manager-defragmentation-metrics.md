@@ -5,7 +5,7 @@ services: service-fabric
 documentationCenter: .net
 authors: masnider
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -46,10 +46,12 @@ Service Fabric 群集资源管理器主要与分布负载方面的平衡有关 -
 
 ClusterManifest.xml：
 
-    <Section Name="DefragmentationMetrics">
-        <Parameter Name="Disk" Value="true" />
-        <Parameter Name="CPU" Value="false" />
-    </Section>
+```
+<Section Name="DefragmentationMetrics">
+    <Parameter Name="Disk" Value="true" />
+    <Parameter Name="CPU" Value="false" />
+</Section>
+```
 
 ## 后续步骤
 - 群集资源管理器提供许多用于描述群集的选项。若要详细了解这些选项，请查看这篇有关[描述 Service Fabric 群集](./service-fabric-cluster-resource-manager-cluster-description.md)的文章

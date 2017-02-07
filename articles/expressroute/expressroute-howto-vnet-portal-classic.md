@@ -5,7 +5,7 @@ documentationCenter: na
 services: expressroute
 authors: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.service: expressroute
@@ -32,14 +32,14 @@ ms.author: cherylmc
 
 以下步骤创建经典 VNet 和虚拟网络网关。如果你已经有了一个经典 VNet，请参阅本文的[配置现有的经典 VNet](#config) 部分。
 
-1. 登录到 [Azure 管理门户](http://manage.windowsazure.cn)。
+1. 登录到 [Azure 经典管理门户](http://manage.windowsazure.cn)。
 
 2. 在屏幕左下角，单击“新建”。在导航窗格中，单击“网络服务”，然后单击“虚拟网络”。单击“自定义创建”以启动配置向导。
 
 3. 在“虚拟网络详细信息”页中输入以下信息：
 
     - **名称** - 为虚拟网络命名。在部署你的 VM 和 PaaS 实例时，将使用此虚拟网络名称，因此最好不要让此名称太复杂。
-    - **位置** - 位置直接与你想让资源 (VM) 驻留在的物理位置（区域）有关。例如，如果你希望部署到此虚拟网络的 VM 的物理位置位于美国东部，请选择该位置。创建虚拟网络后，将无法更改与虚拟网络关联的区域。
+    - **位置** - 位置直接与你想让资源 (VM) 驻留在的物理位置（区域）有关。例如，如果你希望部署到此虚拟网络的 VM 的物理位置位于中国东部，请选择该位置。创建虚拟网络后，将无法更改与虚拟网络关联的区域。
 
 4. 在“DNS 服务器和 VPN 连接”页上，输入以下信息，然后单击右下角的“下一步”箭头。
 
@@ -75,7 +75,7 @@ ms.author: cherylmc
 ## <a name="config"></a>为 ExpressRoute 配置现有的经典 VNet
 
 如果你已经有一个经典的 VNet，则可将其配置为在经典管理门户中连接到 ExpressRoute。设置如以上部分所述，因此请通读这些部分以熟悉所需设置。如果想要创建 ExpressRoute/站点到站点共存连接，请参阅[此文](./expressroute-howto-coexist-classic.md)以了解相关步骤。这些步骤不同于本文中的步骤。
- 
+
 1. 需要先创建本地网络，然后才能更新 VNet 设置的其余部分。若要创建新的本地网络（这是通过经典管理门户配置 ExpressRoute 所必需的），请单击“新建”>“网络服务”>“虚拟网络”>“添加本地网络”。按照向导步骤创建本地网络。
 
 2. 使用“配置”页更新 VNet 的设置的其余部分，并将 VNet 关联到本地网络。
@@ -84,7 +84,7 @@ ms.author: cherylmc
 
 ## 后续步骤
 
-- 如果要将虚拟机添加到虚拟网络，请参阅[虚拟机学习路径](../virtual-machines/index.md/)。
+- 如果要将虚拟机添加到虚拟网络，请参阅[虚拟机学习路径](../virtual-machines/index.md)。
 - 如果要了解有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 概述](./expressroute-introduction.md)。
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

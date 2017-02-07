@@ -1,11 +1,11 @@
 ---
 title: 网络基础结构准则 | Azure
 description: 了解用于在 Azure 基础结构服务中部署虚拟网络的关键设计和实施准则。
-documentationCenter: 
+documentationCenter: ''
 services: virtual-machines-linux
 authors: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
-wacn.date: 12/26/2016
+ms.date: 12/16/2016
+wacn.date: 01/25/2017
 ms.author: iainfou
 ---
 
@@ -83,7 +83,8 @@ ms.author: iainfou
 28-59 | 6 | /26
 60-123 | 7 | /25
 
-> [!NOTE] 对于普通的本地子网，具有 n 个主机位的子网的最大主机地址数为 2<sup>n</sup> - 2 个。对于 Azure 子网，具有 n 个主机位的子网的最大主机地址数为 2<sup>n</sup> - 5 个（2 + 3 作为 Azure 在每个子网上使用的地址数）。
+> [!NOTE]
+> 对于普通的本地子网，具有 n 个主机位的子网的最大主机地址数为 2<sup>n</sup> - 2 个。对于 Azure 子网，具有 n 个主机位的子网的最大主机地址数为 2<sup>n</sup> - 5 个（2 + 3 作为 Azure 在每个子网上使用的地址数）。
 
 如果选择的子网大小太小，将需要对子网中的 VM 重新分配 IP 并重新进行部署。
 

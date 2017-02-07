@@ -2,10 +2,10 @@
 title: 角色的默认 TEMP 文件夹大小太小 | Azure
 description: 云服务角色的 TEMP 文件夹的空间有限。本文针对如何避免磁盘空间不足的问题提供了一些建议。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 
 ms.service: cloud-services
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2016
-wacn.date: 12/16/2016
+ms.date: 01/06/2017
+wacn.date: 01/25/2017
 ms.author: v-six
 ---
 
@@ -38,36 +38,39 @@ ms.author: v-six
 
 下面的代码示例演示了如何在 OnStart 方法中修改 TEMP 和 TMP 的目标目录：
 
-    using System;
-    using Microsoft.WindowsAzure.ServiceRuntime;
-    
-    namespace WorkerRole1
+```
+using System;
+using Microsoft.WindowsAzure.ServiceRuntime;
+
+namespace WorkerRole1
+{
+    public class WorkerRole : RoleEntryPoint
     {
-        public class WorkerRole : RoleEntryPoint
+        public override bool OnStart()
         {
-            public override bool OnStart()
-            {
-                // The local resource declaration must have been added to the
-                // service definition file for the role named WorkerRole1:
-                //
-                // <LocalResources>
-                //    <LocalStorage name="CustomTempLocalStore"
-                //                  cleanOnRoleRecycle="false"
-                //                  sizeInMB="1024" />
-                // </LocalResources>
-    
-                string customTempLocalResourcePath =
-                RoleEnvironment.GetLocalResource("CustomTempLocalStore").RootPath;
-                Environment.SetEnvironmentVariable("TMP", customTempLocalResourcePath);
-                Environment.SetEnvironmentVariable("TEMP", customTempLocalResourcePath);
-    
-                // The rest of your startup code goes here…
-    
-                return base.OnStart();
-            }
+            // The local resource declaration must have been added to the
+            // service definition file for the role named WorkerRole1:
+            //
+            // <LocalResources>
+            //    <LocalStorage name="CustomTempLocalStore"
+            //                  cleanOnRoleRecycle="false"
+            //                  sizeInMB="1024" />
+            // </LocalResources>
+
+            string customTempLocalResourcePath =
+            RoleEnvironment.GetLocalResource("CustomTempLocalStore").RootPath;
+            Environment.SetEnvironmentVariable("TMP", customTempLocalResourcePath);
+            Environment.SetEnvironmentVariable("TEMP", customTempLocalResourcePath);
+
+            // The rest of your startup code goes here…
+
+            return base.OnStart();
         }
     }
+}
+```
 
 阅读说明[如何增加 Azure Web 角色 ASP.NET 临时文件夹大小](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)的博客。
 
 <!---HONumber=Mooncake_Quality_Review_1202_2016-->
+<!--Update_Description:update meta properties-->

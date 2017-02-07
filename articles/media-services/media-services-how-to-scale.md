@@ -2,10 +2,10 @@
 title: 如何缩放媒体服务
 description: 了解如何通过指定要为帐户预配的“按需流式处理保留单元”和“编码保留单元”数，缩放媒体服务。
 services: media-services
-documentationCenter: 
+documentationCenter: ''
 authors: juliako
 manager: erikre
-editor: 
+editor: ''
 
 ms.service: media-services
 ms.date: 06/22/2016
@@ -36,6 +36,6 @@ wacn.date: 12/16/2016
 
 ##<a id="storage"></a>缩放存储
 
-有关详细信息，请参阅[跨多个存储帐户管理媒体服务资产](./meda-services-managing-multiple-storage-accounts.md)和[使用 Azure 存储空间](../storage/index.md/)。
+有关详细信息，请参阅[跨多个存储帐户管理媒体服务资产](./meda-services-managing-multiple-storage-accounts.md)和[使用 Azure 存储空间](../storage/index.md)。
 
 <!---HONumber=Mooncake_Quality_Review_1202_2016-->

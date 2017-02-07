@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 3a8cae97-3bed-430d-91b3-274696d91e34

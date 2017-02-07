@@ -4,14 +4,14 @@ urlDisplayName: CDN
 title: How to use CDN - HTTPS
 metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure HTTPS, CDN HTTPS, Azure caching, Azure add-ons, CDN, CDN加速, CDN服务, 主流CDN, 多场景加速, 免费CDN, CDN网站加速, 网站加速, 网页加速, 静态加速, 下载加速, VOD加速, 流媒体直播加速, 云服务,  存储账户,缓存刷新, 回源, 云加速, 加速效果, 节点, 流量, CNAME, 带宽, 网速, 防盗链,https加速, 低成本带宽, 访问加速, CDN缓存, 存储账户, 云服务, 网站, 媒体服务, ICP备案号, ICP编号, ICP, 缓存刷新, 内容预取, 日志下载, CDN帮助文档, CDN技术文档
 description: Learn how to create HTTPS CDN acceleration type.
-metaCanonical: 
-services: 
+metaCanonical: ''
+services: ''
 documentationCenter: .NET
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: cdn
 ms.date: 7/7/2016
@@ -92,7 +92,7 @@ wacn.lang: cn
     收到邮件的方式有两种：
 
     1) **默认方式**：证书签发机构接收到请求后，默认会在第一时间向加速域名相关的邮箱（具体见上面的截图）发送域名确认邮件。如果客户选择这种方式来获取确认邮件，可以直接点击“确定”按钮前往下一步。
-        
+
     2) **DNS TXT方式**：如果用户无法登陆到上述邮箱来完成域名所有权确认，可以使用如下图所示的**通过创建DNS TXT记录**的方式来完成。这种方式可能会额外增加一些完成时间。
 
     ![][8]
@@ -108,7 +108,7 @@ wacn.lang: cn
     ![][10]
 
 6. 用户前往邮箱完成域名所有权认证
-    
+
     当Azure CDN后台确认了用户所选择的收取认证邮件的方式后，用户会看到如下界面：
 
     ![][11]
@@ -143,7 +143,7 @@ SSL证书类型为SAN多域名证书（SAN/UCC SSL）:
 SAN 证书 – Subject Alternative Name certificates, 又称为 UCC 证书– Unified Communication Certificates。SANs SSL证书允许您在同一张证书中，添加多个需要保护的"域名"或"服务器"名。这种功能为客户提供了非常大的使用弹性，它使您可以创建一张易于使用和安装，却又比通配符SSL 证书更安全，完全适合您服务器安全需求的SSL证书。
 
 证书签发机构： <https://www.digicert.com/>
-    
+
 该SSL证书由Azure CDN代为申请，安装和维护。
 
 ### 关于计费信息

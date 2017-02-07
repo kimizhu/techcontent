@@ -3,12 +3,12 @@ title: Azure 开发人员中心：PYTHON
 description: Azure 开发人员中心：PYTHON
 services: PYTHON
 documentationCenter: Develop
-authors: 
+authors: ''
 manager: Tiffena
 editor: Eric Chen
 
 ms.service: PYTHON
-ms.date: 
+ms.date: ''
 wacn.date: 04/07/2016
 ---
 
@@ -59,4 +59,3 @@ wacn.date: 04/07/2016
 - [论坛](http://pytools.codeplex.com/discussions)---询问问题、分享见解和讨论平台
 - [Python Tools for Visual Studio](http://pytools.codeplex.com)---将 Visual Studio 转换为 Python IDE
 - [开放源](https://github.com/windowsazure/azure-sdk-for-python)---在 GitHub 上查看和贡献源代码
-

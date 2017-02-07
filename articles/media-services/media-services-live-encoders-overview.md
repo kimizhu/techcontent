@@ -2,10 +2,10 @@
 title: 如何在使用 Azure 媒体服务时配置本地编码器以创建多比特率流 | Azure
 description: 本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 通道（已启用实时编码）以供进一步处理。本主题列出了演示如何配置所列编码器的教程链接。
 services: media-services
-documentationCenter: 
+documentationCenter: ''
 authors: juliako
 manager: erikre
-editor: 
+editor: ''
 
 ms.service: media-services
 ms.workload: media
@@ -24,7 +24,7 @@ ms.author: juliako
 ##Elemental Live
 
 有关如何配置 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 编码器以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 Elemental Live](./media-services-configure-elemental-live-encoder.md)。
- 
+
 ##Flash 媒体实时编码器
 
 有关如何配置 [Flash 媒体实时编码器](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) 以将单比特率实时流发送到 AMS 通道的信息，请参阅[配置 FMLE](./media-services-configure-fmle-live-encoder.md)。

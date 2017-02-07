@@ -2,10 +2,10 @@
 title: 如何将 Azure Redis 缓存与 Java 配合使用 | Azure
 description: 开始将 Azure Redis 缓存与 Java 配合使用
 services: redis-cache
-documentationCenter: 
+documentationCenter: ''
 authors: steved0x
 manager: douge
-editor: 
+editor: ''
 
 ms.service: cache
 ms.devlang: java
@@ -54,23 +54,25 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的、专用安全的 Redis 缓
 
 ## 在缓存中添加一些内容并检索此内容
 
-    package com.mycompany.app;
-    import redis.clients.jedis.Jedis;
-    import redis.clients.jedis.JedisShardInfo;
+```
+package com.mycompany.app;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisShardInfo;
 
-    /* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
-    public class App
-    {
-      public static void main( String[] args )
-      {
-        /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.chinacloudapi.cn", 6379);
-        shardInfo.setPassword("<key>"); /* Use your access key. */
-        Jedis jedis = new Jedis(shardInfo);
-         jedis.set("foo", "bar");
-         String value = jedis.get("foo");
-      }
-    }
+/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
+public class App
+{
+  public static void main( String[] args )
+  {
+    /* In this line, replace <name> with your cache name: */
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.chinacloudapi.cn", 6379);
+    shardInfo.setPassword("<key>"); /* Use your access key. */
+    Jedis jedis = new Jedis(shardInfo);
+     jedis.set("foo", "bar");
+     String value = jedis.get("foo");
+  }
+}
+```
 
 ## 后续步骤
 

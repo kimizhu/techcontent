@@ -1,12 +1,12 @@
 ---
 title: 预配置解决方案入门 | Azure
 description: 遵循本教程，了解如何部署 Azure IoT 套件预配置解决方案。
-services: 
+services: ''
 suite: iot-suite
-documentationCenter: 
+documentationCenter: ''
 authors: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: iot-suite
 ms.devlang: na
@@ -30,7 +30,8 @@ Azure IoT 套件[预配置解决方案][lnk-preconfigured-solutions]结合了多
 
 需要有效的 Azure 订阅才能完成此教程。
 
-> [!NOTE]  如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。有关详细信息，请参阅 [Trial][1rmb-trial]（试用）。
+> [!NOTE]
+>  如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。有关详细信息，请参阅 [Trial][1rmb-trial]（试用）。
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -105,7 +106,7 @@ Azure IoT 套件[预配置解决方案][lnk-preconfigured-solutions]结合了多
 3.  单击“模拟设备”磁贴上的“新增”。
 
     ![在仪表板中设置新设备详细信息][img-addnew]
-    
+
     如果选择创建“自定义设备”，则除了创建新的模拟设备，也可以添加物理设备。若要深入了解如何将物理设备连接到解决方案，请参阅[将设备连接到 IoT 套件远程监视预配置解决方案][lnk-connect-rm]。
 
 4.  选择“自行定义设备 ID”，然后输入唯一的设备 ID 名称，例如 **mydevice\_01**。
@@ -142,7 +143,7 @@ Azure IoT 套件[预配置解决方案][lnk-preconfigured-solutions]结合了多
 
     ![编辑设备元数据][img-editdevice3]  
 
-## 为新设备添加规则
+## <a name="add-a-rule-for-the-new-device"></a> 为新设备添加规则
 
 刚才添加的新设备没有规则。在本部分中，将添加一个规则，以便在新设备报告的温度超过 47 度时触发警报。在开始之前，请注意仪表板上新设备的遥测历史记录显示设备温度绝不会超过 45 度。
 
@@ -202,7 +203,8 @@ Azure IoT 套件[预配置解决方案][lnk-preconfigured-solutions]结合了多
 
 完成后，可在 [azureiotsuite.cn][lnk-azureiotsuite] 站点的 Azure 订阅中删除预配置解决方案。通过该站点，可轻松删除创建预配置解决方案时预配的所有资源。
 
-> [!NOTE] 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.cn][lnk-azureiotsuite] 站点中删除这些内容，而不只是删除门户中的资源组。
+> [!NOTE]
+> 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.cn][lnk-azureiotsuite] 站点中删除这些内容，而不只是删除门户中的资源组。
 
 ## 后续步骤
 

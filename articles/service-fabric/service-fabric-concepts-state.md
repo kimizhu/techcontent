@@ -5,7 +5,7 @@ services: service-fabric
 documentationCenter: .net
 authors: appi101
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -40,5 +40,5 @@ ms.author: aprameyr
 - [Service Fabric 服务的可伸缩性](./service-fabric-concepts-scalability.md)
 
 - [Service Fabric 服务分区](./service-fabric-concepts-partitioning.md)
- 
+
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

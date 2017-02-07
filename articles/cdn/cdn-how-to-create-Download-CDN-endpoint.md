@@ -4,14 +4,14 @@ urlDisplayName: CDN
 title: How to create Download acceleration type CDN - Azure feature guide
 metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN加速, CDN服务, 云加速, 下载加速, Download, 缓存规则, ICP, ICP备案号, ICP编号, 技术文档, 帮助文档, 带宽, 大文件下载, 软件升级安装包, 游戏下载加速, 应用程序下载加速, 手机app更新, 系统固件升级
 description: Learn How to create Download acceleration type CDN on Azure Management Portal and default caching rules for Download CDN
-metaCanonical: 
-services: 
+metaCanonical: ''
+services: ''
 documentationCenter: .NET
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: cdn
 ms.date: 7/72016
@@ -60,13 +60,13 @@ Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也�
     原始域类型是存储账户，对应的回源主机标头：
 
     ![007](./media/cdn-doc/007.png)  
-    
+
     原始域类型是自定义原始域对应的回源主机标头：
 
     ![013](./media/cdn-doc/013.png)
-    
+
 8. 在“ICP编号”中输入和上一步中所输入的自定义域名相对应的ICP备案号（如：京ICP备XXXXXXXX号-X）。
-     
+
     ![009](./media/cdn-doc/009.png) 
 
 9. 单击“创建”按钮以创建新的终结点。
@@ -77,4 +77,3 @@ Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也�
    ![010](./media/cdn-doc/010.png)
 
 > **注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Azure CDN](./cdn-how-to-use.md)中步骤2：创建新的CDN终结点的后半部分。
-

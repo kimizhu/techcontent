@@ -3,10 +3,10 @@ title: Azure AD Connect：将本地标识与 Azure Active Directory 集成 | Azu
 description: Azure AD Connect 会将本地目录与 Azure Active Directory 集成。这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序提供一个通用标识。
 keywords: Azure AD Connect 介绍, Azure AD Connect 概述, 什么是 Azure AD Connect, 安装 active directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: femila
-editor: 
+editor: ''
 
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
@@ -67,7 +67,7 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |安装后 | [验证安装并分配许可证](./active-directory-aadconnect-whats-next.md)|
 
 ### 了解有关安装 Azure AD Connect 的详细信息
-还要预先了解[操作](./active-directory-aadconnectsync-operations.md)注意事项。建议部署一台待机服务器，在发生[灾难](./active-directory-aadconnectsync-operations.md#disaster-recovery/)时便可轻松地进行故障转移。若要频繁地配置更改，应计划部署一台[暂存模式](./active-directory-aadconnectsync-operations.md#staging-mode/)服务器。
+还要预先了解[操作](./active-directory-aadconnectsync-operations.md)注意事项。建议部署一台待机服务器，在发生[灾难](./active-directory-aadconnectsync-operations.md#disaster-recovery)时便可轻松地进行故障转移。若要频繁地配置更改，应计划部署一台[暂存模式](./active-directory-aadconnectsync-operations.md#staging-mode)服务器。
 
 |主题 |链接|  
 | --- | --- |

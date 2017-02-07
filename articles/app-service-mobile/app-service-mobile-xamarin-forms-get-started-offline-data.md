@@ -4,7 +4,7 @@ description: 了解如何在 Xamarin.Forms 应用程序中使用应用服务移�
 documentationCenter: xamarin
 authors: adrianhall
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 
 ms.service: app-service-mobile
@@ -35,14 +35,16 @@ ms.author: adrianha
 1. 在 Visual Studio 中，右键单击解决方案 >“管理解决方案的 NuGet 程序包…”，然后在解决方案的所有项目中搜索并安装 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 包。
 
 2. 在解决方案资源管理器中，从名称中包含 **Portable** 的项目（该项目是可移植类库项目）中打开 TodoItemManager.cs 文件，然后取消注释以下预处理器指令：
-   
-        #define OFFLINE_SYNC_ENABLED
+
+    ```
+    #define OFFLINE_SYNC_ENABLED
+    ```
 3. （可选）若要支持 Windows 设备，请安装以下 SQLite 运行时包之一：
-   
+
    * **Windows 8.1 运行时：**安装 [SQLite for Windows 8.1][3]。
    * **Windows Phone 8.1：**安装 [SQLite for Windows Phone 8.1][4]。
    * **通用 Windows 平台** 安装[适用于通用 Windows 平台的 SQLite][5]。
-     
+
      虽然该快速入门不包含通用 Windows 项目，但是 Xamarin Forms 支持通用 Windows 平台。
 4. （可选）在每个 Windows 应用项目中，右键单击“引用”>“添加引用...”，展开“Windows”文件夹>“扩展”。启用与 **Visual C++ 2013 Runtime for Windows** SDK 配套的 **SQLite for Windows** SDK。每个 Windows 平台的 SQLite SDK 名称略有不同。
 
@@ -52,13 +54,15 @@ ms.author: adrianha
 
 * 表操作之前，必须初始化本地存储区。在 **TodoItemManager** 类构造函数中使用以下代码初始化本地存储数据库：
 
-        var store = new MobileServiceSQLiteStore(OfflineDbPath);
-        store.DefineTable<TodoItem>();
+    ```
+    var store = new MobileServiceSQLiteStore(OfflineDbPath);
+    store.DefineTable<TodoItem>();
 
-        //Initializes the SyncContext using the default IMobileServiceSyncHandler.
-        this.client.SyncContext.InitializeAsync(store);
+    //Initializes the SyncContext using the default IMobileServiceSyncHandler.
+    this.client.SyncContext.InitializeAsync(store);
 
-        this.todoTable = client.GetSyncTable<TodoItem>();
+    this.todoTable = client.GetSyncTable<TodoItem>();
+    ```
 
     此代码使用 **MobileServiceSQLiteStore** 类创建一个新的本地 SQLite 数据库。
 
@@ -68,48 +72,50 @@ ms.author: adrianha
 
     将调用以下 **SyncAsync** 方法来与移动应用后端进行同步：
 
-        public async Task SyncAsync()
+    ```
+    public async Task SyncAsync()
+    {
+        ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
+
+        try
         {
-            ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
+            await this.client.SyncContext.PushAsync();
 
-            try
+            await this.todoTable.PullAsync(
+                "allTodoItems",
+                this.todoTable.CreateQuery());
+        }
+        catch (MobileServicePushFailedException exc)
+        {
+            if (exc.PushResult != null)
             {
-                await this.client.SyncContext.PushAsync();
-
-                await this.todoTable.PullAsync(
-                    "allTodoItems",
-                    this.todoTable.CreateQuery());
-            }
-            catch (MobileServicePushFailedException exc)
-            {
-                if (exc.PushResult != null)
-                {
-                    syncErrors = exc.PushResult.Errors;
-                }
-            }
-
-            // Simple error/conflict handling. 
-            if (syncErrors != null)
-            {
-                foreach (var error in syncErrors)
-                {
-                    if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
-                    {
-                        //Update failed, reverting to server's copy.
-                        await error.CancelAndUpdateItemAsync(error.Result);
-                    }
-                    else
-                    {
-                        // Discard local change.
-                        await error.CancelAndDiscardItemAsync();
-                    }
-
-                    Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.",
-                        error.TableName, error.Item["id"]);
-                }
+                syncErrors = exc.PushResult.Errors;
             }
         }
-  
+
+        // Simple error/conflict handling. 
+        if (syncErrors != null)
+        {
+            foreach (var error in syncErrors)
+            {
+                if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
+                {
+                    //Update failed, reverting to server's copy.
+                    await error.CancelAndUpdateItemAsync(error.Result);
+                }
+                else
+                {
+                    // Discard local change.
+                    await error.CancelAndDiscardItemAsync();
+                }
+
+                Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.",
+                    error.TableName, error.Item["id"]);
+            }
+        }
+    }
+    ```
+
     此示例使用默认同步处理程序的简单错误处理。实际的应用程序使用自定义的 **IMobileServiceSyncHandler** 实现处理各种错误，如网络状况和服务器冲突。
 
 ##脱机同步注意事项
@@ -130,14 +136,18 @@ ms.author: adrianha
 
 1. 在解决方案资源管理器中，从 **Portable** 项目打开 Constants.cs 项目文件，更改 `ApplicationURL` 的值使其指向无效的 URL：
 
-        public static string ApplicationURL = @"https://your-service.azurewebsites.cn/";
+    ```
+    public static string ApplicationURL = @"https://your-service.azurewebsites.cn/";
+    ```
 
 2. 从 **Portable** 项目打开 TodoItemManager.cs 文件，然后在 **SyncAsync** 的 **try...catch** 块中为 **Exception** 基类添加一个 **catch**。此 **catch** 块会将异常消息写入控制台，如下所示：
 
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine(@"Exception: {0}", ex.Message);
-            }
+    ```
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine(@"Exception: {0}", ex.Message);
+        }
+    ```
 
 3. 生成并运行客户端应用。添加一些新的项。请注意每次尝试与后端同步时，都会在控制台中记录异常。这些新项目在推送到移动后端之前，只存在于本地存储中。客户端应用的行为就像它已连接到支持所有创建、读取、更新、删除 (CRUD) 操作的后端一样。
 

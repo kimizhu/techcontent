@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 JSON 设置文件包含要加载的模块的列表和模块之间的链接。每个模块必须指定：
 
 * **name**：模块的唯一名称。
-* **loader**：了解如何加载所需模块的加载程序。加载程序是用于加载各类模块的扩展点。我们提供用于使用本机 C、Node.js、Java 和 .Net 编写的模块的加载程序。Hello World 示例仅使用“本机”加载程序，因为此示例中的所有模块都是使用 C 语言编写的动态库。有关使用由其他各种语言编写的模块的详细信息，请参阅 [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/)、[Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) 或 [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) 示例。
+* **loader**：了解如何加载所需模块的加载程序。加载程序是用于加载各类模块的扩展点。我们提供用于使用本机 C、Node.js、Java 和 .Net 编写的模块的加载程序。Hello World 示例仅使用“本机”加载程序，因为此示例中的所有模块都是使用 C 语言编写的动态库。
     * **name**：用于加载模块的加载程序的名称。
     * **entrypoint**：包含模块的库的路径。在 Linux 上，这是一个 .so 文件，而在 Windows 上，这是一个 .dll 文件。请注意，此入口点特定于所用加载程序的类型。例如，Node.js 加载程序的入口点是 .js 文件，Java 加载程序的入口点是类路径 + 类名称，.Net 加载程序的入口点是程序集名称 + 类名称。
 
@@ -123,42 +123,44 @@ int helloWorldThread(void *param)
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
-    
-    // Add a property named "helloWorld" with a value of "from Azure IoT
-    // Gateway SDK simple sample!" to a set of message properties that
-    // will be appended to the message before publishing it. 
-    Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the content for the message
-    msgConfig.size = strlen(HELLOWORLD_MESSAGE);
-    msgConfig.source = HELLOWORLD_MESSAGE;
+```
+// Add a property named "helloWorld" with a value of "from Azure IoT
+// Gateway SDK simple sample!" to a set of message properties that
+// will be appended to the message before publishing it. 
+Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the properties for the message
-    msgConfig.sourceProperties = propertiesMap;
-    
-    // Create a message based on the msgConfig structure
-    MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
+// Set the content for the message
+msgConfig.size = strlen(HELLOWORLD_MESSAGE);
+msgConfig.source = HELLOWORLD_MESSAGE;
 
-    while (1)
+// Set the properties for the message
+msgConfig.sourceProperties = propertiesMap;
+
+// Create a message based on the msgConfig structure
+MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
+
+while (1)
+{
+    if (handleData->stopThread)
     {
-        if (handleData->stopThread)
-        {
-            (void)Unlock(handleData->lockHandle);
-            break; /*gets out of the thread*/
-        }
-        else
-        {
-            // publish the message to the broker
-            (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
-            (void)Unlock(handleData->lockHandle);
-        }
-
-        (void)ThreadAPI_Sleep(5000); /*every 5 seconds*/
+        (void)Unlock(handleData->lockHandle);
+        break; /*gets out of the thread*/
+    }
+    else
+    {
+        // publish the message to the broker
+        (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
+        (void)Unlock(handleData->lockHandle);
     }
 
-    Message_Destroy(helloWorldMessage);
+    (void)ThreadAPI_Sleep(5000); /*every 5 seconds*/
+}
 
-    return 0;
+Message_Destroy(helloWorldMessage);
+
+return 0;
+```
 }
 ```
 
@@ -183,38 +185,40 @@ Logger 模块接收来自中转站的消息，并将其写入文件中。它不�
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
-    time_t temp = time(NULL);
-    struct tm* t = localtime(&temp);
-    char timetemp[80] = { 0 };
+```
+time_t temp = time(NULL);
+struct tm* t = localtime(&temp);
+char timetemp[80] = { 0 };
 
-    // Get the message properties from the message
-    CONSTMAP_HANDLE originalProperties = Message_GetProperties(messageHandle); 
-    MAP_HANDLE propertiesAsMap = ConstMap_CloneWriteable(originalProperties);
+// Get the message properties from the message
+CONSTMAP_HANDLE originalProperties = Message_GetProperties(messageHandle); 
+MAP_HANDLE propertiesAsMap = ConstMap_CloneWriteable(originalProperties);
 
-    // Convert the collection of properties into a JSON string
-    STRING_HANDLE jsonProperties = Map_ToJSON(propertiesAsMap);
+// Convert the collection of properties into a JSON string
+STRING_HANDLE jsonProperties = Map_ToJSON(propertiesAsMap);
 
-    //  base64 encode the message content
-    const CONSTBUFFER * content = Message_GetContent(messageHandle);
-    STRING_HANDLE contentAsJSON = Base64_Encode_Bytes(content->buffer, content->size);
+//  base64 encode the message content
+const CONSTBUFFER * content = Message_GetContent(messageHandle);
+STRING_HANDLE contentAsJSON = Base64_Encode_Bytes(content->buffer, content->size);
 
-    // Start the construction of the final string to be logged by adding
-    // the timestamp
-    STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
-    STRING_concat(jsonToBeAppended, timetemp);
+// Start the construction of the final string to be logged by adding
+// the timestamp
+STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
+STRING_concat(jsonToBeAppended, timetemp);
 
-    // Add the message properties
-    STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
-    STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
+// Add the message properties
+STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
+STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
-    // Add the content
-    STRING_concat(jsonToBeAppended, ",\"content\":\"");
-    STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
-    STRING_concat(jsonToBeAppended, "\"}]");
+// Add the content
+STRING_concat(jsonToBeAppended, ",\"content\":\"");
+STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
+STRING_concat(jsonToBeAppended, "\"}]");
 
-    // Write the formatted string
-    LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
-    addJSONString(handleData->fout, STRING_c_str(jsonToBeAppended);
+// Write the formatted string
+LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
+addJSONString(handleData->fout, STRING_c_str(jsonToBeAppended);
+```
 }
 ```
 

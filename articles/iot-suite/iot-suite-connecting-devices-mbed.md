@@ -1,20 +1,20 @@
 ---
 title: 在 mbed 上使用 C 连接设备 | Azure
 description: 介绍如何使用在 mbed 设备上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。
-services: 
+services: ''
 suite: iot-suite
 documentationCenter: na
 authors: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
-wacn.date: 10/31/2016
+ms.date: 01/04/2017
+wacn.date: 01/25/2017
 ms.author: dobett
 ---
 
@@ -73,62 +73,68 @@ ms.author: dobett
     ![][9]  
 
 ### 演练代码
-
-如果对程序的工作原理感兴趣，此部分中介绍了示例代码的一些关键部分。如果你只是想运行代码，请跳到[生成并运行程序](#buildandrun)。
+如果对程序的工作原理感兴趣，此部分中介绍了示例代码的一些关键部分。若只需运行代码，请跳到[生成并运行程序](#buildandrun)。
 
 #### 定义模型
+此示例使用[序列化程序][lnk-serializer]库定义一个模型，该模型指定设备可以发送到 IoT 中心以及从 IoT 中心接收的消息。在此示例中，**Contoso** 命名空间定义的 **Thermostat** 模型指定了以下内容：
 
-此示例使用[序列化程序][lnk-serializer]库定义一个模型，该模型指定设备可以发送到 IoT 中心以及从 IoT 中心接收的消息。在此示例中，**Contoso** 命名空间定义一个 **Thermostat** 模型，该模型指定 **Temperature**、**ExternalTemperature** 和 **Humidity** 遥测数据以及元数据（如设备 ID、设备属性和设备响应的命令）：
+- **温度**、**ExternalTemperature** 和**湿度**遥测数据。
+- 元数据，例如设备 ID、设备属性。
+- 设备对其进行响应的命令：
 
     BEGIN_NAMESPACE(Contoso);
-    
+
     DECLARE_STRUCT(SystemProperties,
         ascii_char_ptr, DeviceID,
         _Bool, Enabled
     );
-    
+
     DECLARE_STRUCT(DeviceProperties,
     ascii_char_ptr, DeviceID,
     _Bool, HubEnabledState
     );
-    
+
     DECLARE_MODEL(Thermostat,
-    
-        /* Event data (temperature, external temperature and humidity) */
-        WITH_DATA(int, Temperature),
-        WITH_DATA(int, ExternalTemperature),
-        WITH_DATA(int, Humidity),
-        WITH_DATA(ascii_char_ptr, DeviceId),
-    
-        /* Device Info - This is command metadata + some extra fields */
-        WITH_DATA(ascii_char_ptr, ObjectType),
-        WITH_DATA(_Bool, IsSimulatedDevice),
-        WITH_DATA(ascii_char_ptr, Version),
-        WITH_DATA(DeviceProperties, DeviceProperties),
-        WITH_DATA(ascii_char_ptr_no_quotes, Commands),
-    
-        /* Commands implemented by the device */
-        WITH_ACTION(SetTemperature, int, temperature),
-        WITH_ACTION(SetHumidity, int, humidity)
+
+    ```
+    /* Event data (temperature, external temperature and humidity) */
+    WITH_DATA(int, Temperature),
+    WITH_DATA(int, ExternalTemperature),
+    WITH_DATA(int, Humidity),
+    WITH_DATA(ascii_char_ptr, DeviceId),
+
+    /* Device Info - This is command metadata + some extra fields */
+    WITH_DATA(ascii_char_ptr, ObjectType),
+    WITH_DATA(_Bool, IsSimulatedDevice),
+    WITH_DATA(ascii_char_ptr, Version),
+    WITH_DATA(DeviceProperties, DeviceProperties),
+    WITH_DATA(ascii_char_ptr_no_quotes, Commands),
+
+    /* Commands implemented by the device */
+    WITH_ACTION(SetTemperature, int, temperature),
+    WITH_ACTION(SetHumidity, int, humidity)
+    ```
     );
-    
+
     END_NAMESPACE(Contoso);
 
 与模型定义相关的是设备响应的 **SetTemperature** 和 **SetHumidity** 命令的定义：
 
-    EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
-    {
-        (void)printf("Received temperature %d\r\n", temperature);
-        thermostat->Temperature = temperature;
-        return EXECUTE_COMMAND_SUCCESS;
-    }
-    
-    EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
-    {
-        (void)printf("Received humidity %d\r\n", humidity);
-        thermostat->Humidity = humidity;
-        return EXECUTE_COMMAND_SUCCESS;
-    }
+```
+EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
+{
+    (void)printf("Received temperature %d\r\n", temperature);
+    thermostat->Temperature = temperature;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+
+EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
+{
+    (void)printf("Received humidity %d\r\n", humidity);
+    thermostat->Humidity = humidity;
+    return EXECUTE_COMMAND_SUCCESS;
+}
+```
 
 #### 将模型连接到库
 
@@ -150,33 +156,39 @@ ms.author: dobett
 
 下面提供了一个在启动时发送到 IoT 中心的示例 **DeviceInfo** 消息以供参考：
 
-    {
-      "ObjectType":"DeviceInfo",
-      "Version":"1.0",
-      "IsSimulatedDevice":false,
-      "DeviceProperties":
-      {
-        "DeviceID":"mydevice01", "HubEnabledState":true
-      }, 
-      "Commands":
-      [
-        {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
-        { "Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
-      ]
-    }
+```
+{
+  "ObjectType":"DeviceInfo",
+  "Version":"1.0",
+  "IsSimulatedDevice":false,
+  "DeviceProperties":
+  {
+    "DeviceID":"mydevice01", "HubEnabledState":true
+  }, 
+  "Commands":
+  [
+    {"Name":"SetHumidity", "Parameters":[{"Name":"humidity","Type":"double"}]},
+    { "Name":"SetTemperature", "Parameters":[{"Name":"temperature","Type":"double"}]}
+  ]
+}
+```
 
 下面提供了一个发送到 IoT 中心的示例 **Telemetry** 消息以供参考：
 
-    {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
+```
+{"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
+```
 
 下面提供了一个从 IoT 中心接收的示例**命令**以供参考：
 
-    {
-      "Name":"SetHumidity",
-      "MessageId":"2f3d3c75-3b77-4832-80ed-a5bb3e233391",
-      "CreatedTime":"2016-03-11T15:09:44.2231295Z",
-      "Parameters":{"humidity":23}
-    }
+```
+{
+  "Name":"SetHumidity",
+  "MessageId":"2f3d3c75-3b77-4832-80ed-a5bb3e233391",
+  "CreatedTime":"2016-03-11T15:09:44.2231295Z",
+  "Parameters":{"humidity":23}
+}
+```
 
 <a id="buildandrun"></a>  
 
@@ -210,4 +222,5 @@ ms.author: dobett
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: ../iot-hub/iot-hub-device-sdk-c-intro.md#serializer
 
-<!---HONumber=Mooncake_0815_2016-->
+<!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description:update wording-->

@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationCenter: na
 authors: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.service: vpn-gateway
@@ -30,15 +30,21 @@ ms.author: cherylmc
 
 1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。
 
-        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    ```
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    ```
 
 2. 检查该帐户的订阅。
 
-        Get-AzureRmSubscription 
+    ```
+    Get-AzureRmSubscription 
+    ```
 
 3. 指定要使用的订阅。
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+    ```
+    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+    ```
 
 ### 步骤 2：验证连接
 

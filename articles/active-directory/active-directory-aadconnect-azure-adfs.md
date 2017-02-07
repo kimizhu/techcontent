@@ -3,10 +3,10 @@ title: Azure 中的 Active Directory 联合身份验证服务 | Azure
 description: 在本文档中，你将学习如何在 Azure 中部署 AD FS 以实现高可用性。
 keywords: 在 azure 中部署 AD FS, 部署 azure adfs, azure adfs, azure ad fs,部署 adfs, 部署 ad fs, azure 中的 adfs, 在 azure 中部署 adfs, 在 azure 中部署 AD FS, adfs azure, AD FS 简介, Azure, Azure 中的 AD FS, iaas, ADFS, 将 adfs 移到 azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: femila
-editor: 
+editor: ''
 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
-wacn.date: 12/13/2016
+wacn.date: 01/19/2017
 ---
 
 # Azure 中的 AD FS 部署
@@ -141,7 +141,8 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。�
 **6.1.创建 ILB**
 
 若要部署 ILB，请在 Azure 门户预览选择“负载均衡器”，然后单击“添加”(+)。
->[!NOTE] 如果菜单中未显示“负载均衡器”，请单击门户左下角的“浏览”并向下滚动，直到看到“负载均衡器”。然后，单击黄色星号将它添加到菜单中。现在，请选择新负载均衡器的图标打开面板，并开始配置负载均衡器。
+>[!NOTE]
+> 如果菜单中未显示“负载均衡器”，请单击门户左下角的“浏览”并向下滚动，直到看到“负载均衡器”。然后，单击黄色星号将它添加到菜单中。现在，请选择新负载均衡器的图标打开面板，并开始配置负载均衡器。
 
 ![浏览负载均衡器](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
 
@@ -279,7 +280,8 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。�
 
 ![EXT 访问规则（入站）](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)  
 
->[!NOTE] 如果需要使用客户端用户证书身份验证（使用 X509 用户证书进行 clientTLS 身份验证），则 AD FS 要求为入站访问启用 TCP 端口 49443。
+>[!NOTE]
+> 如果需要使用客户端用户证书身份验证（使用 X509 用户证书进行 clientTLS 身份验证），则 AD FS 要求为入站访问启用 TCP 端口 49443。
 
 ### 10\.测试 AD FS 登录
 测试 AD FS 的最简单方法是使用 IdpInitiatedSignon.aspx 页。若要执行此操作，必须在 AD FS 属性中启用 IdpInitiatedSignOn。请遵循以下步骤来验证你的 AD FS 设置

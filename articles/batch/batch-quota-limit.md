@@ -2,10 +2,10 @@
 title: Batch 服务的配额和限制 | Azure
 description: 了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额
 services: batch
-documentationCenter: 
+documentationCenter: ''
 authors: mmacy
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: batch
 ms.workload: big-compute
@@ -23,7 +23,8 @@ ms.author: marsma
 
 如果你打算在 Batch 中运行生产工作负荷，可能需要将一个或多个配额提高到默认值以上。如果需要提高配额，可以免费提出在线[客户支持请求](#increase-a-quota)。
 
->[!NOTE] 配额是一种信用限制，不附带容量保证。如果你有大规模的容量需求，请联系 Azure 支持。
+>[!NOTE]
+> 配额是一种信用限制，不附带容量保证。如果你有大规模的容量需求，请联系 Azure 支持。
 
 ## 订阅配额
 **资源**|**默认限制**|**最大限制**

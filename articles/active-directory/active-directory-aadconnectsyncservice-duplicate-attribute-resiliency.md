@@ -2,10 +2,10 @@
 title: 标识同步和重复属性复原 | Azure
 description: 介绍如何借助一种新的行为，在目录同步期间使用 Azure AD Connect 处理具有 UPN 或 ProxyAddress 冲突的对象。
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: markusvi
 manager: femila
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.workload: identity
@@ -22,7 +22,8 @@ wacn.date: 01/09/2017
 
 在给定 Azure Active Directory 租户的所有“用户”、“组”或“联系人”对象中，这两个属性通常必须是唯一的。
 
-> [!NOTE] 只有用户可以拥有 UPN。
+> [!NOTE]
+> 只有用户可以拥有 UPN。
 
 此功能实现的新行为是同步管道的云部分，因此，此功能不区分客户端，而是与任何 Microsoft 同步产品（包括 Azure AD Connect、DirSync 和 MIM + 连接器）相关。本文档中使用的概括术语“同步客户端”用于表示上述任一产品。
 

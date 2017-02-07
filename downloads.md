@@ -4,17 +4,17 @@ urlDisplayName: 下载和安装 Azure SDK工具
 title: Azure 服务管理
 metaKeywords: 下载和安装 Azure SDK工具
 description: 下载和安装 Azure SDK、Azure PowerShell 和用于管理和部署的命令行工具
-metaCanonical: 
+metaCanonical: ''
 services: downloads
 documentationCenter: downloads
 title: 下载和安装 Azure SDK工具
 authors: ACom
-solutions: 
-manager: 
+solutions: ''
+manager: ''
 editor: Eric Chen
 
 ms.service: downloads
-ms.date: 
+ms.date: ''
 wacn.date: 11/25/2016
 ---
 
@@ -23,7 +23,8 @@ wacn.date: 11/25/2016
   <h3>获取你所需的 SDK 和命令行工具</h3>
 </div>
 
->[!NOTE] 本文涉及的 SDK 和工具应用于由微软运营的 Microsoft Azure 服务；在中国， Microsoft Azure 服务由世纪互联公司运营，如需使用，请参考 [Azure 应用程序开发说明](./articles/developerdifferences.md)。
+>[!NOTE]
+> 本文涉及的 SDK 和工具应用于由微软运营的 Microsoft Azure 服务；在中国， Microsoft Azure 服务由世纪互联公司运营，如需使用，请参考 [Azure 应用程序开发说明](./articles/developerdifferences.md)。
 
 <div>
   <h2>SDK</h2>
@@ -96,7 +97,7 @@ wacn.date: 11/25/2016
       <!--li><a href="http://nuget.org/packages/WindowsAzure.MobileServices/">Windows 应用商店 C# 安装</a></li-->
       <!--li><a href="http://nuget.org/packages/WindowsAzure.MobileServices.WinJS/">Windows 应用商店 JS 安装</a></li-->
       <li><a href="http://nuget.org/packages/WindowsAzure.MobileServices/">Windows Phone 8 安装</a></li>
-      <li><a href="./articles/mobile-services/index.md/">文档</a></li>
+      <li><a href="./articles/mobile-services/index.md">文档</a></li>
     </ul>
   </div>
   <div>

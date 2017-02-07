@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: na
 author: cawams
 manager: timlt
-editor: 
+editor: ''
 
 ms.assetid: fc743585-0d1b-483f-981d-493f4552ac07
 ms.service: multiple
@@ -94,7 +94,8 @@ ms.author: cawa
 
 4. 在“运行设置”部分中，指定负载测试持续期间。
 
-    >[!NOTE] 仅当你使用 Visual Studio 在本地运行负载测试时，“测试迭代”选项才可用。
+    >[!NOTE]
+    > 仅当你使用 Visual Studio 在本地运行负载测试时，“测试迭代”选项才可用。
 
 5. 在“运行设置”的“位置”部分中，指定生成负载测试请求的位置。该向导可能会提示你登录 Team Services 帐户。请登录，然后选择一个地理位置。完成后，请选择“完成”按钮。
 

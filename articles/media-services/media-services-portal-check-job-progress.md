@@ -2,10 +2,10 @@
 title: 如何使用 Azure 经典管理门户检查作业进度
 description: 了解如何使用 Azure 经典管理门户跟踪作业进度。
 services: media-services
-documentationCenter: 
+documentationCenter: ''
 authors: juliako
 manager: erikre
-editor: 
+editor: ''
 
 ms.service: media-services
 ms.workload: media
@@ -38,5 +38,5 @@ ms.author: juliako
 发布内容。有关详细信息，请参阅[如何：对资产进行编码](./media-services-manage-content.md#publish)。
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 
+
 <!---HONumber=Mooncake_0926_2016-->

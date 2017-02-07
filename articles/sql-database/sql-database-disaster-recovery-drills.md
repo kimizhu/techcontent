@@ -2,7 +2,7 @@
 title: SQL 数据库灾难恢复演练
 description: 了解有关使用 Azure SQL 数据库执行灾难恢复演练，帮助任务关键型业务应用程序弹性应对故障和中断的指南和最佳实践。
 services: sql-database
-documentationCenter: 
+documentationCenter: ''
 authors: mihaelablendea
 manager: jhubbard
 editor: monicar
@@ -32,7 +32,7 @@ ms.author: mihaelab
 ##异地还原
 
 若要防止执行灾难恢复演练时发生潜在的数据丢失，我们建议通过创建生产环境的副本在测试环境中执行演练，并使用测试环境来验证应用程序的故障转移工作流。
- 
+
 ####中断模拟
 
 若要模拟中断，可以删除或重命名源数据库。这会导致应用程序连接失败。

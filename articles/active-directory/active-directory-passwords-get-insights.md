@@ -2,7 +2,7 @@
 title: 深入分析：Azure AD 密码管理报告 | Azure
 description: 本文介绍如何使用报告来深入分析组织中的密码管理操作。
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: asteen
 manager: femila
 editor: curtand
@@ -153,5 +153,5 @@ ms.author: asteen
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
+
 <!---HONumber=Mooncake_0815_2016-->

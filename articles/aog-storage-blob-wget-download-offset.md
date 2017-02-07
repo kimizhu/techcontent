@@ -2,10 +2,10 @@
 title: 关于 wget 下载 Blob 文件如何断点续传
 description: 关于 wget 下载 Blob 文件如何断点续传。
 services: storage
-documentationCenter: 
-authors: 
-manager: 
-editor: 
+documentationCenter: ''
+authors: ''
+manager: ''
+editor: ''
 tags: wget,blob文件,断点续传
 
 ms.service: storage-aog
@@ -30,4 +30,3 @@ Linux 环境下使用 wget 命令下载 Blob 文件断点续传问题
 通过加参数 `--header "x-ms-version: 2015-04-05"`，指定 REST HTTP 请求版本：
 
 ![REST HTTP 请求](./media/aog-storage-blob-wget-download-offset/wget-rest-http-request.png "REST HTTP 请求")
-

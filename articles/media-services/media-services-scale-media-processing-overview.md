@@ -2,10 +2,10 @@
 title: 调整媒体处理的规模概述 | Azure
 description: 本主题概述了如何使用 Azure 媒体服务调整媒体处理的规模。
 services: media-services
-documentationCenter: 
+documentationCenter: ''
 authors: juliako
 manager: erikre
-editor: 
+editor: ''
 
 ms.service: media-services
 ms.workload: media
@@ -38,7 +38,8 @@ ms.author: juliako
 
 ##注意事项
 
->[!IMPORTANT] 查看本节中所述的注意事项。
+>[!IMPORTANT]
+> 查看本节中所述的注意事项。
 
 - 保留单元可用于并行化所有媒体处理，其中使用 Azure Media Indexer 为作业编制索引。但是，与编码不同，索引作业使用更快的保留单元并不能更快地完成处理。
 

@@ -2,10 +2,10 @@
 title: Azure SDK for .NET 发行说明
 description: Azure SDK for .NET 发行说明
 services: app-service/web
-documentationCenter: 
+documentationCenter: ''
 authors: Juliako
 manager: dwrede
-editor: 
+editor: ''
 
 ms.service: media-services
 ms.workload: media
@@ -66,5 +66,5 @@ ms.author: juliako
 [Azure SDK for .NET](/downloads/)
 
 [MSDN 上的 Azure SDK 发行说明](https://msdn.microsoft.com/zh-cn/library/azure/dn627519.aspx)
- 
+
 <!---HONumber=Mooncake_0118_2016-->

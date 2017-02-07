@@ -2,7 +2,7 @@
 title: Azure Multi-Factor Authentication - 工作原理
 description: Azure Multi-Factor Authentication 可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。它通过要求第二种形式的身份验证提供额外的安全性，并通过一系列简单的身份验证选项提供增强式身份验证。
 services: multi-factor-authentication
-documentationCenter: 
+documentationCenter: ''
 authors: billmath
 manager: stevenpo
 editor: curtland
@@ -40,12 +40,12 @@ Azure 多重身份验证可帮助保护对数据和应用程序的访问，同�
    <tr>
       <th>验证方法</th>
       <th>说明</th>
-    
+
    </tr>
    <tr>
       <td>电话呼叫</td>
       <td>向用户的智能手机拨打电话，要求他们按 # 号来验证其登录。这样就会完成验证过程。此选项可配置，并可以更改为你指定的代码</td>
-      
+
    </tr>
    <tr>
       <td>短信</td>
@@ -68,12 +68,12 @@ Azure 多重身份验证有两个不同的版本。下表较详细地描述了�
    <tr>
       <th>版本 </th>
       <th>说明</th>
-    
+
    </tr>
    <tr>
       <td>适用于 Office 365 的多重身份验证</td>
       <td>此版本专门与 Office 365 应用程序配合使用，可以从 Office 365 门户进行管理。因此，管理员现在可以借助多重身份验证来保护其 Office 365 资源。Office 365 订阅随附了此版本</td>
-      
+
    </tr>
    <tr>
       <td>面向 Azure 管理员的多重身份验证</td>

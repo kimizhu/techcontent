@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
 manager: jhubbard
-editor: 
+editor: ''
 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
@@ -86,10 +86,12 @@ ms.author: shigu;barbkess
 
 若要减少内存压力，可使用 MAXDOP 查询提示，在每次分发中强制加载操作以串行模式运行。
 
-    CREATE TABLE MyFactSalesQuota 
-    WITH (DISTRIBUTION = ROUND_ROBIN)
-    AS SELECT * FROM FactSalesQUota 
-    OPTION (MAXDOP 1);
+```
+CREATE TABLE MyFactSalesQuota 
+WITH (DISTRIBUTION = ROUND_ROBIN)
+AS SELECT * FROM FactSalesQUota 
+OPTION (MAXDOP 1);
+```
 
 ## 分配更多内存的方法
 

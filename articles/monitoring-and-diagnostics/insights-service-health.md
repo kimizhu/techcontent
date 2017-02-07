@@ -2,8 +2,8 @@
 title: 使用 Azure Monitor 活动日志跟踪 Azure 服务运行状况 | Azure
 description: 在 Azure 遇到性能下降或服务中断及时发现。
 authors: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 services: monitoring-and-diagnostics
 documentationCenter: monitoring-and-diagnostics
 
@@ -27,7 +27,7 @@ ms.author: robb
 2. 在“主页”上，应看到名为“服务运行状况”的磁贴。单击它。
     ![主页](./media/insights-service-health/Insights_Home.png)
 3. 会看到 Azure 中所有区域的列表。单击任何区域可打开活动日志查询，该查询可显示过去 24 小时内影响任何订阅的服务事件。
-   
+
     ![活动日志订阅服务运行状况](./media/insights-service-health/AzureActivityLogServiceHealth3.png)  
 
 4. 单击表中的各个事件可以查看该事件的详细信息。

@@ -4,12 +4,12 @@ metaKeywords: .NET
 description: Azure 开发人员中心：.NET
 services: .NET
 documentationCenter: Develop
-authors: 
+authors: ''
 manager: Tiffena
 editor: Eric Chen
 
 ms.service: .NET
-ms.date: 
+ms.date: ''
 wacn.date: 04/11/2016
 ---
 
@@ -50,4 +50,3 @@ wacn.date: 04/11/2016
         <td>服务管理 <a href="http://go.microsoft.com/fwlink/p/?linkid=327806&clcid=0x804">.NET</a> | <a href="http://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx">REST</a></td>
       </tr>
 </table>
-

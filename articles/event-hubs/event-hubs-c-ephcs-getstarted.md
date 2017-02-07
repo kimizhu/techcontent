@@ -2,18 +2,18 @@
 title: C 和 C# 中的事件中心入门 | Azure
 description: 遵循本教程开始使用 Azure 事件中心，以通过 C 发送事件，并使用 EventProcessorHost 通过 C# 接收事件。
 services: event-hubs
-documentationCenter: 
+documentationCenter: ''
 authors: jtaubensee
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/16/2016
-wacn.date: 01/04/2017
+ms.date: 11/30/2016
+wacn.date: 01/23/2017
 ms.author: jotaub;sethm
 ---
 
@@ -47,11 +47,11 @@ ms.author: jotaub;sethm
 
 现在，你已准备就绪，可以运行应用程序了。
 
-1.	从 Visual Studio 中，运行 **Receiver** 项目，然后等待它为所有分区启动接收方。
+1. 从 Visual Studio 中，运行 **Receiver** 项目，然后等待它为所有分区启动接收方。
 
     ![][21]
 
-2.	运行 **Sender** 程序，然后就会看到事件出现在接收方窗口中。
+2. 运行 **Sender** 程序，然后就会看到事件出现在接收方窗口中。
 
     ![][24]
 
@@ -75,3 +75,4 @@ ms.author: jotaub;sethm
 [使用事件中心扩大事件处理]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 
 <!---HONumber=Mooncake_Quality_Review_1230_2016-->
+<!--Update_Description:update meta properties-->

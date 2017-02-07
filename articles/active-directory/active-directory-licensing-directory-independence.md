@@ -2,10 +2,10 @@
 title: 添加和管理多个 Azure Active Directory 目录 | Azure
 description: 有关添加和管理 Azure Active Directory 目录的说明与最佳实践，解释目录为何是完全独立的资源
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: femila
-editor: 
+editor: ''
 
 ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-directory
@@ -40,7 +40,8 @@ wacn.date: 12/12/2016
 ## 添加 Azure AD 目录
 若要在 Azure 经典管理门户中添加 Azure AD 目录，请选择左侧的 Azure Active Directory 扩展，然后点击“添加”。
 
-> [!NOTE]   与其他 Azure 资源不同，目录不是 Azure 订阅的子资源。如果取消 Azure 订阅或让其过期，仍可使用 Azure PowerShell、Azure 图形 API 或其他界面（例如 Office 365 管理中心）访问目录数据。还可以将其他订阅与目录相关联。
+> [!NOTE]
+>   与其他 Azure 资源不同，目录不是 Azure 订阅的子资源。如果取消 Azure 订阅或让其过期，仍可使用 Azure PowerShell、Azure 图形 API 或其他界面（例如 Office 365 管理中心）访问目录数据。还可以将其他订阅与目录相关联。
 
 有关 Azure AD 许可问题和最佳实践的一般概述，请参阅[什么是 Azure Active Directory 许可？](./active-directory-licensing-what-is.md)。
 

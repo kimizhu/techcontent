@@ -1,11 +1,11 @@
 ---
 title: 使用 Azure Toolkit for Eclipse 启用会话相关性
 description: 了解如何使用 Azure Toolkit for Eclipse 启用会话相关性。
-services: 
+services: ''
 documentationCenter: java
 authors: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 
 ms.service: multiple
 ms.workload: na

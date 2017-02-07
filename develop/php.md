@@ -3,12 +3,12 @@ title: Azure 开发人员中心：PHP
 description: Azure 开发人员中心：PHP
 services: PHP
 documentationCenter: Develop
-authors: 
+authors: ''
 manager: Tiffena
 editor: Eric Chen
 
 ms.service: PHP
-ms.date: 
+ms.date: ''
 wacn.date: 08/11/2016
 ---
 
@@ -60,4 +60,3 @@ wacn.date: 08/11/2016
 - [应用服务](/develop/php/app-services)---了解 Azure 服务
 - [SDK 中 IsInRole 中的声明](../articles/php-download-sdk.md)---下载 Azure SDK for PHP
 - [开放源](http://github.com/windowsazure/azure-sdk-for-php)---在 GitHub 上查看和贡献源代码
-

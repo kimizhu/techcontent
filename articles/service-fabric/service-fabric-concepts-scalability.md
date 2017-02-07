@@ -5,7 +5,7 @@ services: service-fabric
 documentationCenter: .net
 authors: appi101
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -60,5 +60,5 @@ Service Fabric 支持将单个服务分区为多个较小的分区。[分区概�
 - [Service Fabric 服务分区](./service-fabric-concepts-partitioning.md)
 
 - [定义和管理状态](./service-fabric-concepts-state.md)
- 
+
 <!---HONumber=Mooncake_Quality_Review_0117_2017-->

@@ -4,14 +4,14 @@ urlDisplayName: CDN
 title: How to useAzure CDN Management Portal advanced features - Azure feature guide
 metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN
 description: Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint
-metaCanonical: 
-services: 
+metaCanonical: ''
+services: ''
 documentationCenter: .NET
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: cdn
 ms.date: 7/7/2016
@@ -86,7 +86,7 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 >只有状态为**开启**的域名才可以正常使用CDN服务。
 
 #### **缓存规则配置视图**
- 
+
 ![][4]
 
 如上图，系统会根据缓存规则设置默认规则。用户可以根据需求加以调整。用户规则优先匹配，如果用户规则未命中，则逐条执行系统默认缓存规则。

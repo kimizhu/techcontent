@@ -2,18 +2,18 @@
 title: 在门户中的自动缩放云服务 | Azure
 description: （经典）了解如何使用经典门户在 Azure 中为云服务 Web 角色或辅助角色配置自动缩放规则。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-wacn.date: 12/12/2016
+ms.date: 01/04/2017
+wacn.date: 01/25/2017
 ms.author: adegeo
 ---
 
@@ -21,7 +21,8 @@ ms.author: adegeo
 
 在 Azure 经典管理门户的“缩放”页中，你可以手动缩放 Web 角色或辅助角色，或者根据 CPU 负载或消息队列启用自动缩放。
 
->[!NOTE] 本文着重于云服务 Web 和辅助角色。如果直接创建虚拟机（经典），该虚拟机将托管在云服务中。其中有些信息适用于这些类型的虚拟机。缩放虚拟机的可用性集其实只是根据配置的缩放规则将其关闭或打开。有关虚拟机和可用性集的详细信息，请参阅 [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)（管理虚拟机的可用性）
+>[!NOTE]
+> 本文着重于云服务 Web 和辅助角色。如果直接创建虚拟机（经典），该虚拟机将托管在云服务中。其中有些信息适用于这些类型的虚拟机。缩放虚拟机的可用性集其实只是根据配置的缩放规则将其关闭或打开。有关虚拟机和可用性集的详细信息，请参阅 [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)（管理虚拟机的可用性）
 
 在配置应用程序的缩放之前，应考虑以下信息：
 
@@ -56,7 +57,8 @@ ms.author: adegeo
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称，打开仪表板。
 
-    > [!TIP] 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
+    > [!TIP]
+    > 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
 
 2. 单击“缩放”。
 
@@ -72,7 +74,8 @@ ms.author: adegeo
 
 6. 单击“保存”。将根据选择添加或删除角色实例。
 
->[!TIP] 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
+>[!TIP]
+> 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
 
 ## 自动缩放 - CPU
 
@@ -80,7 +83,8 @@ ms.author: adegeo
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称，打开仪表板。
 
-    > [!TIP] 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
+    > [!TIP]
+    > 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
 
 2. 单击“缩放”。
 
@@ -92,7 +96,8 @@ ms.author: adegeo
 
 ![按 CPU 负载缩放云服务角色][cpu_scale]  
 
->[!TIP] 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
+>[!TIP]
+> 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
 
 ## 自动缩放 - 队列
 
@@ -100,7 +105,8 @@ ms.author: adegeo
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称，打开仪表板。
 
-    > [!TIP] 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
+    > [!TIP]
+    > 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
 
 2. 单击“缩放”。
 
@@ -110,7 +116,8 @@ ms.author: adegeo
 
 ![按消息队列缩放云服务角色][queue_scale]  
 
->[!TIP] 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
+>[!TIP]
+> 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
 
 ## 缩放链接的资源
 
@@ -118,13 +125,15 @@ ms.author: adegeo
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称，打开仪表板。
 
-    > [!TIP] 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
+    > [!TIP]
+    > 如果未看到你的云服务，可能需要从“生产”更改为“过渡”，或者进行相反的切换。
 
 2. 单击“缩放”。
 
 3. 找到“链接的资源”部分，然后单击“管理此数据库的规模”。
 
-    > [!NOTE] 如果未看到“链接的资源”部分，则可能表示没有任何链接的资源。
+    > [!NOTE]
+    > 如果未看到“链接的资源”部分，则可能表示没有任何链接的资源。
 
 ![][linked_resource]
 
@@ -137,3 +146,4 @@ ms.author: adegeo
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
 <!---HONumber=Mooncake_Quality_Review_1118_2016-->
+<!--Update_Description:update meta properties-->

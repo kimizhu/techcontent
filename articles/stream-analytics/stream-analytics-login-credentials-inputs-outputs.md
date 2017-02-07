@@ -3,7 +3,7 @@ title: 流分析：轮转输入和输出的登录凭据 | Azure
 description: 了解如何更新流分析输入和输出的凭据。
 keywords: 登录凭据
 services: stream-analytics
-documentationCenter: 
+documentationCenter: ''
 authors: jeffstokes72
 manager: jhubbard
 editor: cgronlun
@@ -35,7 +35,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 对于其他输入/输出，请执行第 2 部分。
 
 ### Blob 存储/表存储
-1. 转到 Azure 管理门户的存储扩展：  
+1. 转到 Azure 经典管理门户的存储扩展：  
    ![graphic1][graphic1]
 2. 找到你的作业使用的存储并进入它：  
    ![graphic2][graphic2]
@@ -49,7 +49,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 7. 继续完成第 2 部分。
 
 ### 事件中心
-1. 转到 Azure 管理门户的服务总线扩展：  
+1. 转到 Azure 经典管理门户的服务总线扩展：  
    ![graphic6][graphic6]
 2. 找到你的作业使用的 Service Bus 命名空间，然后进入该空间：  
    ![graphic7][graphic7]
@@ -71,9 +71,10 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 
 ### SQL 数据库
 
->[!NOTE] 注意：需要连接到 SQL 数据库服务。我们会根据 Azure 管理门户上的管理经验来说明具体如何做，但是，也可以选择使用某些客户端工具，例如 SQL Server Management Studio。
+>[!NOTE]
+> 注意：需要连接到 SQL 数据库服务。我们会根据 Azure 经典管理门户上的管理经验来说明具体如何做，但是，也可以选择使用某些客户端工具，例如 SQL Server Management Studio。
 
-1. 转到 Azure 管理门户的 SQL 数据库扩展：  
+1. 转到 Azure 经典管理门户的 SQL 数据库扩展：  
    ![graphic14][graphic14]
 2. 找到你的作业所使用的 SQL 数据库，然后**单击服务器**链接（位于同一行）：  
    ![graphic15][graphic15]
@@ -105,7 +106,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 16. 继续完成第 2 部分。
 
 ## 第 2 部分：停止流分析作业
-1. 转到 Azure 管理门户的流分析扩展：  
+1. 转到 Azure 经典管理门户的流分析扩展：  
    ![graphic26][graphic26]
 2. 找到你的作业并进入它：  
    ![graphic27][graphic27]
@@ -188,7 +189,9 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 
 你会获得以下确认：
 
-    Command(s) completed successfully.
+```
+Command(s) completed successfully.
+```
 
 ## 获取帮助
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=AzureStreamAnalytics)。

@@ -2,10 +2,10 @@
 title: 在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户 | Azure
 description: 介绍如何在 Azure Active Directory 中添加用户或更改用户信息，包括外部用户和来宾用户。
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: curtand
 manager: femila
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.workload: identity
@@ -37,7 +37,8 @@ ms.author: curtand
 
 7. 在“获取临时密码”页上，选择“创建”。
 
-> [!IMPORTANT] 如果你所在的组织使用多个域，在添加用户帐户时你应知道以下问题：
+> [!IMPORTANT]
+> 如果你所在的组织使用多个域，在添加用户帐户时你应知道以下问题：
 >
 > - 若要跨域添加具有相同用户主体名称 (UPN) 的用户帐户，例如，你可以**先**添加 geoffgrisso@contoso.partner.onmschina.cn，**再**添加 geoffgrisso@contoso.com。
 > - **不要**在添加 geoffgrisso@contoso.partner.onmschina.cn 之前添加 geoffgrisso@contoso.com。此顺序非常重要，事后想要撤消操作将很麻烦。

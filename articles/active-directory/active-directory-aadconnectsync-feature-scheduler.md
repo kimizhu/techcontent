@@ -2,10 +2,10 @@
 title: Azure AD Connect 同步：计划程序 | Azure
 description: 本主题介绍 Azure AD Connect 同步中的内置计划程序。
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: AndKjell
 manager: StevenPo
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.devlang: na
@@ -116,7 +116,9 @@ Azure AD Connect 同步会使用计划程序同步本地目录中发生的更改
 ### Invoke-ADSyncRunProfile
 可以用这种方式为连接器启动配置文件：
 
-    Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
+```
+Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
+```
 
 用于[连接器名称](./active-directory-aadconnectsync-service-manager-ui-connectors.md)和[运行配置文件名称](./active-directory-aadconnectsync-service-manager-ui-connectors.md)的名称可以在[同步服务管理器 UI](./active-directory-aadconnectsync-service-manager-ui.md) 中找到。
 
@@ -138,7 +140,9 @@ Azure AD Connect 同步会使用计划程序同步本地目录中发生的更改
 ### Get-ADSyncConnectorRunStatus
 还可以监视同步引擎以了解它是忙还是空闲。如果同步引擎处于空闲状态且未运行连接器，则此 cmdlet 将返回一个空结果。如果连接器正在运行，它将返回连接器的名称。
 
-    Get-ADSyncConnectorRunStatus
+```
+Get-ADSyncConnectorRunStatus
+```
 
 ![连接器运行状态](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
 在上图中，第一行来自同步引擎处于空闲的状态。第二行来自 Azure AD 连接器正在运行时。

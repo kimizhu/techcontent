@@ -1,12 +1,12 @@
 ---
 title: Azure SQL 数据库提供安全和保护
 description: 了解 SQL 数据库如何帮助提供安全和保护
-keywords: 
+keywords: ''
 services: sql-database
-documentationCenter: 
+documentationCenter: ''
 authors: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 
 ms.service: sql-database
 ms.devlang: NA
@@ -54,7 +54,7 @@ SQL 数据库提供多层数据保护。通过在空闲时、运转中或使用�
 ## 其他资源
 
 浏览所有 [SQL 数据库的功能](https://www.azure.cn/home/features/sql-database/)。
- 
+
 查看 [SQL 数据库技术概述](./sql-database-technical-overview.md)。
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

@@ -4,14 +4,14 @@ urlDisplayName: CDN
 title: Overview of Azure CDN in China - Azure feature guide
 metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN加速, CDN服务, 主流CDN, 多场景加速, 免费CDN, CDN网站加速, 网站加速, 网页加速, 静态加速, 下载加速, VOD加速, 流媒体直播加速, 云服务,  存储账户,缓存刷新, 回源, 云加速, 加速效果, 节点, 流量, CNAME, 带宽, 网速, 防盗链,https加速, 低成本带宽, 访问加速, 小文件加速, 下载加速, 大文件加速, 流媒体加速, HTTPS安全加速, 缓存刷新, 内容预加载, 防盗链, 日志下载, CDN技术文档, CDN帮助文档, CDN FAQ
 description: Learn the overview of Azure CDN, advantages, typical scenarios and key features.
-metaCanonical: 
-services: 
+metaCanonical: ''
+services: ''
 documentationCenter: .NET
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: cdn
 ms.workload: tbd
@@ -41,7 +41,7 @@ Azure CDN （内容传送网络） 通过遍布在中国大陆的众多物理节
 ## 什么是CDN<a id="step1"></a>
 
 CDN 的全称是 Content Delivery Network，即内容传送网络。目前几乎所有大型网站都在使用这一技术，但该技术并非大型网站的专利。其基本思路是尽可能避开互联网上有可能 影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置节点服务器，以互联网为基础构建一层更智能的虚拟网络，CDN 系统能够实时地根据网 络流量和各节点的连接、负载状况，以及到用户的距离和响应时间等综合信息，将用户的请 求重新导向距离用户最近的服务节点。
- 
+
 以微软公司的网站为例，微软是一家美国公司，但客户遍及全球。这也意味着全球各地都有 用户可能需要访问微软网站，或从 Microsoft Update 下载产品更新。如果只将网站服务器部署在美国的一个位置，该地区周围的用户访问时无疑可以获得满意的速度，毕竟距离近， 网络延迟也低。但如果中国的用户需要通过美国这一位置的服务器下载产品更新，就需要在中国和美国之间往返传输所有数据包。由于线路总长度高达数千公里，这会造成极大的延迟。
 
 为了解决这个问题，可以在中国放置 CDN节点。CDN节点可以自动将数据缓存到全中国主要城市的数据中心内，让内容和用户之间的距离更短，进而降低传输数据所需的时间。通过 CDN 的缓存，用户可以就近获得所需内容，解决 Internet 网络拥挤的状况，提高用户访问网站和应用程序的响应速度。

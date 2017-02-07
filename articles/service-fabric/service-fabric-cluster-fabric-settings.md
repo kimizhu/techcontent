@@ -1,4 +1,3 @@
-
 ---
 title: 自定义 Service Fabric 群集设置和结构升级策略 | Azure
 description: 本文介绍可以自定义的结构设置和结构升级策略。
@@ -6,7 +5,7 @@ services: service-fabric
 documentationCenter: .net
 authors: chackdan
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: service-fabric
 ms.devlang: dotnet

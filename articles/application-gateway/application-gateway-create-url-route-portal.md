@@ -5,7 +5,7 @@ services: application-gateway
 documentationCenter: na
 authors: georgewallace
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.service: application-gateway
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
-wacn.date: 01/05/2017
+ms.date: 12/13/2016
+wacn.date: 01/25/2017
 ms.author: gwallace
 ---
 
@@ -67,7 +67,8 @@ ms.author: gwallace
 - **后端池** - 此设置可定义要用于规则的后端
 - **HTTP 设置** - 此设置可定义要用于规则的 HTTP 设置。
 
->[!IMPORTANT] 路径：要匹配的路径模式列表。每个模式必须以 / 开头，“\*”只允许放在末尾处。有效示例包括 /xyz、/xyz* 或 /xyz/*。
+>[!IMPORTANT]
+> 路径：要匹配的路径模式列表。每个模式必须以 / 开头，“\*”只允许放在末尾处。有效示例包括 /xyz、/xyz* 或 /xyz/*。
 
 ![添加填写了信息的“基于路径的规则”边栏选项卡][2]  
 

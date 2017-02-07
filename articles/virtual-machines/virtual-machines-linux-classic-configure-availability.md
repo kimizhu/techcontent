@@ -2,10 +2,10 @@
 title: 经典 Linux VM 的可用性集 |Azure
 description: 在经典部署模型中，使用 Azure 门户预览和 Azure PowerShell，为新的或现有的 Linux 虚拟机配置可用性集。
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.service: virtual-machines-linux
@@ -20,7 +20,8 @@ ms.author: cynthn
 
 # 如何在经典部署模型中为 Linux 虚拟机配置可用性集
 
-> [!IMPORTANT] Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。还可在 Resource Manager 部署中[配置可用性集](./azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets)。
+> [!IMPORTANT]
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。还可在 Resource Manager 部署中[配置可用性集](./azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets)。
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 

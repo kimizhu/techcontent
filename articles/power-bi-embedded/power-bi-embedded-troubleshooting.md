@@ -2,20 +2,20 @@
 title: Power BI Embedded 预览版疑难解答
 description: Power BI Embedded 预览版疑难解答
 services: power-bi-embedded
-documentationCenter: 
+documentationCenter: ''
 authors: mgblythe
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 06/29/2016
+ms.date: 10/04/2016
 ms.author: mblythe
-wacn.date: 01/13/2017
+wacn.date: 02/06/2017
 ---
 
 # Power BI Embedded 预览版疑难解答
@@ -24,12 +24,14 @@ wacn.date: 01/13/2017
 ## 设置 SQL Server 连接字符串 <a name="connection-string"/>
 若要设置 SQL Server 连接字符串，请遵循以下特定格式。下面列举了一个 SQL Server 连接字符串的示例。
 
-    "Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
+```
+"Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
+```
 
 若要了解有关 SQL Server 连接字符串的详细信息，请参阅以下文章：
 
--	[SQL Server Connection Strings（SQL Server 连接字符串）](https://msdn.microsoft.com/zh-cn/library/jj653752.aspx)
--	[SqlConnection.ConnectionString](https://msdn.microsoft.com/zh-cn/library/system.data.sqlclient.sqlconnection.connectionstring.aspx)
+- [SQL Server Connection Strings（SQL Server 连接字符串）](https://msdn.microsoft.com/zh-cn/library/jj653752.aspx)
+- [SqlConnection.ConnectionString](https://msdn.microsoft.com/zh-cn/library/system.data.sqlclient.sqlconnection.connectionstring.aspx)
 
 ## 设置凭据 <a name="credentials"/>
 如果你具有用于开发或过渡环境的凭据（例如用户名和密码），建议更新此凭据，以匹配生产解决方案。

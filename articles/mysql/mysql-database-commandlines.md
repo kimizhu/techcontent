@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: 使用PowerShell管理MySQL Database on Azure - Azure 微软云
 metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,入门指南,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,Azure MySQL PowerShell
 description: 本文介绍如何通过PowerShell实现更多MySQL Database on Azure的查询、创建、修改、删除等操作。
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
+title: ''
 authors: sofia
-solutions: 
-manager: 
-editor: 
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql
 ms.date: 11/22/2016
@@ -101,14 +101,16 @@ New-AzureResource -ResourceType "Microsoft.MySql/servers" -ResourceName testrest
 ## <a id="view"></a>3. 查看操作
 通过Get指令可以查看当前MySQL服务器、数据库、用户、用户权限、备份、防火墙规则等列表,也可以查看详细参数配置。
 ###3.1 查看服务器列表
->[!NOTE] ** 注意:“在Azure管理门户上创建的实例，按照实例所处的区域分别在默认资源组：Default-MySql-ChinaEast以及Default-MySql-ChinaNorth**
+>[!NOTE]
+> ** 注意:“在Azure管理门户上创建的实例，按照实例所处的区域分别在默认资源组：Default-MySql-ChinaEast以及Default-MySql-ChinaNorth**
 
 编辑运行以下命令，查看当前所有服务器列表
 
 ```
 Get-AzureResource -ResourceType "Microsoft.MySql/servers"  -ApiVersion 2015-01-01 -ResourceGroupName resourcegroupchinaeast 
 ```
->[!NOTE] ** 注意:与其他指令不同，查看服务器中的“-ApiVersion 2015-01-01”，指向ARM的API，其他指令中，均为“-ApiVersion 2015-09-01”，指向MySQL的API。**
+>[!NOTE]
+> ** 注意:与其他指令不同，查看服务器中的“-ApiVersion 2015-01-01”，指向ARM的API，其他指令中，均为“-ApiVersion 2015-09-01”，指向MySQL的API。**
 
 ###3.2 查看数据库列表及参数
 编辑运行以下命令，查看当前资源组内某个服务器的所有数据库列表：

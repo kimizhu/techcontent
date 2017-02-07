@@ -3,9 +3,9 @@ title: 监视服务指标
 description: 了解如何在 Azure 中自定义监视图表。
 authors: stepsic-microsoft-com
 manager: ronmart
-editor: 
+editor: ''
 services: azure-portal
-documentationCenter: 
+documentationCenter: ''
 
 ms.service: monitoring-and-diagnostics
 ms.workload: na
@@ -61,11 +61,11 @@ ms.author: robb
 1. 在边栏选项卡顶部的“...”菜单中，单击“添加磁贴”：
 
     ![添加菜单](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-    
+
 2. 然后可以从屏幕右侧的“库”中选择图表：
 
     ![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-    
+
 3. 如果看不到所需指标，则始终可以添加一个预设指标，然后“编辑”图表以显示所需指标。 
 
 ## 监视使用配额

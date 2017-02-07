@@ -2,10 +2,10 @@
 title: VM 的常用网络 PowerShell 命令 | Azure
 description: 可用于为 VM 创建虚拟网络及其关联资源的常用 PowerShell 命令。
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
@@ -39,7 +39,7 @@ ms.author: davidmu
 创建入站 NAT 规则 | $inboundNATRule = [New-AzureRmLoadBalancerInboundNatRuleConfig](https://msdn.microsoft.com/zh-cn/library/mt603606.aspx) -Name "rule\_name" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389<BR><BR>包含将负载均衡器上公用端口映射到后端地址池中特定虚拟机端口的规则。
 创建负载均衡器 | $loadBalancer = [New-AzureRmLoadBalancer](https://msdn.microsoft.com/zh-cn/library/mt619450.aspx) -ResourceGroupName "resource\_group\_name" -Name "load\_balancer\_name" -Location "location\_name" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule -LoadBalancingRule $lbRule -BackendAddressPool $beAddressPool -Probe $healthProbe
 创建网络接口 | $nic1= [New-AzureRmNetworkInterface](https://msdn.microsoft.com/zh-cn/library/mt619370.aspx) -ResourceGroupName "resource\_group\_name" -Name "network\_interface\_name" -Location "location\_name" -PrivateIpAddress XX.X.X.X -Subnet subnet2 -LoadBalancerBackendAddressPool $loadBalancer.BackendAddressPools[0] -LoadBalancerInboundNatRule $loadBalancer.InboundNatRules[0]<BR><BR>使用以前创建的公用 IP 地址和虚拟网络子网创建网络接口。
-    
+
 ## 获取有关网络资源的信息
 
 任务 | 命令 

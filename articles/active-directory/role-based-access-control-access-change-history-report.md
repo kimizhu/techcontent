@@ -2,10 +2,10 @@
 title: 创建访问权限更改历史记录报告 | Azure
 description: 生成一个列出过去 90 天内使用基于角色的访问控制对 Azure 订阅的访问权限进行的所有更改的报告。
 services: active-directory
-documentationCenter: 
+documentationCenter: ''
 authors: kgremban
 manager: femila
-editor: 
+editor: ''
 
 ms.service: active-directory
 ms.devlang: na
@@ -43,7 +43,9 @@ ms.author: kgremban
 
 此示例命令列出过去 7 天内订阅中所有访问权限的更改：
 
-    Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+```
+Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+```
 
 ![PowerShell Get-AzureRMAuthorizationChangeLog - 屏幕快照](./media/role-based-access-control-configure/access-change-history.png)
 

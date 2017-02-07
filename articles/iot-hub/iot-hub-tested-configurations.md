@@ -2,10 +2,10 @@
 title: OS 平台和硬件兼容性 | Azure
 description: 总结 IoT 设备 SDK 与 OS 平台和设备硬件的兼容性。
 services: iot-hub
-documentationCenter: 
+documentationCenter: ''
 authors: hegate
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: iot-hub
 ms.devlang: na
@@ -135,7 +135,7 @@ Azure IoT 库在以下操作系统平台上进行了测试：
 - [使用网关 SDK 模拟设备][lnk-gateway]
 - [使用 Azure 门户管理 IoT 中心][lnk-portal]
 
-[lnk-iot-suite]: ../iot-suite/index.md/
+[lnk-iot-suite]: ../iot-suite/index.md
 
 [lnk-protocols]: ./iot-hub-protocol-gateway.md
 [lnk-compare]: ./iot-hub-compare-event-hubs.md

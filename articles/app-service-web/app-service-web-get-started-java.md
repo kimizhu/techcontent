@@ -2,10 +2,10 @@
 title: 在 5 分钟内将第一个 Java Web 应用部署到 Azure | Azure
 description: 了解如何部署示例应用，轻松地在应用服务中运行 Web 应用。快速进行实际的开发，立即查看结果。
 services: app-service\web
-documentationCenter: 
+documentationCenter: ''
 authors: cephalin
 manager: wpickett
-editor: 
+editor: ''
 
 ms.service: app-service-web
 ms.workload: web
@@ -102,7 +102,8 @@ ms.author: cephalin
 
     单击“确定”，覆盖 Azure 中的文件。
 
-    >[!NOTE] 根据 Tomcat 的默认行为，/site/wwwroot/webapps 中的文件名 **ROOT.war** 提供根 Web 应用 (http:// *&lt;appname>* .chinacloudsites.cn)，文件名 ***&lt;anyname>*.war** 提供命名 Web 应用 (http:// *&lt;appname>* .chinacloudsites.cn/ *&lt;anyname>* )。
+    >[!NOTE]
+    > 根据 Tomcat 的默认行为，/site/wwwroot/webapps 中的文件名 **ROOT.war** 提供根 Web 应用 (http:// *&lt;appname>* .chinacloudsites.cn)，文件名 ***&lt;anyname>*.war** 提供命名 Web 应用 (http:// *&lt;appname>* .chinacloudsites.cn/ *&lt;anyname>* )。
 
 就这么简单！ 代码现在已在 Azure 中实时运行。在浏览器中，导航到 http:// *&lt;appname>* .chinacloudsites.cn，查看效果。
 

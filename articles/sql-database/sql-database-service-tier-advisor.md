@@ -2,7 +2,7 @@
 title: Azure SQL 数据库的定价层建议
 description: 在 Azure 门户预览中更改定价层时，提供的定价层建议将会推荐最适合用于运行现有 Azure SQL 数据库负载的层。定价层描述 SQL 数据库的服务层和性能级别。
 services: sql-database
-documentationCenter: 
+documentationCenter: ''
 authors: stevestein
 manager: jhubbard
 editor: monicar
@@ -21,7 +21,8 @@ ms.author: sstein
 
  定价层建议将会推荐最适合用于运行现有 Azure SQL 数据库工作负荷的服务层和性能级别。
 
-> [!NOTE] 定价层建议仅适用于 Web 和企业数据库及弹性数据库池，并且只会在 [Azure 门户预览](https://portal.azure.cn/)中提供。
+> [!NOTE]
+> 定价层建议仅适用于 Web 和企业数据库及弹性数据库池，并且只会在 [Azure 门户预览](https://portal.azure.cn/)中提供。
 
 在执行以下任务期间获取定价层建议：
 

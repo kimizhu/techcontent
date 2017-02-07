@@ -2,10 +2,10 @@
 title: VM 重新启动或大小调整问题 | Azure
 description: 排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的 Resource Manager 部署问题
 services: virtual-machines-windows, azure-resource-manager
-documentationCenter: 
+documentationCenter: ''
 authors: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 
 ms.service: virtual-machines-windows
@@ -46,13 +46,13 @@ ms.author: delhan
 
 ### 解决方法
 
-*	停止可用性集中的所有 VM 并重新启动每个 VM。
+* 停止可用性集中的所有 VM 并重新启动每个 VM。
 
   1. 单击“资源组”> _你的资源组_ >“资源”> _你的可用性集_ >“虚拟机”> _你的虚拟机_ >“停止”。
 
   2. 所有 VM 停止后，选择每个已停止的 VM 并单击“启动”。
 
-*	稍后重试重新启动请求。
+* 稍后重试重新启动请求。
 
 ## 问题：调整现有 VM 的大小时发生错误
 

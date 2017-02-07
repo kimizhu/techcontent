@@ -2,10 +2,10 @@
 title: 在 Azure 应用服务中配置 Web 应用
 description: 如何在 Azure 应用服务中配置 Web 应用
 services: app-service\web
-documentationCenter: 
+documentationCenter: ''
 authors: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 
 ms.service: app-service
 ms.workload: na
@@ -98,7 +98,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 - **其他参数**。脚本处理器的可选命令行参数
 
 ### 虚拟应用程序和目录 
- 
+
 若要配置虚拟应用程序和目录，请指定每个虚拟目录及其对应于网站根目录的物理路径。还可选中“应用程序”复选框，将虚拟目录标记为应用程序。
 
 ## 启用诊断日志

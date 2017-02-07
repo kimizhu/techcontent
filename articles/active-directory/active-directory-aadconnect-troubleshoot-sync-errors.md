@@ -2,7 +2,7 @@
 title: Azure AD Connect：排查同步过程中发生的错误 | Azure
 description: 介绍如何使用 Azure AD Connect 排查同步过程中遇到的错误。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: samueld
 editor: curtand

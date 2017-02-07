@@ -4,14 +4,14 @@ urlDisplayName: CDN
 title: Create Download Acceleration-Type CDNs – Azure Feature Guide
 metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN acceleration, CDN service, cloud acceleration, download acceleration, download, cache rules, ICP, ICP record number, ICP number, technical documentation, help files, bandwidth, large file download, software upgrade installation package, game download acceleration, app download acceleration, mobile app update, firmware upgrade
 description: Learn how to create Download Acceleration-type CDNs on Azure Management Portal, and learn about default caching rules for Download CDNs.
-metaCanonical: 
-services: 
+metaCanonical: ''
+services: ''
 documentationCenter: .NET
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: cdn_en
 ms.date: 7/7/2016
@@ -58,13 +58,13 @@ The Azure CDN sets default cache rules (see below) for Download Acceleration. Yo
     If the origin domain type is a storage account, the corresponding return to source host header is:
 
     ![007](./media/cdn-doc/download-en-003.png)  
-    
+
     If the origin domain type is a custom origin domain, the corresponding return to source host header is:
 
     ![013](./media/cdn-doc/download-en-004.png)
-    
+
 8. In “ICP Number,” enter the corresponding ICP record number for the custom domain that you entered (e.g., Jing ICP Bei XXXXXXXX Hao-X).
-     
+
     ![009](./media/cdn-doc/download-en-005.png)
 
 9. Click “Create” to create the new endpoint.

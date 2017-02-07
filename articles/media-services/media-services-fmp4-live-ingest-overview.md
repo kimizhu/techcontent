@@ -2,10 +2,10 @@
 title: Azure 媒体服务分片 MP4 实时引入规范 | Azure
 description: 本规范描述基于分片 MP4 的实时流引入协议和格式（适用于 Azure 媒体服务）。Azure 媒体服务提供实时传送视频流服务，支持客户使用 Azure 作为云平台来实时流式传输实时事件和广播内容。本文档还介绍了有关构建高度冗余和稳健的实时引入机制的最佳实践。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: cenkdin
 manager: erikre
-editor: 
+editor: ''
 
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -57,7 +57,9 @@ ms.author: cenkd;juliako
 
 Azure 媒体服务的 ISO 分片 MP4 实时引入使用长时间运行的标准 HTTP POST 请求，将以分片 MP4 格式打包的编码媒体数据传输到服务。每个 HTTP POST 发送完整的分片 MP4 位流（“流”），其开头为标头框（‘ftyp’、“实时服务器清单框”及 ‘moov’ 框），后接一系列片段（‘moof’ 与 ‘mdat’ 框）。有关 HTTP POST 请求的 URL 语法，请参阅 [1] 中的第 9.2 部分。以下是 POST URL 的示例：
 
-    http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)
+```
+http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)
+```
 
 ###要求
 

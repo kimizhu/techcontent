@@ -2,10 +2,10 @@
 title: Azure FreeBSD 简介 | Azure
 description: 了解如何在 Azure 上使用 FreeBSD 虚拟机。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: KylieLiang
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
@@ -71,7 +71,9 @@ Azure 虚拟机代理负责 FreeBSD 虚拟机 和 Azure 结构控制器之间的
 ## 获取超级用户特权
 在 Azure 上部署虚拟机实例的过程中指定的用户帐户是特权帐户。sudo 包安装在已发布的 FreeBSD 镜像中。通过此用户帐户登录后，即可使用命令语法以 root 用户身份运行命令。
 
-    $ sudo <COMMAND>
+```
+$ sudo <COMMAND>
+```
 
 可以选择使用 `sudo -s` 获取 root shell。
 

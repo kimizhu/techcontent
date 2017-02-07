@@ -1,11 +1,11 @@
 ---
 title: Azure Toolkit for IntelliJ 中的新增功能 | Azure
 description: 了解 Azure Toolkit for IntelliJ 中的最新功能。
-services: 
+services: ''
 documentationCenter: java
 authors: rmcmurray
 manager: wpickett
-editor: 
+editor: ''
 
 ms.service: multiple
 ms.workload: na
@@ -21,7 +21,8 @@ ms.author: robmcm;asirveda;martinsawicki
 ## Azure Toolkit for IntelliJ 版本
 本文包含有关 Azure Toolkit for IntelliJ 的不同版本和最新更新的信息。
 
-> [!NOTE] 另外还有 Azure Toolkit for Eclipse IDE。有关详细信息，请参阅 [Azure Toolkit for Eclipse]。
+> [!NOTE]
+> 另外还有 Azure Toolkit for Eclipse IDE。有关详细信息，请参阅 [Azure Toolkit for Eclipse]。
 
 ### 2016 年 8 月 26 日
 用于 IntelliJ 的 Azure 工具包 - 2016 年 8 月版包含以下增强功能：
@@ -77,6 +78,6 @@ Azure Toolkit for IntelliJ - 2016 年 4 月版包含以下增强功能：
 
 [Azure Java 开发人员中心]: /develop/java/
 
-[HDInsight Tools Plugin for IntelliJ]: /documentation/articles/hdinsight-apache-spark-intellij-tool-plugin/
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
 <!---HONumber=Mooncake_1128_2016-->

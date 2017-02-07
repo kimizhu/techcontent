@@ -4,7 +4,7 @@ description: 了解如何在 Windows 应用商店应用程序中使用 ADAL 对�
 documentationCenter: windows
 authors: wesmc7777
 manager: dwrede
-editor: 
+editor: ''
 services: mobile-services
 
 ms.service: mobile-services
@@ -27,7 +27,8 @@ ms.author: wesmc
 
 若要能够对用户进行身份验证，必须向 Azure Active Directory (AAD) 注册你的应用程序。此过程分为两个步骤。首先，你必须注册你的移动服务，并公开其上的权限。其次，你必须注册你的 Windows 应用商店应用程序，并授予它对这些权限的访问权限
 
->[!NOTE]本教程旨在帮助你更好地了解如何通过移动服务，使用[客户端定向的登录操作](http://msdn.microsoft.com/zh-cn/library/azure/jj710106.aspx)对 Windows 应用商店应用进行单一登录 Azure Active Directory 身份验证。如果这是你第一次体验移动服务，请先完成[移动服务入门]教程。
+>[!NOTE]
+>本教程旨在帮助你更好地了解如何通过移动服务，使用[客户端定向的登录操作](http://msdn.microsoft.com/zh-cn/library/azure/jj710106.aspx)对 Windows 应用商店应用进行单一登录 Azure Active Directory 身份验证。如果这是你第一次体验移动服务，请先完成[移动服务入门]教程。
 
 ##先决条件
 
@@ -114,39 +115,43 @@ ms.author: wesmc
 
 4. 在 Visual Studio 的“解决方案资源管理器”窗口中，打开 MainPage.cs 文件，并添加以下 using 语句。
 
-        using Windows.UI.Popups;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Newtonsoft.Json.Linq;
+    ```
+    using Windows.UI.Popups;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Newtonsoft.Json.Linq;
+    ```
 
 5. 将以下代码添加到声明了 `AuthenticateAsync` 方法的 MainPage 类。
 
-        private MobileServiceUser user; 
-        private async Task AuthenticateAsync()
+    ```
+    private MobileServiceUser user; 
+    private async Task AuthenticateAsync()
+    {
+        string authority = "<INSERT-AUTHORITY-HERE>";
+        string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
+        string clientID = "<INSERT-CLIENT-ID-HERE>"; 
+        while (user == null)
         {
-            string authority = "<INSERT-AUTHORITY-HERE>";
-            string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
-            string clientID = "<INSERT-CLIENT-ID-HERE>"; 
-            while (user == null)
+            string message;
+            try
             {
-                string message;
-                try
-                {
-                  AuthenticationContext ac = new AuthenticationContext(authority);
-                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID, (Uri) null);
-                  JObject payload = new JObject();
-                  payload["access_token"] = ar.AccessToken;
-                  user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-                  message = string.Format("You are now logged in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                  message = "You must log in. Login Required";
-                } 
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
+              AuthenticationContext ac = new AuthenticationContext(authority);
+              AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID, (Uri) null);
+              JObject payload = new JObject();
+              payload["access_token"] = ar.AccessToken;
+              user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+              message = string.Format("You are now logged in - {0}", user.UserId);
+            }
+            catch (InvalidOperationException)
+            {
+              message = "You must log in. Login Required";
             } 
-        }
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+        } 
+    }
+    ```
 
 6. 在上面的 `AuthenticateAsync` 方法的代码中，将 **INSERT-AUTHORITY-HERE** 替换为在其中进行应用程序设置的租户的名称，格式应为 https://login.chinacloudapi.cn/tenant-name.onmicrosoft.com。 可以在 [Azure 经典管理门户]中从 Azure Active Directory 的“域”选项卡复制此值。
 
@@ -160,11 +165,13 @@ ms.author: wesmc
 
 10. 在 MainPage.cs 文件中，更新 `OnNavigatedTo` 事件处理程序以便按如下所示调用 `AuthenticateAsync` 方法。
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await AuthenticateAsync();
-            await RefreshTodoItems();
-        }
+    ```
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        await AuthenticateAsync();
+        await RefreshTodoItems();
+    }
+    ```
 
 ##测试使用身份验证的客户端
 

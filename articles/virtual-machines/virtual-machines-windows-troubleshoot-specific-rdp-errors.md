@@ -5,10 +5,10 @@ title: Azure VM 的特定 RDP 错误消息 | Azure
 description: 了解在尝试使用远程桌面连接到 Azure 中的 Windows 虚拟机时可能会收到的特定错误消息
 keywords: 远程桌面错误,远程桌面连接错误,无法连接到 VM,远程桌面故障排除
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
 ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
@@ -38,7 +38,9 @@ ms.author: iainfou
 
 解决方法是，从门户保存 RDP 文件的本地副本，然后在 PowerShell 命令提示符下运行此命令以进行连接。此步骤仅禁用该连接的许可：
 
-        mstsc <File name>.RDP /admin
+```
+    mstsc <File name>.RDP /admin
+```
 
 如果实际上不需要两个以上同时与 VM 的远程桌面连接，可以使用服务器管理器删除远程桌面服务器角色。
 
@@ -51,9 +53,11 @@ ms.author: iainfou
 
 * 如果使用组织的 Intranet，请确保计算机可以访问代理服务器，并可以向其发送 HTTPS 流量。
 * 如果使用本地存储的 RDP 文件，请尝试使用门户生成的 RDP 文件。此步骤可确保使用虚拟机或云服务的正确 DNS 名称和 VM 的终结点端口。以下是门户生成的 RDP 文件示例：
-  
-        full address:s:tailspin-azdatatier.chinacloudapp.cn:55919
-        prompt for credentials:i:1
+
+    ```
+    full address:s:tailspin-azdatatier.chinacloudapp.cn:55919
+    prompt for credentials:i:1
+    ```
 
 此 RDP 文件的地址部分包含：
 

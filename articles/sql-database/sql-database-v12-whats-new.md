@@ -2,10 +2,10 @@
 title: SQL 数据库 V12 中的新增功能 | Azure
 description: 介绍云中使用 Azure SQL 数据库的业务系统在升级到版本 V12 后为何能够受益。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: MightyPen
 manager: jhubbard
-editor: 
+editor: ''
 
 ms.assetid: 729b25ef-0abb-45eb-aa7e-7600ea3569d1
 ms.service: sql-database
@@ -44,7 +44,8 @@ SQL 数据库 V12 的主要目标是提高与 Microsoft SQL Server 2014 的兼�
 
 ### 兼容级别 130
 
-> [!IMPORTANT] **2016 年 6 月**开始，Azure SQL 数据库 V12 上*新建*的数据库的兼容性级别均从 130 开始，这与 Microsoft SQL Server 2016 GA 匹配。
+> [!IMPORTANT]
+> **2016 年 6 月**开始，Azure SQL 数据库 V12 上*新建*的数据库的兼容性级别均从 130 开始，这与 Microsoft SQL Server 2016 GA 匹配。
 > 
 > 如果愿意，也可以使用 `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120`。
 > 

@@ -1,12 +1,12 @@
 ---
 title: Azure SQL 数据库会自行学习和进行适应性调整
 description: 了解 SQL 数据库如何进行学习和适应性调整
-keywords: 
+keywords: ''
 services: sql-database
-documentationCenter: 
+documentationCenter: ''
 authors: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 
 ms.service: sql-database
 ms.devlang: NA
@@ -54,7 +54,7 @@ SQL 数据库提供应用所需的自动管理和数据保护，以便你能够�
 ## 其他资源
 
 浏览所有 [SQL 数据库的功能](https://www.azure.cn/home/features/sql-database/)。
- 
+
 查看 [SQL 数据库技术概述](./sql-database-technical-overview.md)。
 
 <!---HONumber=Mooncake_1024_2016-->

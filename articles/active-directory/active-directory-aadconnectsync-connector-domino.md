@@ -2,10 +2,10 @@
 title: Lotus Domino 连接器 | Azure
 description: 本文介绍如何配置 Microsoft 的 Lotus Domino 连接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: AndKjell
 manager: femila
-editor: 
+editor: ''
 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory

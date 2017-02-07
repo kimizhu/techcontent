@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: Use SSL to securely access MySQL Database on Azure – Azure cloud
 metaKeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, connection pool, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
 description: Using Secure Sockets Layer (SSL) SSL encryption to access databases helps ensure that your access is secure. This article explains how to download and configure SSL certificates. MySQL Database on Azure currently supports the use of public keys to perform encryption and verification on the server side.
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql_en
 ms.date: 07/05/2016
@@ -49,7 +49,8 @@ Once the connection is successful, you can use the status command to view the cl
 
 ![Verification][6]
 
->[!NOTE] **MySQL on Azure created an SSL secure connection between the proxy server and the client, so while SSL-related global variables or session variables on the server remain set to DISABLED, the entire communication process has actually already been encrypted with TLSv1.**
+>[!NOTE]
+> **MySQL on Azure created an SSL secure connection between the proxy server and the client, so while SSL-related global variables or session variables on the server remain set to DISABLED, the entire communication process has actually already been encrypted with TLSv1.**
 
 Using MySQL Workbench as an example, use the **Parameters** tab to set up the connection string for accessing the database, as shown in the following image.
 

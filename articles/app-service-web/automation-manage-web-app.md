@@ -2,10 +2,10 @@
 title: 使用 Azure 自动化管理 Azure Web 应用
 description: 了解如何使用 Azure 自动化服务来管理 Azure Web 应用。
 services: app-service\web, automation
-documentationCenter: 
+documentationCenter: ''
 authors: csand-msft
 manager: eamono
-editor: 
+editor: ''
 
 ms.service: app-service-web
 ms.workload: web
@@ -38,5 +38,5 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 了解 Azure 自动化以及如何使用它来管理 Azure Web 应用的基础知识后，请使用以下链接了解有关 Azure 自动化的更多信息。
 
 * 请参阅 Azure 自动化[入门教程](../automation/automation-first-runbook-textual.md)
- 
+
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

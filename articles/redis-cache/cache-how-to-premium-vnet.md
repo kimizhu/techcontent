@@ -2,10 +2,10 @@
 title: 如何为高级 Azure Redis 缓存配置虚拟网络支持 | Azure
 description: 了解如何为高级层 Azure Redis 缓存实例创建和管理虚拟网络支持
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: steved0x
 manager: douge
-editor: 
+editor: ''
 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -64,18 +64,20 @@ Azure Redis 缓存同时支持经典 VNet 和 ARM VNet。
 
 若要在使用 VNet 时连接到 Azure Redis 缓存实例，请在连接字符串中指定缓存主机名，如以下示例中所示。
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=password");
-    });
+```
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=password");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 ## Azure Redis 缓存 VNet 常见问题
 以下列表包含有关 Azure Redis 缓存缩放的常见问题的解答。

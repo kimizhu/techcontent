@@ -2,10 +2,10 @@
 title: 对无法启动的角色进行故障排除 | Azure
 description: 以下是云服务角色无法启动的一些常见原因。此外还提供了这些问题的解决方案。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 
 ms.service: cloud-services
@@ -53,7 +53,9 @@ DLL 或程序集缺失的症状可能为：
 
 3. 在 web.config 文件中，找到 system.web 部分并添加以下行：
 
-        <customErrors mode="Off" />
+    ```
+    <customErrors mode="Off" />
+    ```
 
 4. 保存文件。
 

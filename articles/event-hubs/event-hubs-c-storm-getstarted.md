@@ -2,18 +2,18 @@
 title: 通过 C 和 Apache Storm 使用事件中心入门 | Azure
 description: 遵循本教程开始使用 Azure 事件中心，以通过 C 发送事件，并在 Apache Storm 群集中接收这些事件。
 services: event-hubs
-documentationCenter: 
+documentationCenter: ''
 authors: jtaubensee
 manager: timlt
-editor: 
+editor: ''
 
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: java
 ms.topic: article
-ms.date: 08/16/2016
-wacn.date: 01/09/2017
+ms.date: 11/30/2016
+wacn.date: 01/23/2017
 ms.author: jotaub;sethm
 ---
 
@@ -47,13 +47,14 @@ ms.author: jotaub;sethm
 
 现在，你已准备就绪，可以运行应用程序了。
 
-1.	从 Eclipse 中运行 **LogTopology** 类，然后等待它为所有分区启动接收方。
+1. 从 Eclipse 中运行 **LogTopology** 类，然后等待它为所有分区启动接收方。
 
-2.	运行 **sender** 程序，然后就会看到事件出现在接收方窗口中。
+2. 运行 **sender** 程序，然后就会看到事件出现在接收方窗口中。
 
     ![][23]
 
-> [!NOTE]  在本教程中，只出于开发目的以本地模式使用 Storm。请参阅 [HDInsight Storm overview]（HDInsight Storm 概述）和官方 [Apache Storm] 文档，了解 Storm 开发和模式的详细信息。
+> [!NOTE]
+>  在本教程中，只出于开发目的以本地模式使用 Storm。请参阅 [HDInsight Storm overview]（HDInsight Storm 概述）和官方 [Apache Storm] 文档，了解 Storm 开发和模式的详细信息。
 
 ## 后续步骤
 
@@ -74,5 +75,6 @@ ms.author: jotaub;sethm
 [HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md
 [用 Storm 和 HDInsight 分析传感器数据]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [使用 SCP.NET 和 C# 在 Storm 和 HDInsight 上开发流式数据处理应用程序]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
- 
+
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->
+<!--Update_Description:update meta properties-->

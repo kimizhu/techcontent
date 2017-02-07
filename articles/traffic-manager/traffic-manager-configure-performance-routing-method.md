@@ -2,7 +2,7 @@
 title: 配置性能流量路由方法 | Azure
 description: 本文将帮助你在流量管理器中配置性能流量路由方法
 services: traffic-manager
-documentationCenter: 
+documentationCenter: ''
 authors: joaoma
 manager: carmonm
 editor: tysonn
@@ -48,5 +48,5 @@ ms.author: sewhee
 [流量管理器 - 禁用、启用或删除配置文件](./disable-enable-or-delete-a-profile.md)
 
 [流量管理器 - 禁用或启用终结点](./disable-or-enable-an-endpoint.md)
- 
+
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

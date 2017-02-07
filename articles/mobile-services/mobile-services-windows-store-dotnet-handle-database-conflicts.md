@@ -4,7 +4,7 @@ description: 了解如何处理服务器上和 Windows 应用商店应用程序�
 documentationCenter: windows
 authors: wesmc7777
 manager: dwrede
-editor: 
+editor: ''
 services: mobile-services
 
 ms.service: mobile-services
@@ -48,50 +48,56 @@ ms.author: wesmc
 1. 在 Visual Studio 中，打开在[移动服务入门]教程中下载的 TodoList 项目。
 2. 在 Visual Studio 解决方案资源管理器中，打开 MainPage.xaml 并将 `ListView` 定义替换为下面所示的 `ListView` 并保存更改。
 
-        <ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Margin="10,5" VerticalAlignment="Center"/>
-                        <TextBox x:Name="ToDoText" Height="25" Width="300" Margin="10" Text="{Binding Text, Mode=TwoWay}" AcceptsReturn="False" LostFocus="ToDoText_LostFocus"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+    ```
+    <ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Margin="10,5" VerticalAlignment="Center"/>
+                    <TextBox x:Name="ToDoText" Height="25" Width="300" Margin="10" Text="{Binding Text, Mode=TwoWay}" AcceptsReturn="False" LostFocus="ToDoText_LostFocus"/>
+                </StackPanel>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    ```
 
 3. 在 Visual Studio 解决方案资源管理器中，打开共享项目中的 MainPage.cs。将事件处理程序添加到 TextBox `LostFocus` 事件的 MainPage，如下所示。
 
-        private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
+    ```
+    private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
+    {
+        TextBox tb = (TextBox)sender;
+        TodoItem item = tb.DataContext as TodoItem;
+        //let's see if the text changed
+        if (item.Text != tb.Text)
         {
-            TextBox tb = (TextBox)sender;
-            TodoItem item = tb.DataContext as TodoItem;
-            //let's see if the text changed
-            if (item.Text != tb.Text)
-            {
-                item.Text = tb.Text;
-                await UpdateToDoItem(item);
-            }
+            item.Text = tb.Text;
+            await UpdateToDoItem(item);
         }
+    }
+    ```
 
 4. 在共享项目的 MainPage.cs 中，添加事件处理程序中引用的 MainPage `UpdateToDoItem()` 方法的定义，如下所示。
 
-        private async Task UpdateToDoItem(TodoItem item)
+    ```
+    private async Task UpdateToDoItem(TodoItem item)
+    {
+        Exception exception = null;			
+        try
         {
-            Exception exception = null;			
-            try
-            {
-                //update at the remote table
-                await todoTable.UpdateAsync(item);
-            }
-            catch (Exception ex)
-            {
-                exception = ex;
-            }			
-            if (exception != null)
-            {
-                await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
-            }
+            //update at the remote table
+            await todoTable.UpdateAsync(item);
         }
+        catch (Exception ex)
+        {
+            exception = ex;
+        }			
+        if (exception != null)
+        {
+            await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
+        }
+    }
+    ```
 
 现在，当文本框失去焦点时，应用程序将对每个项目的文本更改写回到数据库。
 
@@ -101,18 +107,21 @@ ms.author: wesmc
 
 1. 打开共享项目中的 TodoItem.cs，使用以下代码更新 `TodoItem` 类定义以包括 `__version` 系统属性，从而启用对写入冲突检测的支持。
 
-        public class TodoItem
-        {
-            public string Id { get; set; }			
-            [JsonProperty(PropertyName = "text")]
-            public string Text { get; set; }			
-            [JsonProperty(PropertyName = "complete")]
-            public bool Complete { get; set; }			
-            [JsonProperty(PropertyName = "__version")]
-            public string Version { set; get; }
-        }
+    ```
+    public class TodoItem
+    {
+        public string Id { get; set; }			
+        [JsonProperty(PropertyName = "text")]
+        public string Text { get; set; }			
+        [JsonProperty(PropertyName = "complete")]
+        public bool Complete { get; set; }			
+        [JsonProperty(PropertyName = "__version")]
+        public string Version { set; get; }
+    }
+    ```
 
-    > [!NOTE]使用非类型表时，请通过将 Version 标志添加到表的 SystemProperties 来启用乐观并发。
+    > [!NOTE]
+    >使用非类型表时，请通过将 Version 标志添加到表的 SystemProperties 来启用乐观并发。
     >
     >`````
     >//Enable optimistic concurrency by retrieving __version
@@ -121,65 +130,69 @@ ms.author: wesmc
 
 2. 将 `Version` 属性添加到 `TodoItem` 类后，如果记录自上次查询以来已更改，则在更新期间将通过 `MobileServicePreconditionFailedException` 异常通知应用程序。此异常包括服务器中该项目的最新版本。在共享项目的 MainPage.cs 中，添加以下代码以在 `UpdateToDoItem()` 方法中处理异常。
 
-        private async Task UpdateToDoItem(TodoItem item)
+    ```
+    private async Task UpdateToDoItem(TodoItem item)
+    {
+        Exception exception = null;			
+        try
         {
-            Exception exception = null;			
-            try
+            //update at the remote table
+            await todoTable.UpdateAsync(item);
+        }
+        catch (MobileServicePreconditionFailedException<TodoItem> writeException)
+        {
+            exception = writeException;
+        }
+        catch (Exception ex)
+        {
+            exception = ex;
+        }			
+        if (exception != null)
+        {
+            if (exception is MobileServicePreconditionFailedException)
             {
-                //update at the remote table
-                await todoTable.UpdateAsync(item);
+                //Conflict detected, the item has changed since the last query
+                //Resolve the conflict between the local and server item
+                await ResolveConflict(item, ((MobileServicePreconditionFailedException<TodoItem>) exception).Item);
             }
-            catch (MobileServicePreconditionFailedException<TodoItem> writeException)
+            else
             {
-                exception = writeException;
-            }
-            catch (Exception ex)
-            {
-                exception = ex;
-            }			
-            if (exception != null)
-            {
-                if (exception is MobileServicePreconditionFailedException)
-                {
-                    //Conflict detected, the item has changed since the last query
-                    //Resolve the conflict between the local and server item
-                    await ResolveConflict(item, ((MobileServicePreconditionFailedException<TodoItem>) exception).Item);
-                }
-                else
-                {
-                    await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
-                }
+                await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
             }
         }
+    }
+    ```
 
 3. 在 MainPage.cs 中，添加在 `UpdateToDoItem()` 中引用的 `ResolveConflict()` 方法的定义。请注意，为了解决冲突，在提交用户的决定之前，请将本地项目的版本设置为服务器中的已更新版本。否则，你将不断遇到冲突。
 
-        private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
+    ```
+    private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
+    {
+        //Ask user to choose the resolution between versions
+        MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
+                                                    serverItem.Text, localItem.Text), 
+                                                    "CONFLICT DETECTED - Select a resolution:");
+        UICommand localBtn = new UICommand("Commit Local Text");
+        UICommand ServerBtn = new UICommand("Leave Server Text");
+        msgDialog.Commands.Add(localBtn);
+        msgDialog.Commands.Add(ServerBtn);			
+        localBtn.Invoked = async (IUICommand command) =>
         {
-            //Ask user to choose the resolution between versions
-            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
-                                                        serverItem.Text, localItem.Text), 
-                                                        "CONFLICT DETECTED - Select a resolution:");
-            UICommand localBtn = new UICommand("Commit Local Text");
-            UICommand ServerBtn = new UICommand("Leave Server Text");
-            msgDialog.Commands.Add(localBtn);
-            msgDialog.Commands.Add(ServerBtn);			
-            localBtn.Invoked = async (IUICommand command) =>
-            {
-                // To resolve the conflict, update the version of the 
-                // item being committed. Otherwise, you will keep
-                // catching a MobileServicePreConditionFailedException.
-                localItem.Version = serverItem.Version;				
-                // Updating recursively here just in case another 
-                // change happened while the user was making a decision
-                await UpdateToDoItem(localItem);
-            };			
-            ServerBtn.Invoked = async (IUICommand command) =>
-            {
-                RefreshTodoItems();
-            };			
-            await msgDialog.ShowAsync();
-        }
+            // To resolve the conflict, update the version of the 
+            // item being committed. Otherwise, you will keep
+            // catching a MobileServicePreConditionFailedException.
+            localItem.Version = serverItem.Version;				
+            // Updating recursively here just in case another 
+            // change happened while the user was making a decision
+            await UpdateToDoItem(localItem);
+        };			
+        ServerBtn.Invoked = async (IUICommand command) =>
+        {
+            RefreshTodoItems();
+        };			
+        await msgDialog.ShowAsync();
+    }
+    ```
 
 ##测试应用程序中的数据库写入冲突
 
@@ -204,7 +217,7 @@ ms.author: wesmc
 5. 将包文件夹“todolist\_1.0.0.0\_AnyCPU\_Debug\_Test”复制到第二台计算机。在该计算机上，打开包文件夹并右键单击 **Add-AppDevPackage.ps1** PowerShell 脚本，然后单击“使用 PowerShell 运行”，如下所示。按照提示操作以安装应用程序。
 
     ![][12]
-  
+
 6. 通过单击“调试”->“启动调试”在 Visual Studio 中运行应用的第 1 个实例。在第二台计算机的“开始”屏幕上，单击向下箭头以查看“按名称排列的应用程序”。然后单击 **todolist** 应用以运行应用的第 2 个实例。
 
     应用实例 1	
@@ -214,7 +227,7 @@ ms.author: wesmc
     ![][2]
 
 7. 在应用实例 1 中，将最后一个项目的文本更新为“Test Write 1”，然后单击另一个文本框，以使 `LostFocus` 事件处理程序更新数据库。下面的屏幕快照显示了一个示例。
-    
+
     应用实例 1	
     ![][3]
 
@@ -260,21 +273,23 @@ ms.author: wesmc
 
 4. 将现有脚本替换为以下函数，然后单击“保存”。
 
-        function update(item, user, request) { 
-            request.execute({ 
-                conflict: function (serverRecord) {
-                    // Only committing changes if the item is not completed.
-                    if (serverRecord.complete === false) {
-                        //write the updated item to the table
-                        request.execute();
-                    }
-                    else
-                    {
-                        request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
-                    }
+    ```
+    function update(item, user, request) { 
+        request.execute({ 
+            conflict: function (serverRecord) {
+                // Only committing changes if the item is not completed.
+                if (serverRecord.complete === false) {
+                    //write the updated item to the table
+                    request.execute();
                 }
-            }); 
-        }   
+                else
+                {
+                    request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
+                }
+            }
+        }); 
+    }   
+    ```
 5. 在两台计算机上运行 **todolist** 应用。更改实例 2 中最后一项的 TodoItem `text`。然后单击另一个文本框，以使 `LostFocus` 事件处理程序更新数据库。
 
     应用实例 1	
@@ -314,7 +329,7 @@ ms.author: wesmc
 
     应用实例 2	
     ![][18]
- 
+
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
 [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png

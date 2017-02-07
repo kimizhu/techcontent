@@ -3,12 +3,12 @@ title: Azure 开发人员中心：JAVA
 description: Azure 开发人员中心：JAVA
 services: JAVA
 documentationCenter: Develop
-authors: 
+authors: ''
 manager: Tiffena
 editor: Eric Chen
 
 ms.service: JAVA
-ms.date: 
+ms.date: ''
 wacn.date: 01/21/2016
 ---
 
@@ -46,7 +46,7 @@ wacn.date: 01/21/2016
 <!--- [将 Twilio 用于音频和 SMS](/documentation/articles/partner-twilio-java-how-to-use-voice-sms/)-->
 - [全部显示](/develop/java/app-services)
 <!--- [使用 SendGrid 发送电子邮件](/documentation/articles/store-sendgrid-java-how-to-send-email/)-->
-    
+
 ###参考文档
 
 - [Access Control](../articles/active-directory/active-directory-java-authenticate-users-access-control-eclipse.md) / [REST](http://msdn.microsoft.com/zh-cn/library/azure/hh278947)

@@ -5,10 +5,10 @@ title: 创建 VM 可用性集 | Azure
 description: 了解如何通过 Azure 门户预览或 PowerShell，使用资源管理器部署模型为虚拟机创建可用性集。
 keywords: 可用性集
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
@@ -64,8 +64,10 @@ ms.author: cynthn
 
 此示例将在位于**中国北部**的 **RMResGroup** 资源组中创建一个可用性集。此操作需在创建属于该集的第一个 VM 之前完成。
 
-    New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "China North"
-    
+```
+New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "China North"
+```
+
 有关详细信息，请参阅 [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/zh-cn/library/mt619453.aspx)。
 
 ## 故障排除

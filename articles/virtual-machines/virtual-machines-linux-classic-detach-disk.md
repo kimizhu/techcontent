@@ -2,10 +2,10 @@
 title: 从 Linux VM 分离磁盘 | Azure
 description: 了解如何从使用经典部署模型创建的 Azure 虚拟机分离数据磁盘。
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 authors: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 
 ms.service: virtual-machines-linux
@@ -20,7 +20,8 @@ ms.author: iainfou
 
 # 如何从 Linux 虚拟机分离磁盘
 
-> [!IMPORTANT] Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
+> [!IMPORTANT]
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 

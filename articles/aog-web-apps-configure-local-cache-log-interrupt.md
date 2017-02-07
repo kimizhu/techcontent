@@ -2,10 +2,10 @@
 title: Azure Web 应用配置本地缓存后出现日志中断现象
 description: Azure Web 应用配置了本地缓存后由于 w3wp 进程的中断，日志记录会出现中断现象
 services: app-service-web
-documentationCenter: 
-authors: 
-manager: 
-editor: 
+documentationCenter: ''
+authors: ''
+manager: ''
+editor: ''
 tags: Web Apps,local cache,Log
 
 ms.service: app-service-web-aog
@@ -34,4 +34,3 @@ Azure Web 应用除了使用默认的共享目录存放 Web 应用内容，用�
 >若用户的日志很重要，不建议写入到本地缓存中，可以将其保存到 Azure 存储中。
 
 关于如何将日志保存到 Azure 存储中请参考：[在 Azure 存储中存储和查看诊断数据](./cloud-services/cloud-services-dotnet-diagnostics-storage.md)。
-

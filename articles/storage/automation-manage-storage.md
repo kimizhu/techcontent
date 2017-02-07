@@ -2,10 +2,10 @@
 title: 使用 Azure 自动化管理 Azure 存储
 description: 了解如何使用 Azure 自动化服务来方便管理 Azure 存储。
 services: storage, automation
-documentationCenter: 
+documentationCenter: ''
 authors: jodoglevy
 manager: eamono
-editor: 
+editor: ''
 
 ms.service: storage
 ms.workload: storage
@@ -44,5 +44,5 @@ Azure 自动化提供高度可靠且高度可用的工作流执行引擎，它�
 既已了解 Azure 自动化以及如何将其用于管理 Azure 存储 Blob、表和队列的基础知识，可使用以下链接了解有关 Azure 自动化的更多信息。
 
 请参阅 Azure 自动化教程[在 Azure 自动化中创建或导入 Runbook](../automation/automation-creating-importing-runbook.md)
- 
+
 <!---HONumber=Mooncake_Quality_Review_1202_2016-->

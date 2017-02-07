@@ -1,17 +1,17 @@
 ---
-linkid: 
-urlDisplayName: 
+linkid: ''
+urlDisplayName: ''
 title: Monitoring MySQL Database on Azure databases – Azure cloud
 metakeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, monitoring, performance metrics, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
 description: MySQL Database on Azure provides users with the ability to monitor key performance metrics, which you can check on the dashboard in the Azure management portal.
-metaCanonical: 
+metaCanonical: ''
 services: MySQL
 documentationCenter: Services
-title: 
-authors: 
-solutions: 
-manager: 
-editor: 
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
 ms.service: mysql_en
 ms.date: 07/05/2016

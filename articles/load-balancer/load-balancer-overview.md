@@ -5,7 +5,7 @@ services: load-balancer
 documentationCenter: na
 authors: sdwheeler
 manager: carmonm
-editor: 
+editor: ''
 
 ms.service: load-balancer
 ms.devlang: na
@@ -69,9 +69,11 @@ Azure Load Balancer 可提高应用程序的可用性和网络性能。它是第
 
 有关详细信息，请参阅[负载均衡器分发模式](./load-balancer-distribution-mode.md)。下图显示了基于哈希的分发：
 
-    ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+```
+![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Figure 3 - Hash based distribution
+Figure 3 - Hash based distribution
+```
 
 * 端口转发
 
