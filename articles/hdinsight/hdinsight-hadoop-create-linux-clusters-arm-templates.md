@@ -35,7 +35,7 @@ ms.author: jgao
 - [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)。
 - Azure PowerShell 和/或 Azure CLI
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### 访问控制要求
 
@@ -71,7 +71,7 @@ ms.author: jgao
 2. 根据需要设置参数和变量。
 3. 使用以下 PowerShell 脚本运行模板：
 
-    ```
+    ```powershell
     ####################################
     # Set these variables
     ####################################
@@ -130,7 +130,7 @@ ms.author: jgao
 以下示例通过调用 Resource Manager 模板创建一个群集及其依赖的存储帐户和容器：
 
 ```
-azure login
+azure login -e AzureChinaCloud
 azure config mode arm
 azure group create -n hdi1229rg -l "China East"
 azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
@@ -168,7 +168,7 @@ azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --te
 > [!NOTE]
 > 本示例包括 Hive 元存储和 Oozie 元存储的配置信息。使用模板之前请删除节或配置节。
 
-```
+```json
 {
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
@@ -210,18 +210,7 @@ azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --te
     "defaultValue": "China East",
     "allowedValues": [
         "China East",
-        "China East 2",
-        "China North",
-        "China East",
-        "China North",
-        "China North",
-        "West Europe",
-        "China East",
-        "China North",
-        "China East",
-        "China East",
-        "Australia East",
-        "Australia Southeast"
+        "China North"
     ],
     "metadata": {
         "description": "The location where all azure resources will be deployed."

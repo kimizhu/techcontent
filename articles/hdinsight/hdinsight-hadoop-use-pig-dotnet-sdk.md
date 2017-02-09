@@ -17,15 +17,11 @@ wacn.date: 02/06/2017
 
 #使用 HDInsight 中的 .NET SDK for Hadoop 运行 Pig 作业
 
-[!INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
+[!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 本文档提供使用 .NET SDK for Hadoop 将 Pig 作业提交到 HDInsight 上的 Hadoop 群集的示例。
 
 HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsight 群集的操作。Pig 可让你通过为一系列数据转换建模，创建 MapReduce 操作。你将了解如何使用基本 C# 应用程序将 Pig 作业提交到 HDInsight 群集。
-
-[!INCLUDE [azure-portal](../includes/hdinsight-azure-portal.md)]
-
-* [使用 HDInsight 中的 .NET SDK for Hadoop 运行 Pig 作业](./hdinsight-hadoop-use-pig-dotnet-sdk.md)
 
 ##<a id="prereq"></a>先决条件
 
@@ -79,7 +75,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 5. 从“工具”菜单中，选择“库包管理器”或“Nuget 包管理器”，然后选择“包管理器控制台”。
 6. 在控制台中运行以下命令，安装 .NET SDK 包。
 
-    ```
+    ```powershell
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
     Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
@@ -87,7 +83,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 
 7. 在“解决方案资源管理器”中，双击 **Program.cs** 将其打开。将现有代码替换为以下内容。
 
-    ```
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Security;

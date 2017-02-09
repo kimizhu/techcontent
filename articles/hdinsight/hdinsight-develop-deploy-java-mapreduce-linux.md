@@ -14,8 +14,6 @@ wacn.date: 02/06/2017
 
 # 为 HDInsight 中的 Hadoop 开发 Java MapReduce 程序
 
-[!INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
-
 本文档介绍如何使用 Apache Maven 来创建 MapReduce 应用程序，然后在 HDInsight 群集中基于 Linux 的 Hadoop 上部署和运行它。
 
 ##<a name="prerequisites"></a>先决条件
@@ -68,7 +66,7 @@ wacn.date: 02/06/2017
 
 1. 编辑__pom.xml__ 文件，并在 `<dependencies>` 节中添加以下代码。
 
-    ```
+    ```xml
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-mapreduce-examples</artifactId>
@@ -95,7 +93,7 @@ wacn.date: 02/06/2017
 
 2. 将以下代码添加到 __pom.xml__ 文件。它必须位于文件中的 `<project>...</project>` 标记内，例如 `</dependencies>` 和 `</project>` 之间。
 
-    ```
+    ```xml
     <build>
         <plugins>
         <plugin>
@@ -141,7 +139,7 @@ wacn.date: 02/06/2017
 
 2. 在文本编辑器中打开 __WordCount.java__ 文件，然后将其内容替换为以下内容：
 
-    ```
+    ```java
     package org.apache.hadoop.examples;
 
     import java.io.IOException;
