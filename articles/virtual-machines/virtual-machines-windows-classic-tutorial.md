@@ -41,7 +41,7 @@ ms.author: cynthn
 ## Video walkthrough
 Here's a walkthrough of this tutorial.
 
-[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Creating-a-Windows-VM-on-Microsoft-Azure-GA-Portal/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Creating-a-Windows-VM-on-Microsoft-Azure-GA-Portal/player]
 
 ## 后续步骤
 * 了解如何在新的 Azure 门户预览中[使用 Resource Manager 部署模型创建 VM](./virtual-machines-windows-hero-tutorial.md)。
