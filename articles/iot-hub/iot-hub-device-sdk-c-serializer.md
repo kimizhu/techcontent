@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-wacn.date: 01/13/2017
+wacn.date: 02/10/2017
 ms.author: obloch
 ---
 
@@ -28,25 +28,25 @@ ms.author: obloch
 
 本文中所述的所有内容都基于**序列化程序** SDK 示例。如果你想要遵循这些内容，请参阅适用于 C 语言的 Azure IoT 设备 SDK 中包含的 **simplesample\_amqp** 和 **simplesample\_http** 应用程序。
 
-你可在 [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 存储库中找到**适用于 C 语言的Azure IoT 设备 SDK**，并可在 [C API 参考](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)中查看 API 的详细信息。
+可以在 GitHub 存储库中找到[**适用于 C 语言的 Azure IoT 设备 SDK**](https://github.com/Azure/azure-iot-sdk-c)，可以在 [C API 参考](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)中查看 API 的详细信息。
 
 ## 建模语言
 
 本系列教程中的[简介文章](./iot-hub-device-sdk-c-intro.md)通过 **simplesample\_amqp** 应用程序提供的示例介绍了**适用于 C 语言的 Azure IoT 设备 SDK** 建模语言：
 
-        BEGIN_NAMESPACE(WeatherStation);
-
-        DECLARE_MODEL(ContosoAnemometer,
-        WITH_DATA(ascii_char_ptr, DeviceId),
-        WITH_DATA(double, WindSpeed),
-        WITH_ACTION(TurnFanOn),
-        WITH_ACTION(TurnFanOff),
 ```
+    BEGIN_NAMESPACE(WeatherStation);
+
+    DECLARE_MODEL(ContosoAnemometer,
+    WITH_DATA(ascii_char_ptr, DeviceId),
+    WITH_DATA(double, WindSpeed),
+    WITH_ACTION(TurnFanOn),
+    WITH_ACTION(TurnFanOff),
     WITH_ACTION(SetAirResistance, int, Position)
-```
-        );
+    );
 
-        END_NAMESPACE(WeatherStation);
+    END_NAMESPACE(WeatherStation);
+```
 
 如你所见，建模语言基于 C 宏。你始终要以 **BEGIN\_NAMESPACE** 开始定义，并始终以 **END\_NAMESPACE** 结束。我们通常要为公司的命名空间命名，或者如同本示例一样，为正在处理的项目命名。
 
@@ -497,7 +497,9 @@ ms.author: obloch
 
 **IoTHubMessage** 的这种实现将针对模型中的每个操作调用特定的函数。例如，如果模型定义了此操作：
 
-        WITH_ACTION(SetAirResistance, int, Position)
+```
+    WITH_ACTION(SetAirResistance, int, Position)
+```
 
 你必须使用此签名来定义函数：
 
@@ -538,7 +540,7 @@ ms.author: obloch
 如果使用 --recursive 选项从 GitHub 中克隆了 Azure-iot-sdks 存储库，那么可在此处找到此共享的实用程序库：
 
 ```
-    .\\c\\azure-c-shared-utility
+.\\c-utility
 ```
 
 如果没有克隆此库，则可以在[此处](https://github.com/Azure/azure-c-shared-utility)找到它。
@@ -546,7 +548,7 @@ ms.author: obloch
 在此共享的实用程序库中，可找到以下文件夹：
 
 ```
-    azure-c-shared-utility\\macro\_utils\_h\_generator.
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 此文件夹包含名为 **macro\_utils\_h\_generator.sln** 的 Visual Studio 解决方案：
@@ -593,6 +595,8 @@ ms.author: obloch
 然后将此项目添加到 Visual Studio 解决方案：
 
 > .\\c\\serializer\\build\\windows\\serializer.vcxproj
+> 
+> 
 
 完成后，解决方案应该如下所示：
 
@@ -639,9 +643,9 @@ ms.author: obloch
 值得一提的其他几个主题包括属性处理、使用替代设备凭据和配置选项。这些主题均涵盖在[前一篇文章](./iot-hub-device-sdk-c-iothubclient.md)中。重点在于，所有这些功能与**序列化程序**库配合使用的方式与和 **IoTHubClient** 库配合使用的方式相同。例如，如果你想要从模型将属性附加到事件，需要以前面所述的相同方式，使用 **IoTHubMessage\_Properties** 和 **Map**\_**AddorUpdate**：
 
 ```
-    MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
-    sprintf_s(propText, sizeof(propText), "%d", i);
-    Map_AddOrUpdate(propMap, "SequenceNumber", propText);
+MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
+sprintf_s(propText, sizeof(propText), "%d", i);
+Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 ```
 
 至于事件是从**序列化程序**库生成，还是使用 **IoTHubClient** 库手动创建，都并不重要。
@@ -653,7 +657,7 @@ ms.author: obloch
 **序列化程序**库所具有的一个独特功能为初始化 API。在开始使用此库之前，必须先调用 **serializer\_init**：
 
 ```
-    serializer_init(NULL);
+serializer_init(NULL);
 ```
 
 此操作必须在调用 **IoTHubClient\_CreateFromConnectionString** 之前完成。
@@ -661,7 +665,7 @@ ms.author: obloch
 同样，当你使用完该库时，最后调用的对象是 **serializer\_deinit**：
 
 ```
-    serializer_deinit();
+serializer_deinit();
 ```
 
 除此之外，上面列出的所有其他功能在**序列化程序**库中的运行方式均与在 **IoTHubClient** 库中的运行方式相同。有关这些主题中任何一个主题的详细信息，请参阅本系列教程中的[前一篇文章](./iot-hub-device-sdk-c-iothubclient.md)。
@@ -670,18 +674,17 @@ ms.author: obloch
 
 本文详细介绍了**适用于 C 语言的 Azure IoT 设备 SDK** 中包含的**序列化程序**库的独特方面。通过文中提供的信息，你应该能充分了解如何使用模型来发送事件和接收来自 IoT 中心的消息。
 
-本文也是通过**适用于 C 语言的 Azure IoT 设备 SDK** 开发应用程序这一系列教程（由三部分组成）的最后一部分。这些信息应该不仅足以让你入门，还能让你彻底了解 API 的工作原理。请了解其他信息，因为还有一些 SDK 中的示例未涵盖在本文中。除此之外，[SDK 文档](https://github.com/Azure/azure-iot-sdks)是获取其他信息的绝佳资源。
+本文也是通过**适用于 C 语言的 Azure IoT 设备 SDK** 开发应用程序这一系列教程（由三部分组成）的最后一部分。这些信息应该不仅足以让你入门，还能让你彻底了解 API 的工作原理。请了解其他信息，因为还有一些 SDK 中的示例未涵盖在本文中。除此之外，[SDK 文档](https://github.com/Azure/azure-iot-sdk-c)是获取其他信息的绝佳资源。
 
 若要详细了解如何针对 IoT 中心进行开发，请参阅 [Azure IoT SDK][lnk-sdks]。
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
 - [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
-- [使用 Azure 门户管理 IoT 中心][lnk-portal]
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
 [lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update wording-->
+<!---HONumber=Mooncake_0206_2017-->
+<!--Update_Description:update wording and code-->

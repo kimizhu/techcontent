@@ -20,6 +20,9 @@ ms.author: larryfr
 ---
 
 # 在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+
 Hive 和 Pig 非常适合处理 Azure HDInsight 中的数据，但有时你需要一种更通用的语言。Hive 和 Pig 都允许通过用户定义的函数 (UDF) 或流式处理来调用外部代码。
 
 本文介绍如何将 C# 与 Hive 和 Pig 配合使用。
@@ -52,7 +55,7 @@ Hive 和 Pig 非常适合处理 Azure HDInsight 中的数据，但有时你需�
 1. 打开 Visual Studio 并创建一个新解决方案。对于项目类型，选择“控制台应用程序”，并将新项目命名为“HiveCSharp”。
 2. 将 **Program.cs** 的内容替换为以下内容：
 
-    ```csharp
+    ```
     using System;
     using System.Security.Cryptography;
     using System.Text;
@@ -123,7 +126,7 @@ Hive 和 Pig 非常适合处理 Azure HDInsight 中的数据，但有时你需�
 3. 右键单击你已将“HiveCSharp”应用程序部署到的群集，然后选择“编写 Hive 查询”。
 4. 请使用以下内容执行 Hive 查询：
 
-    ```sql
+    ```
     add file wasbs:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -142,7 +145,7 @@ Hive 和 Pig 非常适合处理 Azure HDInsight 中的数据，但有时你需�
 1. 打开 Visual Studio 并创建一个新解决方案。对于项目类型，选择“控制台应用程序”，并将新项目命名为“PigUDF”。
 2. 将 **Program.cs** 文件的内容替换为以下内容：
 
-    ```csharp
+    ```
     using System;
 
     namespace PigUDF
@@ -225,3 +228,4 @@ Hive 和 Pig 非常适合处理 Azure HDInsight 中的数据，但有时你需�
 * [将 MapReduce 与 HDInsight 配合使用](./hdinsight-use-mapreduce.md)
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update meta properties & wording update-->

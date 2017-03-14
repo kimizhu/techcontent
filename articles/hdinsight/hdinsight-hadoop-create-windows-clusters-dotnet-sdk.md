@@ -50,7 +50,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 1. 在 Visual Studio 中新建 C# 控制台应用程序。
 2. 在 Nuget 包管理器控制台中允许以下 Nuget 命令。
 
-    ```powershell
+    ```
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Management.ResourceManager -Pre
     Install-Package Microsoft.Azure.Management.HDInsight
@@ -58,7 +58,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 
 6. 在解决方案资源管理器中，双击 **Program.cs** 将其打开、粘贴以下代码，并提供变量的值：
 
-    ```csharp
+    ```
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -88,7 +88,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
             private const string ExistingBlobContainer = "<Default Blob Container Name>";
             private const string NewClusterName = "<HDInsight Cluster Name>";
             private const int NewClusterNumWorkerNodes = 2;
-            private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+            private const string NewClusterLocation = "CHINA EAST";     // Must be the same as the default Storage account
             private const OSType NewClusterOsType = OSType.Windows;
             private const string NewClusterType = "Hadoop";
             private const string NewClusterVersion = "3.2";
@@ -186,7 +186,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-```powershell
+```
 ####################################
 # Set these variables
 ####################################
@@ -205,7 +205,7 @@ $hdinsightClusterName = $namePrefix + "hdi"
 $defaultStorageAccountName = $namePrefix + "store"
 $defaultBlobContainerName = $hdinsightClusterName
 
-$location = "China East 2"
+$location = "China East"
 #endregion
 
 # Treat all errors as terminating

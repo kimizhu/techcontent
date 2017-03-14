@@ -59,8 +59,6 @@ Microsoft 提供了以下实用程序让你使用 Azure Blob 存储：
 ### <a id="xplatcli"></a>Azure CLI
 Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。使用以下步骤将数据上传到 Azure Blob 存储：
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
 1. [安装和配置适用于 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md)。
 2. 打开命令提示符、bash 或其他 shell，然后使用以下方法对 Azure 订阅进行身份验证。
 
@@ -90,10 +88,14 @@ Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。使用以下
 
     * 上传文件：
 
-           azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+        ```
+        azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+        ```
     * 下载文件：
 
-           azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+        ```
+        azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+        ```
 
 > [!NOTE]
 如果始终使用同一个存储帐户，可以不用为每条命令指定帐户和密钥，而是设置以下环境变量：
@@ -113,7 +115,7 @@ Azure PowerShell 是一个脚本编写环境，可用于在 Azure 中控制和�
 1. 根据[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 中的说明打开 Azure PowerShell 控制台。
 2. 设置以下脚本中前五个变量的值：
 
-    ```powershell
+    ```
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<StorageAccountName>"
     $containerName = "<ContainerName>"
@@ -322,3 +324,4 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

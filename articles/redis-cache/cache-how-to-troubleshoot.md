@@ -232,7 +232,7 @@ System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f96241
 
 1. 请确保你在使用 StackExchange.Redis 客户端时，按照以下模式进行连接，这是一种最佳做法。
 
-    ```
+    ```c#
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=...");

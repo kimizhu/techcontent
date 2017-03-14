@@ -21,7 +21,7 @@ ms.author: rashimg
 # 使用 HDInsight 中的 Hive 处理和分析 JSON 文档
 了解如何使用 HDInsight 中的 Hive 处理和分析 JSON 文件。本教程将使用以下 JSON 文档
 
-```json
+```
 {
     "StudentId": "trgfg-5454-fdfdg-4346",
     "Grade": 7,
@@ -65,7 +65,7 @@ ms.author: rashimg
 ## 平展 JSON 文档
 下一节中列出的方法需要 JSON 文档在单个行中。因此，必须将 JSON 文档平展成字符串。如果已平展 JSON 文档，则可以跳过此步骤，直接转到分析 JSON 数据的下一节。
 
-```sql
+```
 DROP TABLE IF EXISTS StudentsRaw;
 CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
 
@@ -109,7 +109,7 @@ Hive 提供名为 [get\_json\_object](https://cwiki.apache.org/confluence/displa
 
 获取每位学生的名字和姓氏
 
-```sql
+```
 SELECT
   GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
   GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
@@ -130,7 +130,7 @@ get-json\_object UDF 存在一些限制。
 ### 使用 JSON\_TUPLE UDF
 Hive 提供的另一个 UDF 称为 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)，其性能比 [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) 要高。该方法采用一组键和 JSON 字符串，并使用一个函数返回值的元组。以下查询将从 JSON 文档返回学生 ID 和年级：
 
-```sql
+```
 SELECT q1.StudentId, q1.Grade
   FROM StudentsOneLine jt
   LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
@@ -161,7 +161,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
     2. 单击“环境变量”。
     3. 添加指向 **C:\\Program Files\\Java\\jdk1.7.0\_55** 或任何 JDK 安装位置的新 **JAVA\_HOME** 环境变量。
 
-      ![设置 JDK 的正确配置值][image-hdi-hivejson-jdk]  
+        ![设置 JDK 的正确配置值][image-hdi-hivejson-jdk]  
 
 2. 安装 [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
 
@@ -187,7 +187,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
 
 以下语句将创建包含所定义架构的表
 
-```sql
+```
 DROP TABLE json_table;
 CREATE EXTERNAL TABLE json_table (
   StudentId string,
@@ -212,7 +212,7 @@ LOCATION '/json/students';
 
 列出学生的名字和姓氏
 
-```sql
+```
 SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
 ```
 
@@ -222,7 +222,7 @@ SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
 
 计算 JSON 文档的总分
 
-```sql
+```
 SELECT SUM(scores)
 FROM json_table jt
   lateral view explode(jt.StudentClassCollection.Score) collection as scores;
@@ -235,10 +235,13 @@ FROM json_table jt
 ![SerDe 查询 2][image-hdi-hivejson-serde_query2]  
 
 查找指定学生在哪些科目取得 80 以上的分数
-    SELECT  
-      jt.StudentClassCollection.ClassId
-    FROM json_table jt
-      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
+
+```
+SELECT  
+  jt.StudentClassCollection.ClassId
+FROM json_table jt
+  lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
+```
 
 上述查询返回一个 Hive 数组，与 get\_json\_object 不同，后者返回一个字符串。
 
@@ -246,7 +249,7 @@ FROM json_table jt
 
 如果要跳过格式不正确的 JSON，可以根据此 SerDe 的 [wiki 页面](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master)中所述，通过键入以下代码实现此目的：
 
-```sql
+```
 ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 ```
 
@@ -257,7 +260,6 @@ ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 
 * [将 Hive 和 HiveQL 与 HDInsight 中的 Hadoop 配合使用以分析示例 Apache log4j 文件](./hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data.md)
-* [使用 HDInsight 中的 Hive 分析 Twitter 数据](./hdinsight-analyze-twitter-data.md)
 * [使用 DocumentDB 和 HDInsight 运行 Hadoop 作业](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: ./hdinsight-python.md
@@ -275,3 +277,4 @@ ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

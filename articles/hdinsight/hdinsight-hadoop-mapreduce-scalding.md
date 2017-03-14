@@ -40,7 +40,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
     此命令将新建名为 **scaldingwordcount** 的目录，并创建 Scala 应用程序的基架。
 2. 在 **scaldingwordcount** 目录中，打开 **pom.xml** 文件并将其内容替换为以下内容：
 
-    ```xml
+    ```
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
         <groupId>com.microsoft.example</groupId>
@@ -147,7 +147,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
 3. 删除 **src/test** 目录，因为你不需要使用此示例创建测试。
 4. 打开 **src/main/scala/com/microsoft/example/App.scala** 文件，并将其内容替换为以下内容：
 
-    ```java
+    ```
     package com.microsoft.example
 
     import com.twitter.scalding._
@@ -264,7 +264,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
     > 
 3. 使用以下脚本上传和运行 WordCount 作业。将 `CLUSTERNAME` 替换为 HDInsight 群集的名称，并确保 `$fileToUpload` 是 **scaldingwordcount-1.0-SNAPSHOT.jar** 文件的正确路径。
 
-    ```powershell
+    ```
     #Cluster name, file to be uploaded, and where to upload it
     $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
     $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
@@ -330,7 +330,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
         -DisplayOutputType StandardError
     ```
 
-     运行该脚本时，系统将提示你输入 HDInsight 群集的管理员用户名和密码。运行作业时发生的任何错误都将记录到控制台中。
+    运行该脚本时，系统将提示你输入 HDInsight 群集的管理员用户名和密码。运行作业时发生的任何错误都将记录到控制台中。
 4. 完成作业后，输出将下载到当前目录中的 **output.txt** 文件。使用以下命令显示结果。
 
     ```
@@ -363,3 +363,4 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
 * [将 MapReduce 作业与 HDInsight 配合使用](./hdinsight-use-mapreduce.md)
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

@@ -63,14 +63,14 @@ Azure PowerShell 是一个功能强大的脚本编写环境，可用于在 Azure
 
 以下脚本演示了如何创建新群集：
 
-```powershell
+```
 $token ="<SpecifyAnUniqueString>"
 
 $resourceGroupName = $token + "rg"      # Provide a Resource Group name
 $clusterName = $token
 $defaultStorageAccountName = $token + "store"   # Provide a Storage account name
 $defaultStorageContainerName = $token + "container"
-$location = "China East 2"     # Change the location if needed
+$location = "China East"     # Change the location if needed
 $clusterNodes = 1           # The number of nodes in the HDInsight cluster
 
 # Sign in to Azure
@@ -111,7 +111,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.4" `
+    -Version "3.5" `
     -SshCredential $sshCredentials
 ```
 
@@ -121,14 +121,14 @@ New-AzureRmHDInsightCluster `
 
 > [!IMPORTANT]
 > 在此脚本中，必须指定群集中要包含的工作节点数。如果计划使用 32 个以上的辅助角色节点（在创建群集时配置或者是在创建之后通过扩展群集来配置），则还必须指定至少具有 8 个核心和 14 GB RAM 的头节点大小。
->
+><p>
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/)（HDInsight 定价）。
 
 创建群集可能需要 20 分钟。
 
 下面的示例演示了如何添加其他存储帐户：
 
-```powershell
+```
 # Create another storage account used as additional storage account
 $additionalStorageAccountName = $token + "store2"
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $additionalStorageAccountName -Location $location -Type Standard_LRS
@@ -149,7 +149,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.4" `
+    -Version "3.5" `
     -SshCredential $sshCredentials `
     -Config $config
 ```

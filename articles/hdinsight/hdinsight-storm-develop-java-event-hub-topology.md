@@ -29,6 +29,8 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
     * [基于 Linux 的 Storm on HDInsight 群集](./hdinsight-apache-storm-tutorial-get-started-linux.md)：若要从 Linux、Unix、OS X 或 Windows 客户端使用 SSH 来操作群集，请选择此选项
     * [基于 Windows 的 Storm on HDInsight 群集](./hdinsight-apache-storm-tutorial-get-started.md)：若要从 Windows 客户端使用 PowerShell 来操作群集，请选择此选项
 
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
     > [!NOTE]
     本文档中的步骤假设使用 Storm on HDInsight 群集 3.3 或 3.4。这些群集提供 Storm 0.10.0 和 Hadoop 2.7，可减少正常演示本示例而需要执行的步骤。
     ><p> 
@@ -70,7 +72,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 **POM.xml** 文件包含此 Maven 项目的配置信息。需要关注的部分是：
 
 #### EventHubs Storm Spout 依赖性
-```xml
+```
 <dependency>
   <groupId>org.apache.storm</groupId>
   <artifactId>storm-eventhubs</artifactId>
@@ -88,7 +90,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 #### HdfsBolt 和 WASB 组件
 HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。但是，HDInsight 群集使用 Azure 存储空间 (WASB) 作为默认的数据存储区，因此我们必须加载多个组件，使 HdfsBolt 识别 WASB 文件系统。
 
-```xml
+```
   <!--HdfsBolt stuff -->
     <dependency>
     <groupId>org.apache.storm</groupId>
@@ -140,7 +142,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。�
 > 
 
 #### maven-compiler-plugin
-```xml
+```
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-compiler-plugin</artifactId>
@@ -155,7 +157,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。�
 这将告诉 Maven，编译后的项目应与 HDInsight 群集所用的 Java 7 版本兼容。
 
 #### maven-shade-plugin
-```xml
+```
   <!-- build an uber jar -->
   <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -198,7 +200,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。�
 * 确保同一接口的多个实现已合并成一个条目。否则，你将收到错误，指出 Storm-HDFS Bolt 不知道如何与 WASB 文件系统通信。
 
 #### exec-maven-plugin
-```xml
+```
 <plugin>
   <groupId>org.codehaus.mojo</groupId>
   <artifactId>exec-maven-plugin</artifactId>
@@ -229,7 +231,7 @@ mvn compile exec:java -Dstorm.topology=<CLASSNAME>
 例如，`mvn compile exec:java -Dstorm.topology=com.microsoft.example.EventHubWriter`。
 
 #### resources 节
-```xml
+```
 <resources>
   <resource>
     <directory>${basedir}/conf</directory>
@@ -324,9 +326,8 @@ mvn compile exec:java -Dstorm.topology=<CLASSNAME>
 
     > [!NOTE]
     如果你使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。以下示例将从 `~/.ssh/id_rsa` 加载私钥：
-    > 
+    > <p>
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`  
-
     > 
     > 
 
@@ -334,10 +335,10 @@ mvn compile exec:java -Dstorm.topology=<CLASSNAME>
 
     > [!NOTE]
     如果你使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用以下步骤来选择密钥：
-    > 
-    > 1. 在“类别”中，依次展开“连接”和“SSH”，然后选择“身份验证”。
-    > 2. 单击“浏览”，然后选择包含私钥的 .ppk 文件。
-    > 3. 单击“打开”进行连接。
+    > <p>
+    ><p> 1. 在“类别”中，依次展开“连接”和“SSH”，然后选择“身份验证”。
+    ><p> 2. 单击“浏览”，然后选择包含私钥的 .ppk 文件。
+    ><p> 3. 单击“打开”进行连接。
     > 
     > 
 3. 使用以下命令启动拓扑：
@@ -471,3 +472,4 @@ EventHubSpout 定期将其检查点状态传输到 Zookeeper 节点，该节点�
 * [Storm on HDInsight 的示例拓扑](./hdinsight-storm-example-topology.md)
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

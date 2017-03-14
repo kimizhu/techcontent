@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
-wacn.date: 02/06/2017
+ms.date: 10/05/2016
+wacn.date: 02/14/2017
 ms.author: nitinme
 ---
 
@@ -53,7 +53,7 @@ ms.author: nitinme
 
     > [!NOTE]
     > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。将 __CLUSTERNAME__ 替换为群集的名称：
-    >
+    ><p>
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
 
 2. 创建新笔记本。单击“新建”，然后单击“PySpark”。
@@ -66,7 +66,7 @@ ms.author: nitinme
 
 3. 由于笔记本是使用 PySpark 内核创建，因此不需要显式创建任何上下文。运行第一个代码单元格时，系统将自动创建 Spark 和 Hive 上下文。首先，可以导入此方案所需的类型。将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
-    ```python
+    ```
     from pyspark.ml import Pipeline
     from pyspark.ml.classification import LogisticRegression
     from pyspark.ml.feature import HashingTF, Tokenizer
@@ -85,7 +85,7 @@ ms.author: nitinme
 
     将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
-    ```python
+    ```
     # List the structure of data for better understanding. Becuase the data will be
     # loaded as an array, this structure makes it easy to understand what each element
     # in the array corresponds to
@@ -124,7 +124,7 @@ ms.author: nitinme
 
     将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
-    ```python
+    ```
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
     lr = LogisticRegression(maxIter=10, regParam=0.01)
@@ -182,7 +182,7 @@ ms.author: nitinme
 
     将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
-    ```python
+    ```
     # SystemInfo here is a combination of system ID followed by system age
     Document = Row("id", "SystemInfo")
     test = sc.parallelize([(1L, "20 25"),
@@ -196,7 +196,7 @@ ms.author: nitinme
 
 9. 最后，对测试数据进行预测。将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
-    ```python
+    ```
     # Make predictions on test documents and print columns of interest
     prediction = model.transform(test)
     selected = prediction.select("SystemInfo", "prediction", "probability")
@@ -238,10 +238,6 @@ HDInsight 上的 Apache Spark 群集包含 Anaconda 库，还包括适用于机�
 * [使用 Livy 在 Spark 群集中远程运行作业](./hdinsight-apache-spark-livy-rest-interface.md)
 
 ### 工具和扩展
-
-* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](./hdinsight-apache-spark-intellij-tool-plugin.md)
-
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely（使用 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序）](./hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](./hdinsight-apache-spark-use-zeppelin-notebook.md)
 

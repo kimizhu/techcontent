@@ -41,17 +41,17 @@ HDInsight 目前仅支持 Ambari 监视功能。Ambari API 1.0 受 HDInsight 版
 * **配备 Azure PowerShell 的工作站**。
 * （可选）[cURL][curl]。若要安装它，请参阅 [cURL 版本和下载][curl-download]。
 
-  > [!NOTE]
-  在 Windows 中使用 cURL 命令时，对选项值使用双引号而非单引号。
-  > 
-  > 
+    > [!NOTE]
+    在 Windows 中使用 cURL 命令时，对选项值使用双引号而非单引号。
+    > 
+    > 
 * **一个 Azure HDInsight 群集**。有关群集预配的说明，请参阅[开始使用 HDInsight][hdinsight-get-started] 或[预配 HDInsight 群集][hdinsight-provision]。你需要以下数据才能完成本教程：
 
-  | 群集属性 | Azure PowerShell 变量名 | 值 | 说明 | 
-  | --- | --- | --- | --- | 
-  | HDInsight 群集名称 |$clusterName | |HDInsight 群集的名称。| 
-  | 群集用户名 |$clusterUsername | |创建群集时指定的群集用户名。| 
-  | 群集密码 |$clusterPassword | |群集用户密码。|
+    | 群集属性 | Azure PowerShell 变量名 | 值 | 说明 | 
+    | --- | --- | --- | --- | 
+    | HDInsight 群集名称 |$clusterName | |HDInsight 群集的名称。| 
+    | 群集用户名 |$clusterUsername | |创建群集时指定的群集用户名。| 
+    | 群集密码 |$clusterPassword | |群集用户密码。|
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -62,7 +62,7 @@ HDInsight 目前仅支持 Ambari 监视功能。Ambari API 1.0 受 HDInsight 版
 
 以下 Azure PowerShell 脚本可*在 HDInsight 3.1 群集*中获取 MapReduce 作业跟踪器信息。 主要区别在于，我们从 YARN 服务（而非 MapReduce）中拉取这些详细信息。
 
-```powershell
+```
 $clusterName = "<HDInsightClusterName>"
 $clusterUsername = "<HDInsightClusterUsername>"
 $clusterPassword = "<HDInsightClusterPassword>"
@@ -80,7 +80,7 @@ $response.metrics.'yarn.queueMetrics'
 
 以下 PowerShell 脚本可*在 HDInsight 2.1 群集*中获取 MapReduce 作业跟踪器信息：
 
-```powershell
+```
 $clusterName = "<HDInsightClusterName>"
 $clusterUsername = "<HDInsightClusterUsername>"
 $clusterPassword = "<HDInsightClusterPassword>"
@@ -110,7 +110,7 @@ curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.cn:443/amb
 
 输出为：
 
-```json
+```
 {"href":"https://hdi0211v2.azurehdinsight.cn/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.cn/",
  "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.cn","version":"2.1.3.0.432823"},
  "services"[

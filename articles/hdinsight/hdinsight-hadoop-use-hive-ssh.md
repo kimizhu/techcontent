@@ -9,8 +9,8 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
-ms.date: 07/06/2015
-wacn.date: 02/06/2017
+ms.date: 10/04/2016
+wacn.date: 02/14/2017
 ---
 
 #通过 SSH 将 Hive 与 HDInsight 中的 Hadoop 配合使用
@@ -64,7 +64,7 @@ Windows 未提供内置的 SSH 客户端。建议使用可从 [http://www.chiark
 
 3. 在 CLI 中输入以下语句，以使用示例数据创建名为 **log4jLogs** 的新表：
 
-    ```sql
+    ```
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -82,12 +82,12 @@ Windows 未提供内置的 SSH 客户端。建议使用可从 [http://www.chiark
 
     > [!NOTE]
     >当你预期以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据时，必须使用外部表。
-    >
+    ><p>
     > 删除外部表**不会**删除数据，只会删除表定义。
 
 4. 使用以下语句可创建名为 **errorLogs** 的新“内部”表：
 
-    ```sql
+    ```
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```

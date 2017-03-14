@@ -10,8 +10,8 @@ manager: paulettm
 editor: cgronlun
 
 ms.service: hdinsight
-ms.date: 02/16/2016
-wacn.date: 02/06/2017
+ms.date: 10/04/2016
+wacn.date: 02/14/2017
 ---
 
 # 使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
@@ -55,7 +55,7 @@ Tez 视图包含数据的前提是使用 Tez 引擎的作业当前正在运行�
 
 3. 在 Hive 视图加载以后，将以下语句粘贴到查询编辑器中，然后单击“执行”。
 
-    ```sql
+    ```
     select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
     ```
 

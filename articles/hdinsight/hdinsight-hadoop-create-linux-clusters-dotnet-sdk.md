@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/22/2016
-wacn.date: 02/06/2017
+ms.date: 12/19/2016
+wacn.date: 02/14/2017
 ms.author: jgao
 ---
 
@@ -28,7 +28,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 
 > [!IMPORTANT]
 本文中的步骤创建了包含一个工作节点的群集。如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-> 
+> <p>
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 > 
 > 
@@ -54,7 +54,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 3. 在“工具”菜单中，单击“Nuget Package Manager”，然后单击“Package Manager Console”。
 4. 在控制台中运行下列命令以安装程序包：
 
-    ```powershell
+    ```
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Management.ResourceManager -Pre
     Install-Package Microsoft.Azure.Management.HDInsight
@@ -63,7 +63,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
     这些命令将 .NET 库以及对这些库的引用添加到当前 Visual Studio 项目中。
 5. 在解决方案资源管理器中双击 **Program.cs** 将它打开，粘贴以下代码，并提供变量的值：
 
-    ```csharp
+    ```
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -96,10 +96,10 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
             private const string ExistingBlobContainer = "<Enter Default Bob Container Name>";
             private const string NewClusterName = "<Enter HDInsight Cluster Name>";
             private const int NewClusterNumNodes = 2;
-            private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+            private const string NewClusterLocation = "CHINA EAST";     // Must be the same as the default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
-            private const string NewClusterVersion = "3.4";
+            private const string NewClusterVersion = "3.5";
             private const string NewClusterUsername = "admin";
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
@@ -192,7 +192,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 
 修改[创建群集](#create-clusters)中的示例，以配置 Hive 设置：
 
-```csharp
+```
 static void Main(string[] args)
 {
     System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
@@ -321,7 +321,7 @@ static void Main(string[] args)
 
 修改[创建群集](#create-clusters)中的示例，以便调用脚本操作来安装 R：
 
-```csharp
+```
 static void Main(string[] args)
 {
     System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");

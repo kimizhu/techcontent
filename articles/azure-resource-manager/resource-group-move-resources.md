@@ -275,14 +275,14 @@ ms.author: tomfitz
 
 第一个示例演示如何将一个资源移到新的资源组。
 
-```
+```powershell
 $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 ```
 
 第二个示例演示如何将多个资源移到新的资源组。
 
-```
+```powershell
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
@@ -292,7 +292,7 @@ Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Res
 
 系统将要求确认是否想要移动指定的资源。
 
-```
+```powershell
 Confirm
 Are you sure you want to move these resources to the resource group
 '/subscriptions/{guid}/resourceGroups/newRG' the resources:
@@ -305,13 +305,13 @@ Are you sure you want to move these resources to the resource group
 ## <a name="use-azure-cli"></a> 使用 Azure CLI
 若要将现有资源移到另一个资源组或订阅，请使用 **azure resource move** 命令。提供要移动的资源的资源 ID。可以使用以下命令获取资源 ID：
 
-```
+```azurecli
 azure resource list -g sourceGroup --json
 ```
 
 会返回以下格式：
 
-```
+```azurecli
 [
   {
     "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
@@ -330,7 +330,7 @@ azure resource list -g sourceGroup --json
 
 以下示例说明如何将存储帐户移动到新的资源组。在 **-i** 参数中，提供要移动的资源 ID 的逗号分隔列表。
 
-```
+```azurecli
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
 ```
 

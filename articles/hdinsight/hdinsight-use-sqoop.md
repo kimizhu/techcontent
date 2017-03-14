@@ -66,7 +66,7 @@ HDInsight 群集附带了某些示例数据。以后会用到以下两个示例�
 ```
 
 ## <a name="create-cluster-and-sql-database"></a> 创建群集和 SQL 数据库
-本部分演示如何使用 Azure 门户预览和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。可以在 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到模板。Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。bacpac 包位于公共 Blob 容器 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
+本部分演示如何使用 Azure 门户预览和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。可以在 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/)中找到模板。Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。bacpac 包位于公共 Blob 容器 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
 
 ```
     "storageKeyType": "Primary",
@@ -78,6 +78,9 @@ HDInsight 群集附带了某些示例数据。以后会用到以下两个示例�
 1. 单击以下图像，在 Azure 门户预览中打开 Resource Manager 模板。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    >[!NOTE]
+    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；把允许的地域改成“China North”和“China East”；把 HDInsight Linux 版本改为 Azure 中国所支持的 3.5。
 
 2. 输入以下属性：
 
@@ -230,7 +233,7 @@ PowerShell 示例将执行以下步骤：
     若要检查修改后的数据文件，可以使用 Azure 门户预览、Azure 存储资源管理器工具或 Azure PowerShell。[HDInsight 入门][hdinsight-get-started]中有一个关于使用 Azure PowerShell 下载文件并显示文件内容的代码示例。
 
 ### PowerShell 示例
-```powershell
+```
 # Prepare an Azure SQL database to be used by the Sqoop tutorial
 
 #region - provide the following values
@@ -642,3 +645,4 @@ Get-AzureRmHDInsightJobOutput `
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

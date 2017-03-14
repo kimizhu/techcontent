@@ -41,7 +41,7 @@ ms.author: jgao
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-```powershell
+```
 param (
     [parameter(Mandatory)][string] $ConfigFileName,
     [parameter(Mandatory)][string] $Name,
@@ -115,7 +115,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 ## <a name="helper-methods-for-custom-scripts"></a> 自定义脚本的帮助器方法
 脚本操作帮助器方法是可以在编写自定义脚本时使用的实用工具。这些方法在 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) 中定义，可以使用以下语法包括在你的脚本中：
 
-```powershell
+```
 # Download config action module from a well-known directory.
 $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
 $CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
@@ -218,7 +218,7 @@ $parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasTok
 ### 群集部署失败引发异常
 如果要获取群集自定义未按预期成功执行的准确通知，则必须引发异常，并且使群集创建失败。例如，你可能需要处理文件（如果存在），并应对文件不存在的错误情况。这将确保脚本正确存在，并且群集的状态也已知正确。以下代码段提供如何实现此目标的示例：
 
-```powershell
+```
 If(Test-Path($SomePath)) {
     #Process file in some way
 } else {
@@ -230,7 +230,7 @@ exit
 
 在此代码段中，如果文件不存在，则会导致脚本在列显错误消息后实际正常退出的状态，而群集将进入运行中状态（前提是它“成功”完成了群集自定义进程）。如果要准确知道群集自定义操作由于缺少文件而未按预期成功完成，就更适合引发异常并使群集自定义步骤失败。要达到这个目的，必须使用以下示例代码段。
 
-```powershell
+```
 If(Test-Path($SomePath)) {
     #Process file in some way
 } else {
@@ -323,3 +323,4 @@ Exception : ;
 [1]: https://msdn.microsoft.com/zh-cn/library/96xafkes(v=vs.110).aspx
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

@@ -31,6 +31,8 @@ Apache Storm 是分布式可容错的开源计算系统，可用于配合 Hadoop
 
 Apache Storm on HDInsight 是已集成到 Azure 环境中的托管群集。HDInsight 上的 Storm 和其他 Hadoop 组件基于 Hortonworks 数据平台 (HDP)，而群集的操作系统则为 Ubuntu（Linux 分发）。这种情况下提供的平台十分兼容 Hadoop 生态系统中的常用工具和服务。
 
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 > [!IMPORTANT]
 Linux 是在 HDInsight 3.4 或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
 
@@ -84,8 +86,6 @@ Apache Storm on HDInsight 具有下述主要优势：
 * __与其他 Azure 服务集成__
 
     * 进行 __Java__ 开发时，Microsoft 会尽可能利用现有的 Storm 组件与其他 Azure 服务集成。在某些情况下，可能需要特定于服务的组件或解决方案。
-
-        * __Azure Data Lake Store__：基于 Java 的拓扑可以在 URI 方案为 `adl://` 的情况下，使用 Storm-HDFS Bolt 访问 Data Lake Store。有关如何使用 Storm-HDFS Bolt 的示例，请参阅 [Use Azure Data Lake Store with Apache Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-write-data-lake-store)（将 Azure Data Lake Store 与 Apache Storm on HDInsight 配合使用）。
 
         * __Azure Blob 存储__（当用作 HDInsight 的存储时）：基于 Java 的拓扑可以访问与群集关联的 Azure Blob 存储，方法是将 Storm-HDFS Bolt 与 URI 方案 `wasb://` 配合使用。
 
@@ -147,7 +147,7 @@ Apache Storm 运行**拓扑**，而不是 HDInsight 或 Hadoop 中用户熟悉�
 * **Spout**：使用数据源中的数据并发出一个或多个**流**。
 
     > [!NOTE]
-    在许多情况下，数据是从队列（例如 Kafka 或 Azure 事件中心）读取的。队列确保发生中断时数据持续不断。
+    在许多情况下，数据是从队列（例如 Azure 事件中心）读取的。队列确保发生中断时数据持续不断。
 
 * **Bolt**：使用**流**，处理**元组**，并可以发出**流**。Bolt 还负责将数据编写到外部存储，比如队列、HDInsight HBase、blob 或其他数据存储。
 * **Apache Thrift**：用于可缩放跨语言服务开发的软件框架。可用于构建在 C++、Java、Python、PHP、Ruby、Erlang、Perl、Haskell、C#、Cocoa、JavaScript、Node.js、Smalltalk 及其他语言间工作的服务。
@@ -235,3 +235,4 @@ Storm 使用 Apache Log4j 来记录信息。默认情况下，将记录大量的
 [gettingstarted]: ./hdinsight-apache-storm-tutorial-get-started-linux.md
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

@@ -34,13 +34,13 @@ Azure 支持的 Linux 发行版已将 Azure Linux 代理包放入其存储库中
 
 对于 Ubuntu，只需键入：
 
-```
+```bash
 #sudo apt-get install walinuxagent
 ```
 
 在 CentOS 中，请键入：
 
-```
+```bash
 #sudo yum install waagent
 ```
 
@@ -48,7 +48,7 @@ Azure 支持的 Linux 发行版已将 Azure Linux 代理包放入其存储库中
 
 然后，要安装最新版本的 Azure Linux 代理，请键入：
 
-```
+```bash
 #sudo yum install WALinuxAgent
 ```
 
@@ -56,15 +56,19 @@ Azure 支持的 Linux 发行版已将 Azure Linux 代理包放入其存储库中
 
 对于 Oracle Linux 6 虚拟机：
 
-  [ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+```
+[ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+```
 
 对于 Oracle Linux 7 虚拟机：
 
-  [ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+```
+[ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+```
 
 然后键入：
 
-```
+```bash
 #sudo yum update WALinuxAgent
 ```
 
@@ -82,27 +86,31 @@ Azure 支持的 Linux 发行版已将 Azure Linux 代理包放入其存储库中
 
 ### 对于版本 2.0.x，请键入：
 
-```
+```bash
 #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 ```
 
-   以下行使用版本 2.0.14 作为示例：
+以下行使用版本 2.0.14 作为示例：
 
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
+```bash
+#wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
+```
 
 ### 对于 2.1.x 或更高版本，请键入：
 
-```
+```bash
 #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
 #unzip WALinuxAgent-[version].zip
 #cd WALinuxAgent-[version]
 ```
 
-   以下行使用版本 2.1.0 作为示例：
+以下行使用版本 2.1.0 作为示例：
 
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
-    #unzip WALinuxAgent-2.1.0.zip  
-    #cd WALinuxAgent-2.1.0
+```bash
+#wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
+#unzip WALinuxAgent-2.1.0.zip  
+#cd WALinuxAgent-2.1.0
+```
 
 ## 安装 Azure Linux 代理
 
@@ -130,7 +138,7 @@ Azure 支持的 Linux 发行版已将 Azure Linux 代理包放入其存储库中
 
 你可能需要先安装程序包 `setuptools`-- 详情请参阅[此处](https://pypi.python.org/pypi/setuptools)。然后运行：
 
-```
+```bash
 #sudo python setup.py install
 ```
 
@@ -138,25 +146,25 @@ Azure 支持的 Linux 发行版已将 Azure Linux 代理包放入其存储库中
 
 对于大多数 Linux 发行版：
 
-```
+```bash
 #sudo service waagent restart
 ```
 
 对于 Ubuntu，请使用：
 
-```
+```bash
 #sudo service walinuxagent restart
 ```
 
 对于 CoreOS，请使用：
 
-```
+```bash
 #sudo systemctl restart waagent
 ```
 
 ## 确认 Azure Linux 代理版本
 
-```
+```bash
 #waagent -version
 ```
 

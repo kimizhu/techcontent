@@ -19,10 +19,6 @@ wacn.date: 02/06/2017
 
 默认情况下，不会为了性能而优化 Hadoop 群集。本文介绍可对查询应用的几种最常见 Hive 性能优化方法。
 
-[!INCLUDE [门户预览](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [在 Hdinsight 中优化 Hadoop 的 Hive 查询](./hdinsight-hadoop-optimize-hive-query.md)。
-
 ##向外缩放辅助节点
 
 增加群集中的辅助节点数目，即可利用更多并行运行的映射器和化简器。在 HDInsight 中，可通过两种方式增加扩大的数目：
@@ -31,7 +27,9 @@ wacn.date: 02/06/2017
 
     ![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
-- 在运行时，也可以向外缩放群集，而无需重建群集。如下所示。![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
+- 在运行时，也可以向外缩放群集，而无需重建群集。如下所示。
+
+    ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 有关 HDInsight 支持的不同虚拟机的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
@@ -59,7 +57,7 @@ set hive.execution.engine=tez;
 
 对于基于 Windows 的 HDInsight 群集，必须在预配时启用 Tez。以下 Azure PowerShell 脚本示例用于预配已启用 Tez 的 Hadoop 群集：
 
-```powershell
+```
 $clusterName = "[HDInsightClusterName]"
 $location = "[AzureDataCenter]" #i.e. China North
 $dataNodes = 32 # number of worker nodes in the cluster
@@ -104,7 +102,7 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
 要创建分区表，请使用 *Partitioned By* 子句：
 
-```sql
+```
 CREATE TABLE lineitem_part
     (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
@@ -120,7 +118,7 @@ STORED AS TEXTFILE;
 
 - **静态分区**表示已在相应目录中创建了分片数据，你可以请求根据目录位置在 Hive 中手动分区。以下代码段对此做了演示。
 
-    ```sql
+    ```
     INSERT OVERWRITE TABLE lineitem_part
     PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
     SELECT * FROM lineitem 
@@ -132,7 +130,7 @@ STORED AS TEXTFILE;
 
 - **动态分区**表示你希望 Hive 自动创建分区。由于我们已经基于暂存表创建了分区表，我们需要做的就是将数据插入分区表，如下所示：
 
-    ```sql
+    ```
     SET hive.exec.dynamic.partition = true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
     INSERT INTO TABLE lineitem_part
@@ -162,7 +160,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。与其�
 
 要启用 ORC 格式，请先使用 *Stored as ORC* 子句创建一个表：
 
-```sql
+```
 CREATE TABLE lineitem_orc_part
     (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
@@ -175,7 +173,7 @@ STORED AS ORC;
 
 接下来，从暂存表向 ORC 表插入数据。例如：
 
-```sql
+```
 INSERT INTO TABLE lineitem_orc
 SELECT L_ORDERKEY as L_ORDERKEY, 
        L_PARTKEY as L_PARTKEY , 
@@ -223,7 +221,6 @@ set hive.vectorized.execution.enabled = true;
 
 - [使用 HDInsight 中的 Apache Hive](./hdinsight-use-hive.md)
 - [使用 HDInsight 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data.md)
-- [使用 HDInsight 中的 Hive 分析 Twitter 数据](./hdinsight-analyze-twitter-data.md)
 - [使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据](./hdinsight-hive-analyze-sensor-data.md)
 - [将 Hive 与 HDInsight 配合使用来分析来自网站的日志](./hdinsight-hive-analyze-website-log.md)
 
