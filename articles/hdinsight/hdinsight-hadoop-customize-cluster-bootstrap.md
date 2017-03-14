@@ -250,7 +250,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.2" `
+    -Version "3.5" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config
@@ -264,3 +264,4 @@ Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 ```
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

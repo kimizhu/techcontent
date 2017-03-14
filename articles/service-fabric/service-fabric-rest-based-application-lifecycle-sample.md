@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2016
-wacn.date: 01/20/2017
+wacn.date: 01/25/2017
 ms.author: ryanwi
 ---
 
@@ -56,7 +56,7 @@ ms.author: ryanwi
 5. 保存更改后的 ApplicationManifest.xml 文件。
 6. 以管理员身份运行以下 PowerShell 脚本，将应用程序复制到映像存储：
 
-    ```
+    ```powershell
     # Deploy the WordCount and upgrade applications
     $applicationPathWordCount = "C:\Temp\WordCount"
     $applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
@@ -76,7 +76,7 @@ ms.author: ryanwi
 ## 示例
 以下示例演示 Service Fabric 应用程序生命周期。
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Fabric;
@@ -690,5 +690,5 @@ ms.author: ryanwi
 
 [Service Fabric 应用程序生命周期](./service-fabric-application-lifecycle.md)
 
-<!---HONumber=Mooncake_0116_2017-->
-<!--update: wording update-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->
+<!--update:-->

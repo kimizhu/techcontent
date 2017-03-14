@@ -11,17 +11,19 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
-ms.date: 12/30/2015
-wacn.date: 02/06/2017
+ms.date: 10/05/2016
+wacn.date: 02/14/2017
 ---
 
 # 使用脚本操作自定义基于 Windows 的 HDInsight 群集
 
-[!INCLUDE [选择器](../includes/hdinsight-create-windows-cluster-selector.md)]
+[!INCLUDE [选择器](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 创建群集期间，可以使用**脚本操作**调用[自定义脚本](./hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
 
 也可以使用其他各种方法自定义 HDInsight 群集，例如包括其他 Azure 存储帐户、更改 hadoop 配置文件（core-site.xml、hive-site.xml 等），或者将共享库（如 Hive、Oozie）添加到群集中的共同位置。这些自定义可以通过 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 门户预览完成。有关详细信息，请参阅[在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]。
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 ## 群集创建期间的脚本操作
 
@@ -136,12 +138,12 @@ HDInsight 服务提供两种类型的开源组件：
 - **内置组件** - 这些组件预先安装在 HDInsight 群集上，并提供群集的核心功能。例如，Yarn ResourceManager、Hive 查询语言 (HiveQL) 和 Mahout 库均属于此类别。[HDInsight 提供的 Hadoop 群集版本有哪些新增功能](./hdinsight-component-versioning.md)</a>中提供了群集组件的完整列表。
 - **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供或自己创建的任何组件。
 
-完全支持内置组件，Microsoft 支持部门将帮助找出并解决与这些组件相关的问题。
+完全支持内置组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 
 > [!WARNING]
-> 完全支持通过 HDInsight 群集提供的组件，Microsoft 支持部门将帮助找出并解决与这些组件相关的问题。
->
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
+><p>
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=hdinsight)、[Azure CSDN](http://azure.csdn.net)。此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服务可提供多种方法使用自定义组件。无论在群集上使用或安装组件的方式如何，均适用相同级别的支持。以下是可在 HDInsight 群集上使用自定义组件的最常见方法列表：
 

@@ -40,7 +40,7 @@ WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTr
 
 导出 Blob 列表文件可能包含 Blob 名称和 Blob 前缀，如下所示：
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <BlobList>  
 <BlobPath>pictures/animals/koala.jpg</BlobPath>  

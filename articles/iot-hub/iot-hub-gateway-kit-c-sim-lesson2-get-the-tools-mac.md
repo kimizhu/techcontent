@@ -63,13 +63,13 @@ ms.author: xshi
    1. 按 `Cmd + Space` 并输入 `Terminal` 即可打开终端。
    2. 运行以下命令：
 
-       ```
+       ```bash
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
        ```
 
 2. 运行以下命令，安装 Git 和 Node.js：
 
-    ```
+    ```bash
     brew install node git
     ```
 
@@ -79,8 +79,8 @@ ms.author: xshi
 
 若要安装 gulp，请在终端运行以下命令：
 
-```
-    npm install -g gulp
+```bash
+npm install -g gulp
 ```
 
 如果遇到安装问题，请参阅[故障排除指南](./iot-hub-gateway-kit-c-sim-troubleshooting.md)，获取常见问题的解决方案。
@@ -94,8 +94,8 @@ ms.author: xshi
 
 通过运行以下命令安装 Python 和 pip：
 
-```
-    brew install python
+```bash
+brew install python
 ```
 
 ## 安装 Azure CLI
@@ -104,7 +104,7 @@ ms.author: xshi
 
 1. 在终端运行以下命令：
 
-    ```
+    ```bash
     pip install --upgrade azure-cli
     pip install --upgrade azure-cli-iot
     ```
@@ -113,7 +113,7 @@ ms.author: xshi
 
 2. 运行以下命令，对安装进行验证：
 
-    ```
+    ```bash
     az iot -h
     ```
 

@@ -133,6 +133,7 @@ Azure 经典管理门户中的监视显示信息是高度可配置的。可在�
     <SampleRateInSeconds>180</SampleRateInSeconds>
     </PerformanceCounterConfiguration>
     ```
+
 4. 保存所做的更改，然后将配置文件上载回到相同位置，并覆盖 Blob 中的现有文件。
 5. 在 Azure 经典管理门户配置中切换到“详细”模式。如果已处于“详细”模式，请切换到“最低”，然后再切换回到“详细”模式。
 6. 自定义性能计数器即会出现在“添加度量值”对话框中。

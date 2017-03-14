@@ -46,9 +46,9 @@ ms.author: xshi
 
     通过运行以下命令在 Visual Studio Code 中打开示例应用程序：
 
-    ```
-       cd Lesson4
-       code .
+    ```bash
+    cd Lesson4
+    code .
     ```
 
     请注意 `app` 子文件夹中的 `app.ino` 文件。`app.ino` 文件是关键的源文件，其中包含的代码用于监视 IoT 中心发出的传入消息。`blinkLED` 函数可使 LED 闪烁。
@@ -57,7 +57,7 @@ ms.author: xshi
 
 2. 使用设备发现 CLI 获取设备的串行端口：
 
-    ```
+    ```bash
     devdisco list --usb
     ```
 
@@ -67,10 +67,10 @@ ms.author: xshi
 
 3. 打开课程文件夹中的 `config.json` 文件，并输入找到的 COM 端口号的值：
 
-    ```
-       {
-           "device_port" : "COM1"
-       }
+    ```json
+    {
+        "device_port" : "COM1"
+    }
     ```
 
     ![config.json][config-json]  
@@ -80,11 +80,11 @@ ms.author: xshi
 
 4. 运行以下命令初始化配置文件：
 
-    ```
-       # For Windows command prompt
-       npm install
-       gulp init
-       gulp install-tools
+    ```bash
+    # For Windows command prompt
+    npm install
+    gulp init
+    gulp install-tools
     ```
 
 5. 在 `config-arduino.json` 文件中进行以下替换：
@@ -101,7 +101,7 @@ ms.author: xshi
 ## 部署并运行示例应用程序
 运行以下命令，在 Arduino 开发板上部署并运行示例应用程序：
 
-```
+```bash
     gulp run
     # You can monitor the serial port by running listen task:
     gulp listen

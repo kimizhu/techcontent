@@ -32,6 +32,8 @@ ms.author: larryfr
 * 对于 **Windows** 群集：使用脚本操作在群集创建过程中配置值。有关详细信息，请参阅[开发脚本操作](./hdinsight-hadoop-script-actions.md)。
 * 对于 **Linux** 群集：使用 Ambari（Web 或 REST API）修改值。有关详细信息，请参阅[使用 Ambari 管理 HDInsight](./hdinsight-hadoop-manage-ambari.md)
 
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 > [!IMPORTANT]
 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
 
@@ -83,3 +85,4 @@ Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。�
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

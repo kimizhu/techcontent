@@ -145,7 +145,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 
 > [!NOTE]
 群集大小限制因 Azure 订阅而异。要提高限制的大小，请联系计费支持人员。
-> 
+> <p>
 > 群集使用的节点不视为虚拟机，因为用于节点的虚拟机映像是 HDInsight 服务的实现细节。但是，节点使用的计算核心会计入可供订阅使用的计算核心总数。创建 HDInsight 群集时，可以在“节点定价层”边栏选项卡的摘要部分中查看可用核心数以及群集要使用的核心数。
 > 
 > 
@@ -220,6 +220,8 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 
 ## 使用 Hive/Oozie 元存储
 如果希望在删除 HDInsight 群集后保留 Hive 表，则强烈建议使用自定义元存储，以便将来可将该元存储附加到另一个 HDInsight 群集。
+
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
 HDInsight 元存储无法向后兼容。例如，无法使用 HDInsight 3.3 群集的元存储来创建 HDInsight 3.2 群集。

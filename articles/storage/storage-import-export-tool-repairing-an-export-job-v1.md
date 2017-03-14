@@ -58,7 +58,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 
 下面是复制日志文件的一个示例，显示未能导出的 Blob 中的一个块：
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <DriveLog>  
   <DriveId>9WM35C2V</DriveId>  
@@ -90,7 +90,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 
 下面是清单文件的一个示例：
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <DriveManifest Version="2011-10-01">  
   <Drive>  

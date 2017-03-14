@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2016
-wacn.date: 11/17/2016
+wacn.date: 01/25/2017
 ms.author: amanbha
 ---
 
@@ -24,7 +24,7 @@ ms.author: amanbha
 
 定义说明由执行组件发布的事件的接口。此接口必须派生自 `IActorEvents` 接口。方法的参数必须为[数据协定可序列化](./service-fabric-reliable-actors-notes-on-actor-type-serialization.md)。当事件通知是单向且为最佳效果时，方法必须返回 void。
 
-```
+```csharp
 public interface IGameEvents : IActorEvents
 {
     void GameScoreUpdated(Guid gameId, string currentScore);
@@ -33,7 +33,7 @@ public interface IGameEvents : IActorEvents
 
 声明由执行组件在执行组件界面中发布的事件。
 
-```
+```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 {
     Task UpdateGameStatus(GameStatus status);
@@ -44,7 +44,7 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 
 在客户端上，实现事件处理程序。
 
-```
+```csharp
 class GameEventsHandler : IGameEvents
 {
     public void GameScoreUpdated(Guid gameId, string currentScore)
@@ -56,7 +56,7 @@ class GameEventsHandler : IGameEvents
 
 在客户端上，为发布事件并订阅其事件的执行组件创建代理。
 
-```
+```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
 
@@ -67,7 +67,7 @@ await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 
 在执行组件上，只需在事件发生时发布事件。如果有订阅此事件的用户，那么执行组件运行时会向他们发送通知。
 
-```
+```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
@@ -78,4 +78,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
  - [执行组件 API 参考文档](https://msdn.microsoft.com/zh-cn/library/azure/dn971626.aspx)
  - [代码示例](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=Mooncake_1017_2016-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->

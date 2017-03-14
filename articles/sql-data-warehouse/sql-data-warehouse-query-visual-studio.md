@@ -1,4 +1,5 @@
 <!-- Remove PowerBI, ML -->
+
 ---
 title: 查询 Azure SQL 数据仓库 (Visual Studio) | Azure
 description: 使用 Visual Studio 查询 SQL 数据仓库。
@@ -73,7 +74,7 @@ ms.author: sonyama;barbkess
 
 3. 将以下 TSQL 查询复制到查询窗口中：
 
-    ```
+    ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
 

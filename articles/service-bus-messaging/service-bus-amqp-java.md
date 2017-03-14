@@ -67,11 +67,11 @@ queue.QUEUE = queue1
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-其中 `[jndi\_name]` 和 `[ConnectionURL]` 具有以下含义：
+其中 `[jndi_name]` 和 `[ConnectionURL]` 具有以下含义：
 
 | 名称 | 含义 | | | | |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|
-| `[jndi\_name]` | 连接工厂的逻辑名称。通过使用 JNDI `IntialContext.lookup()` 方法在 Java 应用程序中解析此名称。 | | | | |
+| `[jndi_name]` | 连接工厂的逻辑名称。通过使用 JNDI `IntialContext.lookup()` 方法在 Java 应用程序中解析此名称。 | | | | |
 | `[ConnectionURL]` | 用于向 AMQP 代理提供包含所需信息的 JMS 库的 URL。 | | | | |
 
 连接 URL 的格式如下：
@@ -113,19 +113,19 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-其中 `[jndi\_name]` 和 `[physical\_name]` 具有以下含义：
+其中 `[jndi_name]` 和 `[physical_name]` 具有以下含义：
 
 | Name | 含义 |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `[jndi\_name]` | 目标的逻辑名称。通过使用 JNDI `IntialContext.lookup()` 方法在 Java 应用程序中解析此名称。 |
-| `[physical\name]` | 应用程序在其中发送或接收消息的 Service Bus 实体的名称。 |
+| `[jndi_name]` | 目标的逻辑名称。通过使用 JNDI `IntialContext.lookup()` 方法在 Java 应用程序中解析此名称。 |
+| `[physical_name]` | 应用程序在其中发送或接收消息的 Service Bus 实体的名称。 |
 
 注意以下事项：
 
-- `[physical\name]` 值可以是服务总线队列或主题。
+- `[physical_name]` 值可以是服务总线队列或主题。
 - 在从 Service Bus 主题订阅中接收时，在 JNDI 中指定的物理名称应该是该主题的名称。在 JMS 应用程序代码中创建可持久订阅时提供该订阅名称。
 - 还可以将服务总线主题订阅视为一个 JMS 队列。此方法具有以下几个优点：可以针对队列和主题订阅使用同一接收者代码，并且所有地址信息（主题和订阅名称）都在属性文件中外部化。
-- 若要将服务总线主题订阅视为一个 JMS 队列，属性文件中的条目应采用以下形式：`queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`。|
+- 若要将服务总线主题订阅视为一个 JMS 队列，属性文件中的条目应采用以下形式：`queue.[jndi_name] = [topic_name]/Subscriptions/[subscription_name]`。|
 
 若要定义映射到名为“topic1”的服务总线主题的名为“TOPIC”的逻辑 JMS 目标，属性文件中的条目应如下所示：
 
@@ -137,7 +137,7 @@ topic.TOPIC = topic1
 
 以下代码演示如何向服务总线主题发送消息。假设在上一部分中所述的 **servicebus.properties** 配置文件中定义了 `SBCONNECTIONFACTORY` 和 `TOPIC`。
 
-```
+```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, 
         "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
@@ -158,7 +158,7 @@ producer.send(message);
 
 以下代码演示`how`从服务总线主题订阅接收消息。假设在上一部分中所述的 **servicebus.properties** 配置文件中定义了 `SBCONNECTIONFACTORY` 和 TOPIC。它还假定订阅名称是 `subscription1`。
 
-```
+```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, 
         "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
@@ -199,7 +199,7 @@ JMS 定义了五种不同的消息类型：**BytesMessage**、**MapMessage**、*
 
 以下代码演示如何通过服务总线 .NET API 使用 **BytesMessage** 对象的正文。
 
-```
+```csharp
 Stream stream = message.GetBody<Stream>();
 int streamLength = (int)stream.Length;
 
@@ -217,7 +217,7 @@ for (int i = 0; i < stream.Length; i++)
 
 以下代码演示如何通过服务总线 .NET API 使用 **MapMessage** 对象的正文。此代码循环访问映射的元素，并显示每个元素的名称和值。
 
-```
+```csharp
 Dictionary<String, Object> dictionary = message.GetBody<Dictionary<String, Object>>();
 
 foreach (String mapItemName in dictionary.Keys)
@@ -234,7 +234,7 @@ foreach (String mapItemName in dictionary.Keys)
 
 以下代码演示如何通过服务总线 .NET API 使用 **StreamMessage** 对象的正文。此代码将列出流中的每一项及其类型。
 
-```
+```csharp
 List<Object> list = message.GetBody<List<Object>>();
 
 foreach (Object item in list)
@@ -247,7 +247,7 @@ foreach (Object item in list)
 
 以下代码演示如何通过服务总线 .NET API 使用 **TextMessage** 对象的正文。此代码将显示消息的正文中包含的文本字符串。
 
-```
+```csharp
 Console.WriteLine("Text: " + message.GetBody<String>());
 ```
 
@@ -259,7 +259,7 @@ Console.WriteLine("Text: " + message.GetBody<String>());
 
 以下代码演示如何在 .NET 中创建由 JMS 客户端接收作为 **BytesMessage** 的 [BrokeredMessage][] 对象。
 
-```
+```csharp
 byte[] bytes = { 33, 12, 45, 33, 12, 45, 33, 12, 45, 33, 12, 45 };
 message = new BrokeredMessage(bytes);
 ```
@@ -268,7 +268,7 @@ message = new BrokeredMessage(bytes);
 
 以下代码演示如何在 .NET 中创建由 JMS 客户端接收作为 **StreamMessage** 的 [BrokeredMessage][] 对象。
 
-```
+```csharp
 List<Object> list = new List<Object>();
 list.Add("String 1");
 list.Add("String 2");
@@ -281,7 +281,7 @@ message = new BrokeredMessage(list);
 
 以下代码演示如何通过服务总线 .NET API 使用 **TextMessage** 的正文。此代码将显示消息的正文中包含的文本字符串。
 
-```
+```csharp
 message = new BrokeredMessage("this is a text string");
 ```
 
@@ -291,7 +291,7 @@ message = new BrokeredMessage("this is a text string");
 
 JMS 消息支持以下类型的应用程序属性：**boolean**、**byte**、**short**、**int**、**long**、**float**、**double** 和 **String**。以下 Java 代码显示如何使用上述每种属性类型在消息上设置属性。
 
-```
+```java
 message.setBooleanProperty("TestBoolean", true); 
 message.setByteProperty("TestByte", (byte) 33); 
 message.setDoubleProperty("TestDouble", 3.14159D); 
@@ -302,7 +302,7 @@ message.setStringProperty("TestString", "Service Bus");
 
 在服务总线 .NET API 中，在 [BrokeredMessage][] 的 **Properties** 集合中携带消息应用程序属性。以下代码演示如何读取从 JMS 客户端收到的消息的应用程序属性。
 
-```
+```csharp
 if (message.Properties.Keys.Count > 0)
 {
   foreach (string name in message.Properties.Keys)
@@ -327,7 +327,7 @@ if (message.Properties.Keys.Count > 0)
 
 [BrokeredMessage][] 类型支持以下类型的应用程序属性：**byte**、**sbyte**、**char**、**short**、**ushort**、**int**、**uint**、**long**、**ulong**、**float**、**double**、**decimal**、**bool**、**Guid**、**string**、**Uri**、**DateTime**、**DateTimeOffset** 和 **TimeSpan**。以下 .NET 代码显示如何使用上述每种属性类型在 [BrokeredMessage][] 对象上设置属性。
 
-```
+```csharp
 message.Properties["TestByte"] = (byte)128;
 message.Properties["TestSbyte"] = (sbyte)-22;
 message.Properties["TestChar"] = (char) 'X';
@@ -351,7 +351,7 @@ message.Properties["TestTimeSpan"] = TimeSpan.FromMinutes(60);
 
 以下 Java 代码演示如何读取从服务总线 .NET 客户端收到的消息的应用程序属性。
 
-```
+```java
 Enumeration propertyNames = message.getPropertyNames(); 
 while (propertyNames.hasMoreElements()) 
 { 

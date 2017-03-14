@@ -43,6 +43,8 @@ Azure 事件中心可处理网站、应用和设备的大量数据。借助事�
 
 项目所使用的 Microsoft.SCP.Net.SDK NuGet 包必须与安装在 HDInsight 上的 Storm 的主要版本匹配。Storm on HDInsight 版本 3.3 和 3.4 使用 Storm 版本 0.10.x，因此必须对这些群集使用 SCP.NET 版本 0.10.x.x。HDInsight 3.5 使用 Storm 1.0.x.，因此必须对此群集版本使用 SCP.NET 版本 1.0.x.x。
 
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 > [!IMPORTANT]
 Linux 是在 HDInsight 3.4 或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
 
@@ -69,7 +71,7 @@ Microsoft 提供一组 Java 组件，适用于与 Storm 拓扑中的 Azure 事�
 
 SCP.NET 提供将 EventHubSpout 添加到拓扑的专用方法。与使用泛型方法添加 Java 组件相比，这些方法可以更轻松地添加 Spout。以下示例演示了如何使用 SCP.NET 所提供的 __SetEventHubSpout__ 和 EventHubSpoutConfig 方法创建新的 Spout：
 
-```
+```csharp
 topologyBuilder.SetEventHubSpout(
     "EventHubSpout",
     new EventHubSpoutConfig(
@@ -93,7 +95,7 @@ topologyBuilder.SetEventHubSpout(
 
 也可在创建 Spout 时使用泛型 JavaCompoentConstructor 方法。以下示例演示如何使用 JavaComponentConstructor 方法创建新的 Spout。它还演示了如何将 Spout 配置为使用 UTF-8 编码而非 String 编码来读取数据：
 
-```
+```csharp
 // Create an instance of UnicodeEventDataScheme
 var schemeConstructor = new JavaComponentConstructor("com.microsoft.eventhubs.spout.UnicodeEventDataScheme");
 // Create an instance of EventHubSpoutConfig
@@ -133,7 +135,7 @@ UnicodeEventDataScheme 仅在 9.5 版事件中心组件中提供，该版本可�
 
 必须使用 JavaComponmentConstructor 方法创建 Bolt 的实例。以下示例演示如何创建和配置 EventHubBolt 的新实例：
 
-```
+```csharp
 //Create constructor for the Java bolt
 JavaComponentConstructor constructor =
     // Use a Clojure expression to create the EventHubBoltCOnfig
@@ -292,3 +294,4 @@ Spout 和 Bolt 以名为 **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**
 * [Storm on HDInsight 的示例拓扑](./hdinsight-storm-example-topology.md)
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

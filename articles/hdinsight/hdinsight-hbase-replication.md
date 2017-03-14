@@ -64,11 +64,17 @@ ms.author: jgao
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
+>[!NOTE]
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；把允许的地域改成“China North”和“China East”；把 HDInsight Linux 版本改为 Azure 中国所支持的 3.5。
+
 ### 在同一区域中配置两个虚拟网络
 
 单击下图，在同一区域中创建两个使用 VNet 对等互连的虚拟网络和两个 HBase 群集。模板存储在公共 Azure Blob 容器中。
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+>[!NOTE]
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；把允许的地域改成“China North”和“China East”；把 HDInsight Linux 版本改为 Azure 中国所支持的 3.5。
 
 此方案需要 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。使用模板启用 VNet 对等互连。
 
@@ -96,6 +102,9 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。必须为目标 HBase ZooKeeper 
 单击下图，在两个不同区域中创建两个虚拟网络。模板存储在公共 Azure Blob 容器中。
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+>[!NOTE]
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；把允许的地域改成“China North”和“China East”；把 HDInsight Linux 版本改为 Azure 中国所支持的 3.5。
 
 在两个虚拟网络之间创建 VPN 网关。有关说明，请参阅 [Create a VNet with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)（创建使用站点到站点连接的 VNet）。
 
@@ -253,7 +262,6 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。必须为目标 HBase ZooKeeper 
 * [开始在 HDInsight 中使用 Apache HBase][hdinsight-hbase-get-started]
 * [HDInsight HBase 概述][hdinsight-hbase-overview]
 * [在 Azure 虚拟网络中创建 HBase 群集][hdinsight-hbase-provision-vnet]
-* [使用 HBase 分析实时 Twitter 观点][hdinsight-hbase-twitter-sentiment]
 * [使用 HDInsight (Hadoop) 中的 Storm 和 HBase 分析传感器数据][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: /documentation/articles/hdinsight-hbase-geo-replication-configure-vnets/
@@ -265,7 +273,6 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。必须为目标 HBase ZooKeeper 
 [hdinsight-hbase-get-started]: ./hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: ./hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: ./hdinsight-provision-clusters.md
-[hdinsight-hbase-twitter-sentiment]: ./hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: ./hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: ./hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: ./hdinsight-hbase-provision-vnet.md

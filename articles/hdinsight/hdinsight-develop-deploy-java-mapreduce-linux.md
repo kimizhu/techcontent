@@ -8,13 +8,11 @@ authors: Blackmist
 documentationCenter: ''
 
 ms.service: hdinsight
-ms.date: 09/02/2015
-wacn.date: 02/06/2017
+ms.date: 10/11/2016
+wacn.date: 02/14/2017
 ---
 
 # 为 HDInsight 中的 Hadoop 开发 Java MapReduce 程序
-
-[!INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
 本文档介绍如何使用 Apache Maven 来创建 MapReduce 应用程序，然后在 HDInsight 群集中基于 Linux 的 Hadoop 上部署和运行它。
 
@@ -29,8 +27,6 @@ wacn.date: 02/06/2017
 - **Azure 订阅**
 
 - **Azure CLI**
-
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##配置环境变量
 

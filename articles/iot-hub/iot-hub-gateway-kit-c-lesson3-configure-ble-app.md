@@ -48,7 +48,7 @@ ms.author: xshi
 1. 在 Windows 中打开命令提示符窗口，或在 macOS 或 Ubuntu 中打开终端。
 2. 运行以下命令：
 
-    ```
+    ```bash
        git clone https://github.com/Azure-samples/iot-hub-c-intel-nuc-gateway-getting-started
        cd iot-hub-c-intel-nuc-gateway-getting-started
     ```
@@ -59,7 +59,7 @@ ms.author: xshi
 
 1. 运行以下命令初始化配置文件：
 
-    ```
+    ```bash
        cd Lesson3
        npm install
        gulp init
@@ -67,7 +67,7 @@ ms.author: xshi
 
 2. 运行以下命令，在 Visual Studio Code 中打开 `config-gateway.json`：
 
-    ```
+    ```bash
        # For Windows command prompt
        code %USERPROFILE%\.iot-hub-getting-started\config-gateway.json
        # For macOS or Ubuntu
@@ -79,8 +79,8 @@ ms.author: xshi
 
 4. 运行以下命令，在 Intel NUC 上安装帮助程序工具：
 
-    ```
-       gulp install-tools
+    ```bash
+    gulp install-tools
     ```
 
 5. 按电源按钮（如下图所示）打开 SensorTag，绿色 LED 应闪烁。
@@ -89,14 +89,14 @@ ms.author: xshi
 
 6. 运行以下命令，扫描 SensorTag 设备：
 
-    ```
-       gulp discover-sensortag
+    ```bash
+    gulp discover-sensortag
     ```
 
 7. 运行以下命令，测试 SensorTag 与 Intel NUC 之间的连接：
 
-    ```
-       gulp test-connectivity --mac {mac address}
+    ```bash
+    gulp test-connectivity --mac {mac address}
     ```
 
     将 `{mac address}` 替换为在前面步骤中获取的 MAC 地址。
@@ -105,7 +105,7 @@ ms.author: xshi
 
 若要获取 SensorTag 的 Azure IoT 中心连接字符串，请在主计算机上运行以下命令：
 
-```
+```bash
 az iot device show-connection-string --hub-name {IoT hub name} --device-id mydevice --resource-group iot-gateway
 ```
 
@@ -117,7 +117,7 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
 1. 运行以下命令，在 Visual Studio Code 中打开 `config-sensortag.json`：
 
-    ```
+    ```bash
        # For Windows command prompt
        code %USERPROFILE%\.iot-hub-getting-started\config-sensortag.json
        # For macOS or Ubuntu
@@ -139,7 +139,7 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
     2. 运行以下命令，在 Intel NUC 上部署和运行 BLE 示例应用程序：
 
-        ```
+        ```bash
         gulp run
         ```
 

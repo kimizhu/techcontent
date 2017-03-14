@@ -34,6 +34,8 @@ ms.author: larryfr
 * [Maven](http://maven.apache.org/)
 * [装有 HBase 的基于 Windows 的 HDInsight 群集](./hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
     > [!NOTE]
     > 本文档中的步骤已在 HDInsight 群集版本 3.2 和 3.3 中测试。示例中提供的默认值适用于 HDInsight 3.3 群集。
 
@@ -638,12 +640,12 @@ ms.author: larryfr
     此命令使用 **SearchByEmail** 类搜索任何 **contactinformation** 列系列和 **email** 列包含字符串 **contoso.com** 的行。你应该会收到以下结果：
 
     ```
-      Franklin Holtz - ID: 2
-      Franklin Holtz - franklin@contoso.com - ID: 2
-      Rae Schroeder - ID: 4
-      Rae Schroeder - rae@contoso.com - ID: 4
-      Gabriela Ingram - ID: 6
-      Gabriela Ingram - gabriela@contoso.com - ID: 6
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
     ```
 
     将 **fabrikam.com** 用于 `-emailRegex` 值会返回电子邮件字段中包含 **fabrikam.com** 的用户。此搜索使用基于正则表达式的筛选器执行，因此，也可以输入正则表达式，例如 **^r**，这样就会返回电子邮件以字母“r”开头的条目。
@@ -662,3 +664,4 @@ Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hd
 使用 `-showErr` 参数可查看运行作业时生成的标准错误 (STDERR)。
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

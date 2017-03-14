@@ -52,7 +52,7 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
 
 下面是复制日志文件的示例。在此示例中，为导入作业寄送的驱动器上某个文件的 64K 内容已损坏。由于这只是指示失败，作业中剩余 Blob 已成功导入。
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <DriveLog>  
  <DriveId>9WM35C2V</DriveId>  

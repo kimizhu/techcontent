@@ -50,7 +50,7 @@ ms.author: xshi
 ## 安装 Git、Node.js 和 NPM
 使用键盘快捷方式 `Ctrl + Alt + T` 打开一个终端并运行以下命令：
 
-```
+```bash
     sudo apt-get update
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     sudo apt-get install -y nodejs
@@ -62,8 +62,8 @@ ms.author: xshi
 
 在终端运行以下命令，安装 `gulp`：
 
-```
-    sudo npm install -g gulp
+```bash
+sudo npm install -g gulp
 ```
 
 如果无法在 Ubuntu 上安装 Node.js 和这些额外的开发工具，请参阅[故障排除指南][troubleshooting]，了解常见问题的解决方案。

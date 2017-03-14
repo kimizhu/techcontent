@@ -10,8 +10,8 @@ manager: paulettm
 editor: ''
 
 ms.service: hdinsight
-ms.date: 06/29/2016
-wacn.date: 02/06/2017
+ms.date: 10/03/2016
+wacn.date: 02/14/2017
 ---
 
 #借助 Maven 构建可将 HBase 与基于 Linux 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
@@ -30,6 +30,8 @@ wacn.date: 02/06/2017
 * [Maven](http://maven.apache.org/)
 
 * [装有 HBase 的基于 Linux 的 Azure HDInsight 群集](./hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!NOTE]
     > 本文档中的步骤已在 HDInsight 群集版本 3.2、3.3 和 3.4 中测试。示例中提供的默认值适用于 HDInsight 3.4 群集。
@@ -162,7 +164,7 @@ wacn.date: 02/06/2017
 
     > [!NOTE]
     > 如果你使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。以下示例将从 `~/.ssh/id_rsa` 加载私钥：
-    >
+    ><p>
     > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
 ##创建应用程序
@@ -379,7 +381,7 @@ wacn.date: 02/06/2017
 
     > [!NOTE]
     > 如果你使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。以下示例将从 `~/.ssh/id_rsa` 加载私钥：
-    >
+    ><p>
     > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.`
 
 2. 使用 SSH 连接到 HDInsight 群集。将 **USERNAME** 替换为你的 SSH 登录名。将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
@@ -390,7 +392,7 @@ wacn.date: 02/06/2017
 
     > [!NOTE]
     > 如果你使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。以下示例将从 `~/.ssh/id_rsa` 加载私钥：
-    >
+    ><p>
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. 连接后，使用以下命令在 Java 应用程序中创建新的 HBase 表：

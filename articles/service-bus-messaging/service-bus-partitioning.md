@@ -39,7 +39,7 @@ Azure 服务总线使用多个消息中转站来处理消息，并用多个消�
 
 有多种方法可以创建分区的队列或主题。当从你的应用程序中创建队列或主题时，可以通过分别将 [QueueDescription.EnablePartitioning][] 或 [TopicDescription.EnablePartitioning][] 属性设置为 **true** 来启用队列或主题的分区。这些属性必须在队列或主题创建时设置。无法更改现有队列或主题上的这些属性。例如：
 
-```
+```csharp
     // Create partitioned topic
     NamespaceManager ns = NamespaceManager.CreateFromConnectionString(myConnectionString);
     TopicDescription td = new TopicDescription(TopicName);
@@ -77,7 +77,7 @@ Azure 服务总线使用多个消息中转站来处理消息，并用多个消�
 
 作为事务一部分发送的消息必须指定分区键。这可以是以下属性之一：[BrokeredMessage.SessionId][]、[BrokeredMessage.PartitionKey][] 或 [BrokeredMessage.MessageId][]。所有作为同一事务一部分发送的消息必须指定相同的分区键。如果你尝试在事务中发送一条没有分区键的消息，服务总线会返回 **InvalidOperationException** 异常。如果你尝试在同一事务中发送多条具有不同分区键的消息，服务总线会返回 **InvalidOperationException** 异常。例如：
 
-```
+```csharp
     CommittableTransaction committableTransaction = new CommittableTransaction();
     using (TransactionScope ts = new TransactionScope(committableTransaction))
     {
@@ -97,7 +97,7 @@ Azure 服务总线使用多个消息中转站来处理消息，并用多个消�
 
 与常规（非分区）的队列或主题不同，不可能使用单一事务来将多条消息发送到不同会话。如果进行尝试，服务总线返回 **InvalidOperationException **异常。例如：
 
-```
+```csharp
     CommittableTransaction committableTransaction = new CommittableTransaction();
     using (TransactionScope ts = new TransactionScope(committableTransaction))
     {
@@ -124,7 +124,7 @@ Azure 服务总线支持从分区实体、向分区的实体或在分区的实�
 
 - 分区实体现在支持添加或删除规则。与非分区实体不同的是，不支持在事务下执行这些操作。
 - AMQP 现在支持往返于分区实体发送和接收消息。
-- AMQP 现在支持以下操作：[成批发送](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx)、[成批接收](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx)、[按序列号接收](https://msdn.microsoft.com/zh-cn/library/azure/hh330765.aspx)、[速览](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx)、[续订锁定](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx)、[计划消息](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx)、[取消计划的消息](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx)、[添加规则](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.ruledescription.aspx)、[删除规则](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.ruledescription.aspx)、[会话续订锁定](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx)、[设置会话状态](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx)、[获取会话状态](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)、[速览会话消息](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx)和[枚举会话](https://msdn.microsoft.com/zh-cn/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx)。
+- AMQP 现在支持以下操作：[成批发送](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx)、[成批接收](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx)、[按序列号接收](https://msdn.microsoft.com/zh-cn/library/azure/hh330765.aspx)、[速览](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx)、[续订锁定](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx)、[计划消息](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx)、[取消计划的消息](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx)、[添加规则](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.ruledescription.aspx)、[删除规则](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.ruledescription.aspx)、[会话续订锁定](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx)、[设置会话状态](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_)、[获取会话状态](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)、[速览会话消息](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx)和[枚举会话](https://msdn.microsoft.com/zh-cn/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx)。
 
 ## 分区实体限制
 
@@ -143,9 +143,9 @@ Azure 服务总线支持从分区实体、向分区的实体或在分区的实�
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
-  [BrokeredMessage.PartitionKey]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.partitionkey.aspx
+  [BrokeredMessage.PartitionKey]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
   [SessionId]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
-  [PartitionKey]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.partitionkey.aspx
+  [PartitionKey]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
   [QueueDescription.RequiresDuplicateDetection]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection.aspx
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [MessageId]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx

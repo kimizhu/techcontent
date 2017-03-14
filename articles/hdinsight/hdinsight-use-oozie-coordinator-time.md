@@ -72,7 +72,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。该系统�
 
     > [!IMPORTANT]
     Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
-    >
+    ><p>
     > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。如果你的脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](./hdinsight-hadoop-development-using-azure-resource-manager.md)，了解详细信息。
 
 * **HDInsight 群集**。有关创建 HDInsight 群集的信息，请参阅[创建 HDInsight 群集][hdinsight-provision]或 [HDInsight 入门][hdinsight-get-started]。完成本教程需要以下数据：
@@ -137,7 +137,7 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。默认的工�
 
 1. 创建包含以下内容的文本文件：
 
-    ```
+    ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -233,7 +233,7 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。默认的工�
 
 1. 创建包含以下内容的文本文件：
 
-    ```
+    ```xml
     <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
         <action>
             <workflow>
@@ -309,7 +309,7 @@ tutorials/useoozie/workflow.xml
 1. 打开 Windows PowerShell ISE（在 Windows 8“开始”屏幕上，键入 **PowerShell\_ISE**，然后单击“Windows PowerShell ISE”。有关详细信息，请参阅[在 Windows 8 和 Windows 上启动 Windows PowerShell][powershell-start]。
 2. 在底部窗格中，运行以下命令连接到 Azure 订阅：
 
-    ```
+    ```powershell
     Add-AzureAccount -Environment AzureChinaCloud
     ```
 
@@ -320,7 +320,7 @@ tutorials/useoozie/workflow.xml
 
 3. 将以下脚本复制到脚本窗格，然后设置前六个变量：
 
-    ```
+    ```powershell
     # WASB variables
     $storageAccountName = "<StorageAccountName>"
     $containerName = "<BlobStorageContainerName>"
@@ -345,7 +345,7 @@ tutorials/useoozie/workflow.xml
 
 4. 在脚本窗格中将以下内容追加到脚本：
 
-    ```
+    ```powershell
     # Create a storage context object
     $storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
@@ -411,7 +411,7 @@ tutorials/useoozie/workflow.xml
 1. 打开 Windows PowerShell ISE（在 Windows 8“开始”屏幕上，键入 **PowerShell\_ISE**，然后单击“Windows PowerShell ISE”。有关详细信息，请参阅[在 Windows 8 和 Windows 上启动 Windows PowerShell][powershell-start]。
 2. 将以下脚本复制到脚本窗格，然后设置前 14 个变量（但是，跳过 **$storageUri**）。
 
-    ```
+    ```powershell
     #HDInsight cluster variables
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -456,7 +456,7 @@ tutorials/useoozie/workflow.xml
     $coordstart 和 $coordend 是工作流的开始和结束时间。要了解 UTC/GMT 时间，请在 bing.com 上搜索“utc 时间”。$coordFrequency 是要运行工作流的频率（以分钟为单位）。
 3. 将以下内容追加到脚本。此部分定义 Oozie 有效负载：
 
-    ```
+    ```powershell
     #OoziePayload used for Oozie web service submission
     $OoziePayload =  @"
     <?xml version="1.0" encoding="UTF-8"?>
@@ -556,7 +556,7 @@ tutorials/useoozie/workflow.xml
 
 4. 将以下内容追加到脚本。此部分检查 Oozie Web 服务状态：
 
-    ```
+    ```powershell
     function checkOozieServerStatus()
     {
         Write-Host "Checking Oozie server status..." -ForegroundColor Green
@@ -577,7 +577,7 @@ tutorials/useoozie/workflow.xml
 
 5. 将以下内容追加到脚本。此部分创建 Oozie 作业：
 
-    ```
+    ```powershell
     function createOozieJob()
     {
         # create Oozie job
@@ -599,7 +599,7 @@ tutorials/useoozie/workflow.xml
 
 6. 将以下内容追加到脚本。此部分检查 Oozie 作业状态：
 
-    ```
+    ```powershell
     function checkOozieJobStatus($oozieJobId)
     {
         # get job status
@@ -632,7 +632,7 @@ tutorials/useoozie/workflow.xml
 
 7. （可选）将以下内容追加到脚本。
 
-    ```
+    ```powershell
     function listOozieJobs()
     {
         Write-Host "Listing Oozie jobs..." -ForegroundColor Green
@@ -665,7 +665,7 @@ tutorials/useoozie/workflow.xml
 
 8. 将以下内容追加到脚本：
 
-    ```
+    ```powershell
     checkOozieServerStatus
     # listOozieJobs
     $oozieJobId = createOozieJob($oozieJobId)
@@ -678,7 +678,7 @@ tutorials/useoozie/workflow.xml
 9. 如果 HDinsight 群集版本为 2.1，请将“https://$clusterName.azurehdinsight.cn:443/oozie/v2/”替换为“https://$clusterName.azurehdinsight.cn:443/oozie/v1/”。HDInsight 群集 2.1 版不支持 2 版的 Web 服务。
 10. 单击“运行脚本”或按 **F5** 运行脚本。输出结果类似如下：
 
-     ![教程运行工作流输出][img-runworkflow-output]  
+    ![教程运行工作流输出][img-runworkflow-output]  
 
 11. 连接到 SQL 数据库以查看导出的数据。
 
@@ -695,7 +695,7 @@ tutorials/useoozie/workflow.xml
 
 以下是可以使用的示例 Windows PowerShell 脚本：
 
-```
+```powershell
 $storageAccountName = "<AzureStorageAccountName>"
 $containerName = "<ContainerName>"
 
@@ -776,3 +776,4 @@ $conn.close()
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

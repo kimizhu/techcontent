@@ -69,6 +69,8 @@ ms.author: larryfr
 
 ### <a name="bps10"></a> 选择目标 OS 版本
 
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 基于 Linux 的 HDInsight 取决于 Ubuntu Linux 分发版。不同版本的 HDInsight 依赖于不同版本的 Ubuntu，这可能会影响脚本的行为方式。例如，HDInsight 3.4 及更低版本基于使用 Upstart 的 Ubuntu 版本。3.5 版本取决于使用 Systemd 的 Ubuntu 16.04。Systemd 和 Upstart 采用不同的命令，因此你编写的脚本应能与这两者配合使用。
 
 HDInsight 3.4 和 3.5 的另一个重要区别在于 `JAVA_HOME` 现在能够指向 Java 8。
@@ -292,7 +294,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 将文件存储在群集可访问的 Azure 存储帐户（例如默认存储帐户）中可以提供快速访问，因为此存储在 Azure 网络内。
 
 > [!NOTE]
-用于引用脚本的 URI 格式因所使用的服务而异。对于与 HDInsight 群集关联的存储帐户，请使用 `wasb://` 或 `wasbs://`。对于可公开读取的 URI，请使用 `http://` 或 `https://`。对于 Data Lake Store，请使用 `adl://`。
+用于引用脚本的 URI 格式因所使用的服务而异。对于与 HDInsight 群集关联的存储帐户，请使用 `wasb://` 或 `wasbs://`。对于可公开读取的 URI，请使用 `http://` 或 `https://`。
 
 ### 检查操作系统版本
 

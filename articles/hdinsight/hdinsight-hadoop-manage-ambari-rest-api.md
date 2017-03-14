@@ -41,7 +41,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)（预览版）：用于使用 Azure 服务的跨平台命令行实用工具。
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a id="whatis"></a>什么是 Ambari？
 
@@ -55,12 +55,12 @@ HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdin
 
 > [!IMPORTANT]
 URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的群集名称不区分大小写，但 URI 中的其他部分则区分大小写。例如，如果群集名称为 MyCluster，则有效的 URI 如下：
-> 
+> <p>
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster` 
 `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-> 
+> <p>
 > 下面的 URI 返回一个错误，因为第二个出现的名称的大小写不正确。
-> 
+> <p>
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster` 
 `https://MyCluster.azurehdinsight.cn/api/v1/clusters/mycluster`
 
@@ -68,7 +68,7 @@ URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的�
 
 下面是使用 cURL 对 REST API 发出 GET 请求的示例：将 **PASSWORD** 替换为群集的管理员密码。将 **CLUSTERNAME** 替换为群集的名称：
 
-```
+```bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME"
 ```
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters
 
 由于这是一个 JSON 文档，因此使用 JSON 解析器来处理数据通常会更简单。例如，下面的示例使用 jq 仅显示 `health_report` 元素。
 
-```
+```bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
 ```
 
@@ -129,13 +129,13 @@ jq '[.host_components[].HostRoles.host_name][0]'
 
 以下命令将检索群集默认存储的 WASB URI：
 
-```
+```bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
 ```
 
 PowerShell 对于使用单引号和双引号具有略有不同的规则。使用 PowerShell 中的以下命令：
 
-```
+```bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.defaultFS"""] | select(. != null)'
 ```
 
@@ -178,7 +178,7 @@ wasbs://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn
 
 1. 获取当前配置，即 Ambari 存储为“所需配置”的配置：
 
-    ```
+    ```bash
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
     ```
 
@@ -210,45 +210,45 @@ wasbs://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
 
-<br/>  
+    <br/>  
 
-```
+    ```PowerShell
     $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
     $now = Get-Date
     $unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
-```
+    ```
 
-Curl 检索 JSON 文档，然后使用 jq 修改数据以创建模板。然后使用模板添加/修改配置值。具体操作如下：
+    Curl 检索 JSON 文档，然后使用 jq 修改数据以创建模板。然后使用模板添加/修改配置值。具体操作如下：
 
-```
-* Creates a unique value containing the string "version" and the date, which is stored in **newtag**.
+    * 创造一个值，这个值包含“版本”字符串和日期，然后保存在“newtag”。
 
-* Creates a root document for the new desired configuration.
+    * 为新的所需配置创建根文档。
 
-* Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
+    * 得到 `.items[]` 数组的内容，然后加到“desired_config”元素下。
 
-* Deletes the **href**, **version**, and **Config** elements, as these elements aren't needed to submit a new configuration.
+    * 删除“href”、“version”和“Config”元素，因为新建配置是不需要这些元素的。
 
-* Adds a new **tag** element and sets its value to **version#################**. The numeric portion is based on the current date. Each configuration must have a unique tag.
+    * 添加一个新的“tag”元素，然后把值设置为“version#################”。数值部分根据当钱的日期来设置。每一个配置都得有一个独特的标签。
 
-    Finally, the data is saved to the **newconfig.json** document. The document structure should appear similar to the following example:
+        最后，数据保存到“newconfig.json”文档。这个文档的结构应该跟以下示例类似：
 
-    {
-        "Clusters": {
-            "desired_config": {
-            "tag": "version1459260185774265400",
-            "type": "spark-thrift-sparkconf",
-            "properties": {
-                ....
-            },
-            "properties_attributes": {
-                ....
+        ```json
+        {
+            "Clusters": {
+                "desired_config": {
+                "tag": "version1459260185774265400",
+                "type": "spark-thrift-sparkconf",
+                "properties": {
+                    ....
+                },
+                "properties_attributes": {
+                    ....
+                }
             }
         }
-    }
-```
+        ```
 
 3. 打开 **newconfig.json** 文档并在 **properties** 对象中修改/添加值。例如，下面的示例将“spark.yarn.am.memory”的值从“1g”更改为“3g”，并针对值为“256m”的“spark.kryoserializer.buffer.max”添加新元素。
 
@@ -292,7 +292,7 @@ Curl 检索 JSON 文档，然后使用 jq 修改数据以创建模板。然后�
 
 此命令返回如下响应。
 
-```
+```json
     {
         "href" : "http://10.0.0.18:8080/api/v1/clusters/CLUSTERNAME/requests/29",
         "Requests" : {

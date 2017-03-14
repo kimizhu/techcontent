@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
-wacn.date: 11/28/2016
+wacn.date: 01/25/2017
 ms.author: oanapl
 ---
 
@@ -58,7 +58,7 @@ System.FM 表示故障转移管理器 (Failover Manager) 服务，是管理群�
 
 以下示例显示 System.FM 事件，且节点正常运行时的运行状况状态为正常：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Ok
@@ -102,7 +102,7 @@ HealthEvents          :
 
 以下示例显示 **fabric:/WordCount** 应用程序上的状态事件：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None
 
 ApplicationName                 : fabric:/WordCount
@@ -134,7 +134,7 @@ HealthEvents                    :
 
 以下示例显示服务 **fabric:/WordCount/WordCountService** 上的状态事件：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
@@ -166,7 +166,7 @@ HealthEvents          :
 
 以下示例显示配置有 7 个目标副本的服务在含有 5 个节点的群集中发生的冲突：
 
-```
+```xml
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
@@ -247,7 +247,7 @@ HealthEvents          :
 
 以下示例显示了一个运行状况良好的分区：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
 PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
 AggregatedHealthState : Ok
@@ -268,7 +268,7 @@ HealthEvents          :
 
 以下示例显示了一个小于目标副本计数的分区的运行状况。下一步是获取显示分区配置方式的分区描述：**MinReplicaSetSize** 为 2，**TargetReplicaSetSize** 为 7。然后获得群集中的节点数：5。因此在这种情形下，不能放置两个副本。
 
-```
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
@@ -325,7 +325,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 以下示例显示了一个运行状况良好的副本：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 ReplicaId             : 130743727717237310
@@ -362,7 +362,7 @@ HealthEvents          :
 
 以下示例显示仲裁丢失中的一个分区以及用于找出原因的调查步骤。其中一个副本的运行状况状态为警告，因此你要获取其运行状况。它显示服务操作时间超过预期，且 System.RAP 报告了事件。在收到此信息之后，下一步是查看服务代码并进行调查。对于这种情况，有状态服务的 **RunAsync** 实现会引发一个未处理的异常。副本正在循环，因此可能看不到任何处于警告状态的副本。你可以重试获取运行状况，并找出副本 ID 中的差异。在某些情况下，重试可以提供线索。
 
-```
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
@@ -483,7 +483,7 @@ Visual Studio 2015 诊断事件：RunAsync 在 **fabric:/HelloWorldStatefulAppli
 
 以下示例显示了创建服务操作。该操作花的时间超过配置的持续时间。AO 重试并将工作发送到 NO。NO 在完成上一个操作时出现超时。在这种情况下，同一个副本对于 AO 和 NO 角色来说都是主副本。
 
-```
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -540,7 +540,7 @@ HealthEvents          :
 
 以下示例显示成功激活：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
 
 ApplicationName                    : fabric:/WordCount
@@ -596,7 +596,7 @@ HealthEvents                       :
 
 以下示例显示了一个正常的已部署服务包：
 
-```
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 ApplicationName       : fabric:/WordCount
@@ -664,4 +664,4 @@ HealthEvents          :
 
 [Service Fabric 应用程序升级](./service-fabric-application-upgrade.md)
 
-<!---HONumber=Mooncake_1121_2016-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->

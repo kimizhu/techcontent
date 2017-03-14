@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/29/2016
-wacn.date: 12/26/2016
+wacn.date: 01/25/2017
 ms.author: seanmck
 ---
 
@@ -73,7 +73,7 @@ ms.author: seanmck
 
 若要防范这种可能性，请务必定期[将状态备份到](./service-fabric-reliable-services-backup-restore.md)异地冗余存储，并确保已验证您能够还原备份。执行备份的频率取决于恢复点目标 (RPO)。即使尚未完全实现备份和还原，但还是应该实现 `OnDataLoss` 事件的处理程序，以便在发生该事件时进行记录，如下所示：
 
-```
+```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 {
   ServiceEventSource.Current.ServiceMessage(this, "OnDataLoss event received.");
@@ -102,4 +102,4 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=Mooncake_1219_2016-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->

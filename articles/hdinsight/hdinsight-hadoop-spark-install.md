@@ -8,8 +8,8 @@ manager: paulettm
 editor: cgronlun
 
 ms.service: hdinsight
-ms.date: 07/11/2015
-wacn.date: 02/06/2017
+ms.date: 02/05/2016
+wacn.date: 02/14/2017
 ---
 
 # 在 HDInsight Hadoop 群集上安装并使用 Spark
@@ -245,7 +245,7 @@ Spark SQL 允许你使用 Spark 运行以结构化查询语言 (SQL)、HiveQL �
 
 1. 打开 Azure PowerShell 窗口，并声明以下变量：
 
-    ```
+    ```powershell
     # Provide values for these variables
     $subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
     $clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
@@ -259,7 +259,7 @@ Spark SQL 允许你使用 Spark 运行以结构化查询语言 (SQL)、HiveQL �
 
 2. 指定配置值，例如群集中的节点，以及要使用的默认存储。
 
-    ```
+    ```powershell
     # Specify the configuration options
     Select-AzureSubscription $subscriptionName
     $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
@@ -270,7 +270,7 @@ Spark SQL 允许你使用 Spark 运行以结构化查询语言 (SQL)、HiveQL �
 
 3. 使用 **Add-AzureHDInsightScriptAction** cmdlet 将脚本操作添加到群集配置。稍后，在创建群集时，将执行脚本操作。
 
-    ```
+    ```powershell
     # Add a script action to the cluster configuration
     $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
     ```
@@ -301,7 +301,7 @@ Spark SQL 允许你使用 Spark 运行以结构化查询语言 (SQL)、HiveQL �
 
 4. 最后，开始设置安装有 Spark 的自定义群集。
 
-    ```
+    ```powershell
     # Start provisioning a cluster with Spark installed
     New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
     ```

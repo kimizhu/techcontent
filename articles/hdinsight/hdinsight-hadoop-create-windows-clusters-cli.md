@@ -34,8 +34,6 @@ ms.author: jgao
 * **Azure 订阅**。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **Azure CLI**。
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
 ### 访问控制要求
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
@@ -63,7 +61,7 @@ azure hdinsight cluster create -h
 ## 创建群集
 在创建 HDInsight 群集之前，你必须拥有 Azure 资源管理 (ARM) 和 Azure Blob 存储帐户。若要创建 HDInsight 群集，必须指定以下信息：
 
-* **Azure 资源组**：必须在 Azure 资源组中创建一个 Data Lake 分析帐户。那么，你可以使用 Azure 资源管理器以组的方式处理应用程序中的资源。你可以通过一个协调的操作为应用程序部署、更新或删除所有资源。
+* **Azure 资源组**：那么，你可以使用 Azure 资源管理器以组的方式处理应用程序中的资源。你可以通过一个协调的操作为应用程序部署、更新或删除所有资源。
 
     若要列出订阅中的资源组：
 
@@ -161,3 +159,4 @@ azure hdinsight cluster create -g myarmgroup01 -l chinanorth -y Windows --cluste
 * [将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 服务管理配合使用](../virtual-machines-command-line-tools.md)
 
 <!---HONumber=Mooncake_0120_2017-->
+<!--Update_Description: update from ASM to ARM-->

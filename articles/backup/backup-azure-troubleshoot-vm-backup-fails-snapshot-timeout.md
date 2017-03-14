@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-wacn.date: 12/21/2016
+wacn.date: 02/06/2017
 ms.author: jimpark; markgal;genli
 ---
 
@@ -49,7 +49,7 @@ VM 无法根据部署要求访问 Internet，或者现有的限制阻止访问 A
 - 为 HTTP 流量创建路径
 
 ### 将 Azure 数据中心 IP 范围加入允许列表
-1. 获取要加入允许列表的 [Azure 数据中心 IP 列表](https://www.microsoft.com/en-us/download/details.aspx?id=41653)。
+1. 获取要加入允许列表的 [Azure 数据中心 IP 列表](https://www.microsoft.com/en-us/download/details.aspx?id=42064)。
 2. 使用 New-NetRoute cmdlet 取消阻止 IP。在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet（以管理员身份运行）。
 3. 如果有允许访问 IP 的规则，请将规则添加到网络安全组 (NSG)。
 
@@ -70,8 +70,7 @@ VM 无法根据部署要求访问 Internet，或者现有的限制阻止访问 A
 
     对于 Ubuntu：```service walinuxagent start```
 
-    对于其他分发版：```service waagent start
-   ```
+    对于其他分发版：```service waagent start```
 3. [配置自动重新启动代理](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash)。
 4. 运行新的测试备份。如果失败持续发生，请从以下文件夹收集日志，以做进一步调试。
 
@@ -128,4 +127,4 @@ VM 备份依赖于向底层存储发出快照命令。如果备份无法访问�
 | VM 在运行时使用了很高的 CPU 或内存。 |如果 VM 在运行时使用了很高的 CPU（使用率超过 90%）或内存，快照任务将排入队列、延迟并最终超时。在这种情况下，请尝试进行按需备份。 |
 | VM 无法从 DHCP 获取主机/结构地址。 |必须在来宾内启用 DHCP，才能正常进行 IaaS VM 备份。如果 VM 无法从 DHCP 响应 245 获取主机/结构地址，则无法下载或运行任何扩展。如果需要静态专用 IP 地址，你应该通过平台配置该 IP。VM 内的 DHCP 选项应保持启用。查看有关[设置静态内部专用 IP](../virtual-network/virtual-networks-reserved-private-ip.md) 的详细信息。 |
 
-<!---HONumber=Mooncake_1212_2016-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->

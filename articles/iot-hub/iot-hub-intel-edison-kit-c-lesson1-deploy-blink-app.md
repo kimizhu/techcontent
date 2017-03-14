@@ -37,13 +37,13 @@ ms.author: xshi
 
 1. 通过运行以下命令克隆 GitHub 中的示例存储库：
 
-    ```
+    ```bash
     git clone https://github.com/Azure-Samples/iot-hub-c-edison-getting-started.git
     ```
 
 2. 通过运行以下命令在 Visual Studio Code 中打开示例应用程序：
 
-    ```
+    ```bash
        cd iot-hub-c-edison-getting-started
        cd Lesson1
        code .
@@ -56,8 +56,8 @@ ms.author: xshi
 ### 安装应用程序依赖项
 运行以下命令，安装示例应用程序所需的库和其他模块：
 
-```
-    npm install
+```bash
+npm install
 ```
 
 ## 配置设备连接
@@ -65,7 +65,7 @@ ms.author: xshi
 
 1. 运行以下命令，生成设备配置文件：
 
-    ```
+    ```bash
     gulp init
     ```
 
@@ -73,7 +73,7 @@ ms.author: xshi
 
 2. 运行以下命令，在 Visual Studio Code 中打开设备配置文件：
 
-    ```
+    ```bash
        # For Windows command prompt
        code %USERPROFILE%\.iot-hub-getting-started\config-edison.json
 
@@ -91,8 +91,8 @@ ms.author: xshi
 ### 在 Edison 上安装 Azure IoT 中心 SDK
 运行以下命令，在 Edison 上安装 Azure IoT 中心 SDK：
 
-```
-    gulp install-tools
+```bash
+gulp install-tools
 ```
 
 完成此任务可能耗时较长，具体取决于网络连接情况。一个 Edison 只能运行一次。
@@ -100,8 +100,8 @@ ms.author: xshi
 ### 部署并运行示例应用
 运行以下命令，部署并运行示例应用程序：
 
-```
-    gulp deploy && gulp run
+```bash
+gulp deploy && gulp run
 ```
 
 ### 确保应用正常运行

@@ -55,13 +55,13 @@ ms.author: xshi
    1. 按 `Cmd + Space` 并输入 `Terminal` 即可打开终端。
    2. 运行以下命令：
 
-       ```
+       ```bash
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
        ```
 
 2. 运行以下命令，安装 Git 和 Node.js：
 
-    ```
+    ```bash
     brew install node git
     ```
 
@@ -70,8 +70,8 @@ ms.author: xshi
 
 在终端运行以下命令，安装 `gulp`：
 
-```
-    sudo npm install -g gulp
+```bash
+sudo npm install -g gulp
 ```
 
 如果无法在 macOS 上安装 Node.js 和这些额外的开发工具，请参阅[故障排除指南][troubleshooting]，了解常见问题的解决方案。

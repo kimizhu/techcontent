@@ -10,8 +10,8 @@ authors: nitinme
 documentationCenter: ''
 
 ms.service: hdinsight
-ms.date: 05/04/2016
-wacn.date: 02/06/2017
+ms.date: 10/05/2016
+wacn.date: 02/14/2017
 ---
 
 # 迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具
@@ -146,10 +146,6 @@ help *azurermhdinsight*
 
 有关其他用法信息，请参阅 [Customize Linux-based HDInsight clusters using Script Action（使用脚本操作自定义基于 Linux 的 HDInsight 群集）](./hdinsight-hadoop-customize-cluster.md)。
 
-**与群集标识相关的 cmdlet：**
-
-- **Add-AzureRmHDInsightClusterIdentity**：将群集标识添加到群集配置对象，使 HDInsight 群集能够访问 Azure 数据湖存储。
-
 ### 示例
 
 **创建群集**
@@ -166,7 +162,7 @@ New-AzureHDInsightCluster `
     -ClusterSizeInNodes 2 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.2" `
+    -Version "3.5" `
     -Credential $httpCredential `
     -SshCredential $sshCredential
 ```
@@ -184,7 +180,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 2 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.2" `
+    -Version "3.5" `
     -HttpCredential $httpcredentials `
     -SshCredential $sshCredentials
 ```

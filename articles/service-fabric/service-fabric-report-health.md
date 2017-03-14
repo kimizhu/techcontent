@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
-wacn.date: 11/28/2016
+wacn.date: 01/25/2017
 ms.author: oanapl
 ---
 
@@ -70,7 +70,7 @@ Service Fabric 报告器可监视感兴趣的已标识条件。它们会根据�
 
 以下命令将创建结构客户端，并指定在添加报告后尽快发送。在可重试的错误或超时发生时，每 40 秒重试一次。
 
-```
+```csharp
 var clientSettings = new FabricClientSettings()
 {
     HealthOperationTimeout = TimeSpan.FromSeconds(120),
@@ -82,7 +82,7 @@ var fabricClient = new FabricClient(clientSettings);
 
 通过 PowerShell 创建与群集的连接时，可以指定相同的参数。以下命令将启动与本地群集的连接：
 
-```
+```powershell
 PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
 True
 
@@ -178,7 +178,7 @@ GatewayInformation   : {
 
 以下示例演示如何从群集内的监视器定期发送报告。该监视器会检查能否从节点内访问外部资源。应用程序内的服务清单需要该资源。如果无法访问该资源，应用程序内的其他服务仍然可以正常运行。因此，会在已部署的服务包实体上每隔 30 秒发送一次报告。
 
-```
+```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");
 private static string ServiceManifestName = "WordCount.Service";
 private static string NodeName = FabricRuntime.GetNodeContext().NodeName;
@@ -211,7 +211,7 @@ public static void SendReport(object obj)
 
 以下示例演示如何定期报告某个节点上的 CPU 值。应每隔 30 秒发送一次报告，报告生存时间为 2 分钟。如果过期，就表示报告器有问题，因此会错误地评估该节点。当 CPU 高于阈值时，报告的运行状况为警告。当 CPU 保持高于阈值超过设置的时间时，则将其报告为错误。否则，报告器发送的运行状况为“正常”。
 
-```
+```powershell
 PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
 
 PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
@@ -248,7 +248,7 @@ HealthEvents          :
 
 以下示例会在副本上报告暂时性警告。它先获取分区 ID，再获取所需服务的副本 ID。然后从 **PowershellWatcher** 发送有关 **ResourceDependency** 属性的报告。此报告只需存在 2 分钟，就从存储中自动删除。
 
-```
+```powershell
 PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
 
 PS C:\> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
@@ -308,4 +308,4 @@ HealthEvents          :
 
 [Service Fabric 应用程序升级](./service-fabric-application-upgrade.md)
 
-<!---HONumber=Mooncake_1121_2016-->
+<!---HONumber=Mooncake_Quality_Review_0125_2017-->

@@ -46,13 +46,13 @@ ms.author: xshi
 
 * 列出所有存储帐户。
 
-    ```
+    ```bash
     az storage account list -g iot-gateway --query [].name
     ```
 
 * 获取 Azure 存储连接字符串。
 
-    ```
+    ```bash
     az storage account show-connection-string -g iot-gateway -n {storage name}
     ```
 
@@ -64,7 +64,7 @@ ms.author: xshi
 
 1. 运行以下命令，打开设备配置文件 `config-azure.json`：
 
-    ```
+    ```bash
        # For Windows command prompt
        code %USERPROFILE%\.iot-hub-getting-started\config-azure.json
        # For MacOS or Ubuntu
@@ -81,7 +81,7 @@ ms.author: xshi
 
 通过以下命令运行网关示例应用程序及读取 Azure 表存储消息：
 
-```
+```bash
 gulp run --table-storage
 ```
 
@@ -89,9 +89,7 @@ IoT 中心会在新消息到达时触发 Azure Function 应用程序，将消息
 
 发送和接收的消息全都在主计算机的同一控制台窗口中即时显示。示例应用程序实例会在 40 秒后自动终止。
 
-```
 ![gulp 读取](./media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table_simudev.png)  
-```
 
 ## 摘要
 
